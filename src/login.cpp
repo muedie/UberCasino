@@ -4,8 +4,9 @@
 Login_view::Login_view() : Fl_Window(430, 475, "Login")
 {
   begin();
-
+  background_img = new Fl_JPEG_Image("images/login.jpeg");
   main_box = new Fl_Box(0, 0, 430, 475);
+  main_box->image(background_img);
 
   title_box = new Fl_Box(48, 40, 330, 190);
   title_box->box(FL_GLEAM_UP_BOX);
@@ -26,7 +27,7 @@ Login_view::Login_view() : Fl_Window(430, 475, "Login")
   name_box->labelsize(20);
   name_box->labelcolor((Fl_Color)26);
 
-  name_input = new Fl_Input(85, 327, 243045, 30);
+  name_input = new Fl_Input(85, 327, 245 , 30);
   name_input->labelsize(24);
   name_input->textsize(20);
 

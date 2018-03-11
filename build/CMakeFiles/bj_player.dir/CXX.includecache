@@ -19,6 +19,8 @@ FL/Fl_Button.H
 -
 FL/Fl_Text_Display.H
 -
+FL/Fl_JPEG_Image.H
+-
 stdio.h
 -
 stdlib.h
