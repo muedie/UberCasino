@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
+../include/login.h
+FL/Fl.H
+-
+FL/Fl_Window.H
+-
+
 /home/student/Desktop/CSE3310/Project/src/login.cpp
+login.h
+/home/student/Desktop/CSE3310/Project/src/login.h
 
 /home/student/Desktop/CSE3310/Project/src/main.cpp
+login.h
+/home/student/Desktop/CSE3310/Project/src/login.h
 
