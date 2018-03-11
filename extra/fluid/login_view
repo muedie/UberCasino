@@ -1,0 +1,37 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0303 
+header_name {.h} 
+code_name {.cxx}
+Function {make_window()} {open
+} {
+  Fl_Window {} {
+    label Login open
+    xywh {502 199 430 475} type Double visible
+  } {
+    Fl_Box {} {
+      xywh {0 0 430 475}
+    }
+    Fl_Box {} {
+      xywh {48 40 330 190} box GLEAM_UP_BOX color 0
+    }
+    Fl_Box {} {
+      label {Enter your name:}
+      xywh {84 273 245 40} box GLEAM_UP_BOX color 0 labelfont 1 labelsize 20 labelcolor 26
+    }
+    Fl_Input {} {selected
+      xywh {85 327 245 30} labelsize 24 textsize 20
+    }
+    Fl_Button {} {
+      label Login
+      xywh {154 380 105 33} box GLEAM_UP_BOX color 178 labelfont 1 labelsize 18 labelcolor 26
+    }
+    Fl_Text_Display {} {
+      label {Welcome to Jack Black's BlackJack}
+      xywh {81 207 257 0} box NO_BOX labeltype SHADOW_LABEL labelfont 3 labelsize 38 labelcolor 26 align 129
+    }
+    Fl_Button {} {
+      label Quit
+      xywh {154 420 105 33} box GLEAM_UP_BOX color 178 labelfont 1 labelsize 18 labelcolor 26
+    }
+  }
+} 

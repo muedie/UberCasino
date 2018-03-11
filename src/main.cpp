@@ -1,6 +1,6 @@
 #include "login.h"
 
 int main(int argc, char const *argv[]) {
-
-  return 0;
+  Login_view win;
+  return (Fl::run());
 }

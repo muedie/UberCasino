@@ -116,6 +116,16 @@ bj_player_EXTERNAL_OBJECTS =
 bj_player: CMakeFiles/bj_player.dir/src/login.cpp.o
 bj_player: CMakeFiles/bj_player.dir/src/main.cpp.o
 bj_player: CMakeFiles/bj_player.dir/build.make
+bj_player: /usr/lib/x86_64-linux-gnu/libfltk_images.so
+bj_player: /usr/lib/x86_64-linux-gnu/libfltk_forms.so
+bj_player: /usr/lib/x86_64-linux-gnu/libfltk_gl.so
+bj_player: /usr/lib/x86_64-linux-gnu/libGL.so
+bj_player: /usr/lib/x86_64-linux-gnu/libfltk.so
+bj_player: /usr/lib/x86_64-linux-gnu/libSM.so
+bj_player: /usr/lib/x86_64-linux-gnu/libICE.so
+bj_player: /usr/lib/x86_64-linux-gnu/libX11.so
+bj_player: /usr/lib/x86_64-linux-gnu/libXext.so
+bj_player: /usr/lib/x86_64-linux-gnu/libm.so
 bj_player: CMakeFiles/bj_player.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/Desktop/CSE3310/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable bj_player"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bj_player.dir/link.txt --verbose=$(VERBOSE)
