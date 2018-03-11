@@ -6,7 +6,35 @@
 
 #IncludeRegexTransform: 
 
-../include/login.h
+../include/lobby_view.h
+FL/Fl.H
+-
+FL/Fl_Window.H
+-
+FL/Fl_Box.H
+-
+FL/Fl_Scroll.H
+-
+FL/Fl_Scrollbar.H
+-
+FL/Fl_Group.H
+-
+FL/Fl_Output.H
+-
+FL/Fl_Button.H
+-
+FL/Fl_Text_Display.H
+-
+FL/Fl_Round_Button.H
+-
+FL/Fl_JPEG_Image.H
+-
+stdio.h
+-
+stdlib.h
+-
+
+../include/login_view.h
 FL/Fl.H
 -
 FL/Fl_Window.H
@@ -26,11 +54,15 @@ stdio.h
 stdlib.h
 -
 
-/home/student/Desktop/CSE3310/Project/src/login.cpp
-login.h
-/home/student/Desktop/CSE3310/Project/src/login.h
+/home/student/Desktop/CSE3310/Project/src/lobby_view.cpp
+lobby_view.h
+/home/student/Desktop/CSE3310/Project/src/lobby_view.h
+
+/home/student/Desktop/CSE3310/Project/src/login_view.cpp
+login_view.h
+/home/student/Desktop/CSE3310/Project/src/login_view.h
 
 /home/student/Desktop/CSE3310/Project/src/main.cpp
-login.h
-/home/student/Desktop/CSE3310/Project/src/login.h
+login_view.h
+/home/student/Desktop/CSE3310/Project/src/login_view.h
 

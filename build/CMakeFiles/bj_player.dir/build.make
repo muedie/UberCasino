@@ -57,28 +57,28 @@ include CMakeFiles/bj_player.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/bj_player.dir/flags.make
 
-CMakeFiles/bj_player.dir/src/login.cpp.o: CMakeFiles/bj_player.dir/flags.make
-CMakeFiles/bj_player.dir/src/login.cpp.o: ../src/login.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/CSE3310/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bj_player.dir/src/login.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bj_player.dir/src/login.cpp.o -c /home/student/Desktop/CSE3310/Project/src/login.cpp
+CMakeFiles/bj_player.dir/src/lobby_view.cpp.o: CMakeFiles/bj_player.dir/flags.make
+CMakeFiles/bj_player.dir/src/lobby_view.cpp.o: ../src/lobby_view.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/CSE3310/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bj_player.dir/src/lobby_view.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bj_player.dir/src/lobby_view.cpp.o -c /home/student/Desktop/CSE3310/Project/src/lobby_view.cpp
 
-CMakeFiles/bj_player.dir/src/login.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bj_player.dir/src/login.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/CSE3310/Project/src/login.cpp > CMakeFiles/bj_player.dir/src/login.cpp.i
+CMakeFiles/bj_player.dir/src/lobby_view.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bj_player.dir/src/lobby_view.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/CSE3310/Project/src/lobby_view.cpp > CMakeFiles/bj_player.dir/src/lobby_view.cpp.i
 
-CMakeFiles/bj_player.dir/src/login.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bj_player.dir/src/login.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/CSE3310/Project/src/login.cpp -o CMakeFiles/bj_player.dir/src/login.cpp.s
+CMakeFiles/bj_player.dir/src/lobby_view.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bj_player.dir/src/lobby_view.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/CSE3310/Project/src/lobby_view.cpp -o CMakeFiles/bj_player.dir/src/lobby_view.cpp.s
 
-CMakeFiles/bj_player.dir/src/login.cpp.o.requires:
+CMakeFiles/bj_player.dir/src/lobby_view.cpp.o.requires:
 
-.PHONY : CMakeFiles/bj_player.dir/src/login.cpp.o.requires
+.PHONY : CMakeFiles/bj_player.dir/src/lobby_view.cpp.o.requires
 
-CMakeFiles/bj_player.dir/src/login.cpp.o.provides: CMakeFiles/bj_player.dir/src/login.cpp.o.requires
-	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login.cpp.o.provides.build
-.PHONY : CMakeFiles/bj_player.dir/src/login.cpp.o.provides
+CMakeFiles/bj_player.dir/src/lobby_view.cpp.o.provides: CMakeFiles/bj_player.dir/src/lobby_view.cpp.o.requires
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/lobby_view.cpp.o.provides.build
+.PHONY : CMakeFiles/bj_player.dir/src/lobby_view.cpp.o.provides
 
-CMakeFiles/bj_player.dir/src/login.cpp.o.provides.build: CMakeFiles/bj_player.dir/src/login.cpp.o
+CMakeFiles/bj_player.dir/src/lobby_view.cpp.o.provides.build: CMakeFiles/bj_player.dir/src/lobby_view.cpp.o
 
 
 CMakeFiles/bj_player.dir/src/main.cpp.o: CMakeFiles/bj_player.dir/flags.make
@@ -105,16 +105,42 @@ CMakeFiles/bj_player.dir/src/main.cpp.o.provides: CMakeFiles/bj_player.dir/src/m
 CMakeFiles/bj_player.dir/src/main.cpp.o.provides.build: CMakeFiles/bj_player.dir/src/main.cpp.o
 
 
+CMakeFiles/bj_player.dir/src/login_view.cpp.o: CMakeFiles/bj_player.dir/flags.make
+CMakeFiles/bj_player.dir/src/login_view.cpp.o: ../src/login_view.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/Desktop/CSE3310/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/bj_player.dir/src/login_view.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bj_player.dir/src/login_view.cpp.o -c /home/student/Desktop/CSE3310/Project/src/login_view.cpp
+
+CMakeFiles/bj_player.dir/src/login_view.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bj_player.dir/src/login_view.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/Desktop/CSE3310/Project/src/login_view.cpp > CMakeFiles/bj_player.dir/src/login_view.cpp.i
+
+CMakeFiles/bj_player.dir/src/login_view.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bj_player.dir/src/login_view.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/Desktop/CSE3310/Project/src/login_view.cpp -o CMakeFiles/bj_player.dir/src/login_view.cpp.s
+
+CMakeFiles/bj_player.dir/src/login_view.cpp.o.requires:
+
+.PHONY : CMakeFiles/bj_player.dir/src/login_view.cpp.o.requires
+
+CMakeFiles/bj_player.dir/src/login_view.cpp.o.provides: CMakeFiles/bj_player.dir/src/login_view.cpp.o.requires
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login_view.cpp.o.provides.build
+.PHONY : CMakeFiles/bj_player.dir/src/login_view.cpp.o.provides
+
+CMakeFiles/bj_player.dir/src/login_view.cpp.o.provides.build: CMakeFiles/bj_player.dir/src/login_view.cpp.o
+
+
 # Object files for target bj_player
 bj_player_OBJECTS = \
-"CMakeFiles/bj_player.dir/src/login.cpp.o" \
-"CMakeFiles/bj_player.dir/src/main.cpp.o"
+"CMakeFiles/bj_player.dir/src/lobby_view.cpp.o" \
+"CMakeFiles/bj_player.dir/src/main.cpp.o" \
+"CMakeFiles/bj_player.dir/src/login_view.cpp.o"
 
 # External object files for target bj_player
 bj_player_EXTERNAL_OBJECTS =
 
-bj_player: CMakeFiles/bj_player.dir/src/login.cpp.o
+bj_player: CMakeFiles/bj_player.dir/src/lobby_view.cpp.o
 bj_player: CMakeFiles/bj_player.dir/src/main.cpp.o
+bj_player: CMakeFiles/bj_player.dir/src/login_view.cpp.o
 bj_player: CMakeFiles/bj_player.dir/build.make
 bj_player: /usr/lib/x86_64-linux-gnu/libfltk_images.so
 bj_player: /usr/lib/x86_64-linux-gnu/libfltk_forms.so
@@ -127,7 +153,7 @@ bj_player: /usr/lib/x86_64-linux-gnu/libX11.so
 bj_player: /usr/lib/x86_64-linux-gnu/libXext.so
 bj_player: /usr/lib/x86_64-linux-gnu/libm.so
 bj_player: CMakeFiles/bj_player.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/Desktop/CSE3310/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable bj_player"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/Desktop/CSE3310/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable bj_player"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bj_player.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -135,8 +161,9 @@ CMakeFiles/bj_player.dir/build: bj_player
 
 .PHONY : CMakeFiles/bj_player.dir/build
 
-CMakeFiles/bj_player.dir/requires: CMakeFiles/bj_player.dir/src/login.cpp.o.requires
+CMakeFiles/bj_player.dir/requires: CMakeFiles/bj_player.dir/src/lobby_view.cpp.o.requires
 CMakeFiles/bj_player.dir/requires: CMakeFiles/bj_player.dir/src/main.cpp.o.requires
+CMakeFiles/bj_player.dir/requires: CMakeFiles/bj_player.dir/src/login_view.cpp.o.requires
 
 .PHONY : CMakeFiles/bj_player.dir/requires
 

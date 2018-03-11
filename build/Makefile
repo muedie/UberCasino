@@ -123,32 +123,59 @@ bj_player/fast:
 	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/build
 .PHONY : bj_player/fast
 
-src/login.o: src/login.cpp.o
+src/lobby_view.o: src/lobby_view.cpp.o
 
-.PHONY : src/login.o
+.PHONY : src/lobby_view.o
 
 # target to build an object file
-src/login.cpp.o:
-	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login.cpp.o
-.PHONY : src/login.cpp.o
+src/lobby_view.cpp.o:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/lobby_view.cpp.o
+.PHONY : src/lobby_view.cpp.o
 
-src/login.i: src/login.cpp.i
+src/lobby_view.i: src/lobby_view.cpp.i
 
-.PHONY : src/login.i
+.PHONY : src/lobby_view.i
 
 # target to preprocess a source file
-src/login.cpp.i:
-	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login.cpp.i
-.PHONY : src/login.cpp.i
+src/lobby_view.cpp.i:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/lobby_view.cpp.i
+.PHONY : src/lobby_view.cpp.i
 
-src/login.s: src/login.cpp.s
+src/lobby_view.s: src/lobby_view.cpp.s
 
-.PHONY : src/login.s
+.PHONY : src/lobby_view.s
 
 # target to generate assembly for a file
-src/login.cpp.s:
-	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login.cpp.s
-.PHONY : src/login.cpp.s
+src/lobby_view.cpp.s:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/lobby_view.cpp.s
+.PHONY : src/lobby_view.cpp.s
+
+src/login_view.o: src/login_view.cpp.o
+
+.PHONY : src/login_view.o
+
+# target to build an object file
+src/login_view.cpp.o:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login_view.cpp.o
+.PHONY : src/login_view.cpp.o
+
+src/login_view.i: src/login_view.cpp.i
+
+.PHONY : src/login_view.i
+
+# target to preprocess a source file
+src/login_view.cpp.i:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login_view.cpp.i
+.PHONY : src/login_view.cpp.i
+
+src/login_view.s: src/login_view.cpp.s
+
+.PHONY : src/login_view.s
+
+# target to generate assembly for a file
+src/login_view.cpp.s:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login_view.cpp.s
+.PHONY : src/login_view.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -186,9 +213,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bj_player"
-	@echo "... src/login.o"
-	@echo "... src/login.i"
-	@echo "... src/login.s"
+	@echo "... src/lobby_view.o"
+	@echo "... src/lobby_view.i"
+	@echo "... src/lobby_view.s"
+	@echo "... src/login_view.o"
+	@echo "... src/login_view.i"
+	@echo "... src/login_view.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

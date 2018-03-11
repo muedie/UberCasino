@@ -25,11 +25,10 @@ private:
   Fl_Output* dealer_name;
   Fl_Output* dealer_id;
   Fl_Output* dealer_plcount;
-  Fl_Output* dealer_ssize
+  Fl_Output* dealer_ssize;
   Fl_Output* dealer_mMbet;
   Fl_Button* join_btn;
   Fl_Button* refresh_btn;
-  Fl_Text_Display* title;
   Fl_JPEG_Image* background_img;
   Fl_Box* side_box;
   Fl_Group* player_info;
@@ -40,6 +39,7 @@ private:
   Fl_Output* player_games_played;
   Fl_Output* player_hands_won;
   Fl_Group* play_style;
+  Fl_Text_Display* play_title;
   Fl_Round_Button* manual;
   Fl_Round_Button* basic;
   Fl_Round_Button* aggressive;
