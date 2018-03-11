@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/bj_player.dir/src/login.cpp.o CMakeFiles/bj_player.dir/src/main.cpp.o  -o bj_player -rdynamic 
