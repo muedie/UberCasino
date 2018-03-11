@@ -1,0 +1,112 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0303 
+header_name {.h} 
+code_name {.cxx}
+Function {make_window()} {open
+} {
+  Fl_Window {} {
+    label Lobby open
+    xywh {347 147 960 635} type Double visible
+  } {
+    Fl_Box {} {
+      image {Desktop/CSE3310/Project/build/images/2.jpg} xywh {0 0 960 640}
+    }
+    Fl_Scroll {} {open
+      xywh {18 18 652 557} box GTK_DOWN_BOX color 0
+    } {
+      Fl_Scrollbar {} {
+        xywh {634 19 34 553} box GTK_DOWN_BOX color 34
+      }
+      Fl_Group {} {open
+        xywh {33 34 589 142} box GLEAM_THIN_UP_BOX color 36
+      } {
+        Fl_Output {} {
+          xywh {51 54 320 35} box NO_BOX textfont 1 textsize 24 textcolor 26
+        }
+        Fl_Output {} {
+          label {Dealer ID      }
+          xywh {175 89 127 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+        }
+        Fl_Output {} {
+          label {Player Count }
+          xywh {176 117 127 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+        }
+        Fl_Output {} {
+          label {Shoe size     }
+          xywh {497 88 120 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+        }
+        Fl_Output {} {
+          label {Min-Max bet }
+          xywh {498 116 119 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+        }
+        Fl_Button {} {
+          label Join
+          xywh {500 54 95 35} box GLEAM_THIN_UP_BOX color 138 labelfont 1 labelsize 18 labelcolor 26
+        }
+      }
+    }
+    Fl_Button {} {
+      label Refresh
+      xywh {260 585 155 40} box GLEAM_THIN_UP_BOX color 138 labelfont 1 labelsize 18 labelcolor 26
+    }
+    Fl_Box {} {
+      xywh {687 20 255 595} box GTK_DOWN_BOX color 0
+    }
+    Fl_Group {} {open
+      xywh {695 43 240 268} box GLEAM_THIN_UP_BOX color 36
+    } {
+      Fl_Text_Display {} {
+        label {Player Info}
+        xywh {729 95 155 0} box NO_BOX labelfont 1 labelsize 24 labelcolor 26 align 129
+      }
+      Fl_Output {} {
+        label {Name          }
+        xywh {818 105 102 29} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        label {Player ID     }
+        xywh {818 130 102 30} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        label {Balance       }
+        xywh {819 157 104 29} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        label {Total Games}
+        xywh {821 183 94 28} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        label {Hands won  }
+        xywh {819 208 100 29} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+    }
+    Fl_Group {} {open
+      xywh {696 333 239 256} box GLEAM_THIN_UP_BOX color 36
+    } {
+      Fl_Text_Display {} {
+        label {Play style}
+        xywh {704 386 213 0} box NO_BOX labelfont 1 labelsize 24 labelcolor 26 align 129
+      }
+      Fl_Round_Button {} {
+        label { Manual}
+        xywh {711 396 25 25} down_box ROUND_DOWN_BOX labelfont 1 labelsize 16 labelcolor 26
+      }
+      Fl_Round_Button {} {
+        label { Basic}
+        xywh {711 420 25 25} down_box ROUND_DOWN_BOX labelfont 1 labelsize 16 labelcolor 26
+      }
+      Fl_Round_Button {} {
+        label { Aggressive}
+        xywh {711 443 25 25} down_box ROUND_DOWN_BOX labelfont 1 labelsize 16 labelcolor 26
+      }
+      Fl_Round_Button {} {
+        label { Counting}
+        xywh {711 466 25 25} down_box ROUND_DOWN_BOX labelfont 1 labelsize 16 labelcolor 26
+      }
+      Fl_Round_Button {} {
+        label { Conservative}
+        xywh {711 489 25 25} down_box ROUND_DOWN_BOX labelfont 1 labelsize 16 labelcolor 26
+      }
+    }
+  }
+} 
