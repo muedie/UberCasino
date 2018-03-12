@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o"
   "CMakeFiles/bj_player.dir/src/lobby_view.cpp.o"
   "CMakeFiles/bj_player.dir/src/main.cpp.o"
   "CMakeFiles/bj_player.dir/src/login_controller.cpp.o"

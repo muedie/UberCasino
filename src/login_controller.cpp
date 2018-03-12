@@ -1,5 +1,5 @@
 #include "login_controller.h"
-#include "lobby_view.h"
+#include "lobby_controller.h"
 
 
 Login_controller::Login_controller() : Login_view() {
@@ -27,6 +27,6 @@ void Login_controller::ClickedLogin_i()
 {
   //char* s = name_input->value();
   hide();
-  Lobby_view win;
+ Lobby_controller win;
   Fl::run();
 }

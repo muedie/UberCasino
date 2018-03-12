@@ -5,7 +5,6 @@
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Scroll.H>
-#include <FL/Fl_Scrollbar.H>
 #include <FL/Fl_Group.H>
 #include <FL/Fl_Output.H>
 #include <FL/Fl_Button.H>
@@ -17,10 +16,9 @@
 #include <stdlib.h>
 
 class Lobby_view: public Fl_Window {
-private:
+protected:
   Fl_Box* main_box;
   Fl_Scroll* scroll_window;
-  Fl_Scrollbar* scroll_bar;
   Fl_Group* dealer_info;
   Fl_Output* dealer_name;
   Fl_Output* dealer_id;
@@ -29,6 +27,7 @@ private:
   Fl_Output* dealer_mMbet;
   Fl_Button* join_btn;
   Fl_Button* refresh_btn;
+  Fl_Button* logout_btn;
   Fl_JPEG_Image* background_img;
   Fl_Box* side_box;
   Fl_Group* player_info;

@@ -3,6 +3,7 @@
 Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
 {
   begin();
+  resizable();
 
   background_img = new Fl_JPEG_Image("images/2.jpg");
   main_box = new Fl_Box(0, 0, 960, 640);
@@ -12,10 +13,6 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     scroll_window = new Fl_Scroll(18, 18, 652, 557);
     scroll_window->box(FL_GTK_DOWN_BOX);
     scroll_window->color(FL_FOREGROUND_COLOR);
-
-    scroll_bar = new Fl_Scrollbar(634, 19, 34, 553);
-    scroll_bar->box(FL_GTK_DOWN_BOX);
-    scroll_bar->color((Fl_Color)34);
 
     {
       dealer_info = new Fl_Group(33, 34, 589, 142);
@@ -70,16 +67,22 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_info->end();
     }
 
-    refresh_btn = new Fl_Button(260, 585, 155, 40, "Refresh");
-    refresh_btn->box(FL_GLEAM_THIN_UP_BOX);
-    refresh_btn->color((Fl_Color)138);
-    refresh_btn->labelfont(1);
-    refresh_btn->labelsize(18);
-    refresh_btn->labelcolor((Fl_Color)26);
-
     scroll_window->end();
-
   }
+
+  refresh_btn = new Fl_Button(120, 585, 155, 40, "Refresh");
+  refresh_btn->box(FL_GLEAM_THIN_UP_BOX);
+  refresh_btn->color((Fl_Color)138);
+  refresh_btn->labelfont(1);
+  refresh_btn->labelsize(18);
+  refresh_btn->labelcolor((Fl_Color)26);
+
+  logout_btn = new Fl_Button(400, 585, 155, 40, "Logout");
+  logout_btn->box(FL_GLEAM_THIN_UP_BOX);
+  logout_btn->color((Fl_Color)138);
+  logout_btn->labelfont(1);
+  logout_btn->labelsize(18);
+  logout_btn->labelcolor((Fl_Color)26);
 
   side_box = new Fl_Box(687, 20, 255, 595);
   side_box->box(FL_GTK_DOWN_BOX);
@@ -157,30 +160,36 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     manual->labelfont(1);
     manual->labelsize(16);
     manual->labelcolor((Fl_Color)26);
+    manual->type(FL_RADIO_BUTTON);
+    manual->setonly();
 
     basic = new Fl_Round_Button(711, 420, 25, 25, " Basic");
     basic->down_box(FL_ROUND_DOWN_BOX);
     basic->labelfont(1);
     basic->labelsize(16);
     basic->labelcolor((Fl_Color)26);
+    basic->type(FL_RADIO_BUTTON);
 
     aggressive = new Fl_Round_Button(711, 443, 25, 25, " Aggressive");
     aggressive->down_box(FL_ROUND_DOWN_BOX);
     aggressive->labelfont(1);
     aggressive->labelsize(16);
     aggressive->labelcolor((Fl_Color)26);
+    aggressive->type(FL_RADIO_BUTTON);
 
     counting = new Fl_Round_Button(711, 466, 25, 25, " Counting");
     counting->down_box(FL_ROUND_DOWN_BOX);
     counting->labelfont(1);
     counting->labelsize(16);
     counting->labelcolor((Fl_Color)26);
+    counting->type(FL_RADIO_BUTTON);
 
     conservative = new Fl_Round_Button(711, 489, 25, 25, " Conservative");
     conservative->down_box(FL_ROUND_DOWN_BOX);
     conservative->labelfont(1);
     conservative->labelsize(16);
     conservative->labelcolor((Fl_Color)26);
+    conservative->type(FL_RADIO_BUTTON);
 
     play_style->end();
   }

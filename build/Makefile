@@ -123,6 +123,33 @@ bj_player/fast:
 	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/build
 .PHONY : bj_player/fast
 
+src/lobby_controller.o: src/lobby_controller.cpp.o
+
+.PHONY : src/lobby_controller.o
+
+# target to build an object file
+src/lobby_controller.cpp.o:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o
+.PHONY : src/lobby_controller.cpp.o
+
+src/lobby_controller.i: src/lobby_controller.cpp.i
+
+.PHONY : src/lobby_controller.i
+
+# target to preprocess a source file
+src/lobby_controller.cpp.i:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/lobby_controller.cpp.i
+.PHONY : src/lobby_controller.cpp.i
+
+src/lobby_controller.s: src/lobby_controller.cpp.s
+
+.PHONY : src/lobby_controller.s
+
+# target to generate assembly for a file
+src/lobby_controller.cpp.s:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/lobby_controller.cpp.s
+.PHONY : src/lobby_controller.cpp.s
+
 src/lobby_view.o: src/lobby_view.cpp.o
 
 .PHONY : src/lobby_view.o
@@ -240,6 +267,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bj_player"
+	@echo "... src/lobby_controller.o"
+	@echo "... src/lobby_controller.i"
+	@echo "... src/lobby_controller.s"
 	@echo "... src/lobby_view.o"
 	@echo "... src/lobby_view.i"
 	@echo "... src/lobby_view.s"
