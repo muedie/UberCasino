@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 class Login_view: public Fl_Window {
-private:
+protected:
   Fl_Box* main_box;
   Fl_Box* title_box;
   Fl_Box* name_box;
@@ -25,6 +25,7 @@ private:
 
 public:
   Login_view();
+
 
 };
 

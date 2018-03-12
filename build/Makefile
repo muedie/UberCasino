@@ -150,6 +150,33 @@ src/lobby_view.cpp.s:
 	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/lobby_view.cpp.s
 .PHONY : src/lobby_view.cpp.s
 
+src/login_controller.o: src/login_controller.cpp.o
+
+.PHONY : src/login_controller.o
+
+# target to build an object file
+src/login_controller.cpp.o:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login_controller.cpp.o
+.PHONY : src/login_controller.cpp.o
+
+src/login_controller.i: src/login_controller.cpp.i
+
+.PHONY : src/login_controller.i
+
+# target to preprocess a source file
+src/login_controller.cpp.i:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login_controller.cpp.i
+.PHONY : src/login_controller.cpp.i
+
+src/login_controller.s: src/login_controller.cpp.s
+
+.PHONY : src/login_controller.s
+
+# target to generate assembly for a file
+src/login_controller.cpp.s:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/login_controller.cpp.s
+.PHONY : src/login_controller.cpp.s
+
 src/login_view.o: src/login_view.cpp.o
 
 .PHONY : src/login_view.o
@@ -216,6 +243,9 @@ help:
 	@echo "... src/lobby_view.o"
 	@echo "... src/lobby_view.i"
 	@echo "... src/lobby_view.s"
+	@echo "... src/login_controller.o"
+	@echo "... src/login_controller.i"
+	@echo "... src/login_controller.s"
 	@echo "... src/login_view.o"
 	@echo "... src/login_view.i"
 	@echo "... src/login_view.s"

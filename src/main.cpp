@@ -1,6 +1,8 @@
-#include "login_view.h"
+#include "login_controller.h"
+#include "lobby_view.h"
 
 int main(int argc, char const *argv[]) {
-  Login_view win;
+  Login_controller win;
+  //Lobby_view win;
   return (Fl::run());
 }

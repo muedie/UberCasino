@@ -4,9 +4,16 @@
 CMakeFiles/bj_player.dir/src/lobby_view.cpp.o: ../include/lobby_view.h
 CMakeFiles/bj_player.dir/src/lobby_view.cpp.o: ../src/lobby_view.cpp
 
+CMakeFiles/bj_player.dir/src/login_controller.cpp.o: ../include/lobby_view.h
+CMakeFiles/bj_player.dir/src/login_controller.cpp.o: ../include/login_controller.h
+CMakeFiles/bj_player.dir/src/login_controller.cpp.o: ../include/login_view.h
+CMakeFiles/bj_player.dir/src/login_controller.cpp.o: ../src/login_controller.cpp
+
 CMakeFiles/bj_player.dir/src/login_view.cpp.o: ../include/login_view.h
 CMakeFiles/bj_player.dir/src/login_view.cpp.o: ../src/login_view.cpp
 
+CMakeFiles/bj_player.dir/src/main.cpp.o: ../include/lobby_view.h
+CMakeFiles/bj_player.dir/src/main.cpp.o: ../include/login_controller.h
 CMakeFiles/bj_player.dir/src/main.cpp.o: ../include/login_view.h
 CMakeFiles/bj_player.dir/src/main.cpp.o: ../src/main.cpp
 
