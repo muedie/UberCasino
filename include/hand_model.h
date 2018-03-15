@@ -1,7 +1,7 @@
 #ifndef HAND_MODEL_H
 #define HAND_MODEL_H
 #include <vector>
-#include "card.h"
+#include "../inlcude/card_model.h"
 
 class Hand{
 public:
