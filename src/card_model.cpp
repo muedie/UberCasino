@@ -15,3 +15,8 @@ void Card::set_face(bool face)
 {
   _faced_up = face;
 }
+
+bool Card::is_faced_up()
+{
+  return _faced_up;
+}

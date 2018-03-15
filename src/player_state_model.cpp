@@ -1,6 +1,6 @@
-#include "hand_model.h"
+#include "../include/player_state_model.h"
 
-bool Hand::check_bust()
+bool Player_State::check_bust()
 {
   for(int i=0; i<running_totals.size(); i++)
   {
@@ -11,7 +11,7 @@ bool Hand::check_bust()
   return false;
 }
 
-bool Hand::check_blackjack()
+bool Player_State::check_blackjack()
 {
   for(int i=0; i<running_totals.size(); i++)
   {
@@ -22,7 +22,7 @@ bool Hand::check_blackjack()
   return false;
 }
 
-bool Hand::can_split()
+bool Player_State::can_split()
 {
   if((cards.size() == 2) && (cards[0].get_value() == cards[1].get_value()))
     return true;
