@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Card::Card():{}
+Card::Card(){}
 
 int Card::get_value()
 {
@@ -11,5 +11,5 @@ int Card::get_value()
 
 void Card::set_face(bool face)
 {
-  faced_up = face;
+  _faced_up = face;
 }

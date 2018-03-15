@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+../include/card.h
+
 ../include/lobby_controller.h
 lobby_view.h
 ../include/lobby_view.h
@@ -104,6 +106,10 @@ FL/Fl_JPEG_Image.H
 stdio.h
 -
 stdlib.h
+-
+
+/home/student/Desktop/CSE3310/Project/src/card.cpp
+card.h
 -
 
 /home/student/Desktop/CSE3310/Project/src/lobby_controller.cpp

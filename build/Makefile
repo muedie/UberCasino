@@ -123,6 +123,33 @@ bj_player/fast:
 	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/build
 .PHONY : bj_player/fast
 
+src/card.o: src/card.cpp.o
+
+.PHONY : src/card.o
+
+# target to build an object file
+src/card.cpp.o:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/card.cpp.o
+.PHONY : src/card.cpp.o
+
+src/card.i: src/card.cpp.i
+
+.PHONY : src/card.i
+
+# target to preprocess a source file
+src/card.cpp.i:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/card.cpp.i
+.PHONY : src/card.cpp.i
+
+src/card.s: src/card.cpp.s
+
+.PHONY : src/card.s
+
+# target to generate assembly for a file
+src/card.cpp.s:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/card.cpp.s
+.PHONY : src/card.cpp.s
+
 src/lobby_controller.o: src/lobby_controller.cpp.o
 
 .PHONY : src/lobby_controller.o
@@ -267,6 +294,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bj_player"
+	@echo "... src/card.o"
+	@echo "... src/card.i"
+	@echo "... src/card.s"
 	@echo "... src/lobby_controller.o"
 	@echo "... src/lobby_controller.i"
 	@echo "... src/lobby_controller.s"
