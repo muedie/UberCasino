@@ -1,10 +1,12 @@
-#include <card.h>
+#include "card.h"
 
-using namespace std;
+Card::Card(long value, suite_t suite)
+{
+  _value = value;
+  _suite = suite;
+}
 
-Card::Card(){}
-
-int Card::get_value()
+long Card::get_value()
 {
   return _value;
 }
