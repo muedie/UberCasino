@@ -1,3 +1,0 @@
-/home/student/Desktop/CSE3310/Project/build/CMakeFiles/edit_cache.dir
-/home/student/Desktop/CSE3310/Project/build/CMakeFiles/rebuild_cache.dir
-/home/student/Desktop/CSE3310/Project/build/CMakeFiles/bj_player.dir
