@@ -1,4 +1,4 @@
-#include "card.h"
+#include "../include/card_model.h"
 
 Card::Card(long value, suite_t suite)
 {
