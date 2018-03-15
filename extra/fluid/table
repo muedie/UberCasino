@@ -6,10 +6,187 @@ Function {make_window()} {open
 } {
   Fl_Window {} {
     label Table open
-    xywh {225 113 960 635} type Double hide
+    xywh {103 135 1325 785} type Double visible
   } {
+    Fl_Box {} {selected
+      xywh {0 0 1325 785} box GLEAM_THIN_UP_BOX color 58
+    }
+    Fl_Button {} {
+      label {Leave Game}
+      xywh {19 23 100 55} box GLEAM_THIN_UP_BOX color 138 labelfont 1 labelsize 18 labelcolor 26 align 128
+    }
+    Fl_Group {} {open
+      xywh {135 20 855 121} box GLEAM_THIN_UP_BOX color 36
+    } {
+      Fl_Output {} {
+        xywh {153 40 320 35} box NO_BOX textfont 1 textsize 24 textcolor 26
+      }
+      Fl_Output {} {
+        label {Dealer ID      }
+        xywh {277 74 127 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        label {Game ID       }
+        xywh {278 103 127 22} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        label {Shoe size     }
+        xywh {599 74 106 31} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        label {Min-Max bet }
+        xywh {600 101 110 21} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        label {Count }
+        xywh {834 79 127 36} box NO_BOX labelfont 1 labelsize 20 labelcolor 26 textsize 20 textcolor 26
+      }
+    }
+    Fl_Group {} {open
+      xywh {1013 20 282 349} box GLEAM_THIN_UP_BOX color 36
+    } {
+      Fl_Output {} {
+        label {Other Players  }
+        xywh {1228 39 55 50} box NO_BOX labelfont 1 labelsize 24 labelcolor 26 textfont 1 textsize 24 textcolor 26
+      }
+      Fl_Output {} {
+        xywh {1030 92 252 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        xywh {1031 117 252 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        xywh {1031 140 252 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        xywh {1031 165 252 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        xywh {1031 190 252 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        xywh {1032 216 252 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+    }
+    Fl_Group {} {open
+      xywh {25 672 1275 99} box GLEAM_THIN_UP_BOX color 36
+    } {
+      Fl_Button {} {
+        label {Double Down}
+        xywh {1025 698 105 51} box GLEAM_THIN_UP_BOX color 138 labelfont 1 labelsize 18 labelcolor 26 align 128
+      }
+      Fl_Button {} {
+        label Split
+        xywh {1150 698 105 51} box GLEAM_THIN_UP_BOX color 138 labelfont 1 labelsize 18 labelcolor 26 align 128
+      }
+      Fl_Button {} {
+        label Stand
+        xywh {900 698 105 51} box GLEAM_THIN_UP_BOX color 138 labelfont 1 labelsize 18 labelcolor 26 align 128
+      }
+      Fl_Button {} {
+        label Hit
+        xywh {774 698 105 51} box GLEAM_THIN_UP_BOX color 138 labelfont 1 labelsize 18 labelcolor 26 align 128
+      }
+      Fl_Button {} {
+        label Bet
+        xywh {188 698 105 51} box GLEAM_THIN_UP_BOX color 138 labelfont 1 labelsize 18 labelcolor 26 align 128
+      }
+      Fl_Output {} {
+        label {Balance }
+        xywh {544 705 109 35} box GTK_ROUND_UP_BOX labelfont 1 labelsize 24 labelcolor 26 textsize 24 textcolor 32
+      }
+      Fl_Spinner {} {
+        xywh {62 700 105 45} labelfont 1 textfont 1 textsize 24
+      }
+    }
+    Fl_Group {} {open
+      xywh {1015 513 275 144} box GLEAM_THIN_UP_BOX color 36
+    } {
+      Fl_Output {} {
+        xywh {1059 536 177 40} box NO_BOX labelfont 1 labelsize 24 labelcolor 26 textfont 1 textsize 24 textcolor 26
+      }
+      Fl_Output {} {
+        label {Count           }
+        xywh {1151 575 120 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+      Fl_Output {} {
+        label {Suggestion   }
+        xywh {1151 597 120 35} box NO_BOX labelfont 1 labelsize 16 labelcolor 26 textsize 16 textcolor 26
+      }
+    }
+    Fl_Group {} {open
+      xywh {42 150 768 196}
+    } {
+      Fl_Box {} {
+        xywh {65 175 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {136 175 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {207 176 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {278 177 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {350 178 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {421 178 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {493 179 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {565 180 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {637 181 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {709 181 65 85} box GTK_UP_BOX color 18
+      }
+    }
+    Fl_Group {} {
+      xywh {42 522 758 145}
+    } {
+      Fl_Box {} {
+        xywh {65 547 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {136 547 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {207 548 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {278 549 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {350 550 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {421 550 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {493 551 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {565 552 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {637 553 65 85} box GTK_UP_BOX color 18
+      }
+      Fl_Box {} {
+        xywh {709 553 65 85} box GTK_UP_BOX color 18
+      }
+    }
     Fl_Box {} {
-      image {../../build/images/3.jpg} xywh {0 0 960 640}
+      xywh {424 328 125 120} box GTK_ROUND_UP_BOX color 4
+    }
+    Fl_Output {} {
+      xywh {448 360 75 54} box NO_BOX textfont 1 textsize 34 textcolor 26
     }
   }
 } 
