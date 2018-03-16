@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/card_model.h
-
-../include/hand_model.h
-vector
--
-../include/card_model.h
-../include/card_model.h
-
 ../include/lobby_controller.h
 lobby_view.h
 ../include/lobby_view.h
@@ -114,10 +106,6 @@ stdio.h
 stdlib.h
 -
 
-../include/player_model.h
-string
--
-
 ../include/table_controller.h
 table_view.h
 ../include/table_view.h
@@ -164,13 +152,31 @@ stdlib.h
 
 /home/student/Desktop/CSE3310/Project/include/card_model.h
 
+/home/student/Desktop/CSE3310/Project/include/game_model.h
+../include/player_state_model.h
+/home/student/Desktop/CSE3310/Project/include/player_state_model.h
+string
+-
+
+/home/student/Desktop/CSE3310/Project/include/player_model.h
+string
+-
+
+/home/student/Desktop/CSE3310/Project/include/player_state_model.h
+vector
+-
+../include/card_model.h
+/home/student/Desktop/CSE3310/Project/include/card_model.h
+string
+-
+
 /home/student/Desktop/CSE3310/Project/src/card_model.cpp
 ../include/card_model.h
 /home/student/Desktop/CSE3310/Project/include/card_model.h
 
-/home/student/Desktop/CSE3310/Project/src/hand_model.cpp
-hand_model.h
-/home/student/Desktop/CSE3310/Project/src/hand_model.h
+/home/student/Desktop/CSE3310/Project/src/game_model.cpp
+../include/game_model.h
+/home/student/Desktop/CSE3310/Project/include/game_model.h
 
 /home/student/Desktop/CSE3310/Project/src/lobby_controller.cpp
 lobby_controller.h
@@ -201,8 +207,12 @@ lobby_view.h
 /home/student/Desktop/CSE3310/Project/src/lobby_view.h
 
 /home/student/Desktop/CSE3310/Project/src/player_model.cpp
-player_model.h
-/home/student/Desktop/CSE3310/Project/src/player_model.h
+../include/player_model.h
+/home/student/Desktop/CSE3310/Project/include/player_model.h
+
+/home/student/Desktop/CSE3310/Project/src/player_state_model.cpp
+../include/player_state_model.h
+/home/student/Desktop/CSE3310/Project/include/player_state_model.h
 
 /home/student/Desktop/CSE3310/Project/src/table_controller.cpp
 lobby_controller.h

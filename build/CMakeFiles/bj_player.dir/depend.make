@@ -4,9 +4,10 @@
 CMakeFiles/bj_player.dir/src/card_model.cpp.o: ../include/card_model.h
 CMakeFiles/bj_player.dir/src/card_model.cpp.o: ../src/card_model.cpp
 
-CMakeFiles/bj_player.dir/src/hand_model.cpp.o: ../include/card_model.h
-CMakeFiles/bj_player.dir/src/hand_model.cpp.o: ../include/hand_model.h
-CMakeFiles/bj_player.dir/src/hand_model.cpp.o: ../src/hand_model.cpp
+CMakeFiles/bj_player.dir/src/game_model.cpp.o: ../include/card_model.h
+CMakeFiles/bj_player.dir/src/game_model.cpp.o: ../include/game_model.h
+CMakeFiles/bj_player.dir/src/game_model.cpp.o: ../include/player_state_model.h
+CMakeFiles/bj_player.dir/src/game_model.cpp.o: ../src/game_model.cpp
 
 CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o: ../include/lobby_controller.h
 CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o: ../include/lobby_view.h
@@ -35,6 +36,10 @@ CMakeFiles/bj_player.dir/src/main.cpp.o: ../src/main.cpp
 
 CMakeFiles/bj_player.dir/src/player_model.cpp.o: ../include/player_model.h
 CMakeFiles/bj_player.dir/src/player_model.cpp.o: ../src/player_model.cpp
+
+CMakeFiles/bj_player.dir/src/player_state_model.cpp.o: ../include/card_model.h
+CMakeFiles/bj_player.dir/src/player_state_model.cpp.o: ../include/player_state_model.h
+CMakeFiles/bj_player.dir/src/player_state_model.cpp.o: ../src/player_state_model.cpp
 
 CMakeFiles/bj_player.dir/src/table_controller.cpp.o: ../include/lobby_controller.h
 CMakeFiles/bj_player.dir/src/table_controller.cpp.o: ../include/lobby_view.h

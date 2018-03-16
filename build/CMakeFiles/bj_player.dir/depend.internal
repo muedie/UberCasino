@@ -4,10 +4,11 @@
 CMakeFiles/bj_player.dir/src/card_model.cpp.o
  /home/student/Desktop/CSE3310/Project/include/card_model.h
  /home/student/Desktop/CSE3310/Project/src/card_model.cpp
-CMakeFiles/bj_player.dir/src/hand_model.cpp.o
- ../include/card_model.h
- ../include/hand_model.h
- /home/student/Desktop/CSE3310/Project/src/hand_model.cpp
+CMakeFiles/bj_player.dir/src/game_model.cpp.o
+ /home/student/Desktop/CSE3310/Project/include/card_model.h
+ /home/student/Desktop/CSE3310/Project/include/game_model.h
+ /home/student/Desktop/CSE3310/Project/include/player_state_model.h
+ /home/student/Desktop/CSE3310/Project/src/game_model.cpp
 CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o
  ../include/lobby_controller.h
  ../include/lobby_view.h
@@ -34,8 +35,12 @@ CMakeFiles/bj_player.dir/src/main.cpp.o
  ../include/login_view.h
  /home/student/Desktop/CSE3310/Project/src/main.cpp
 CMakeFiles/bj_player.dir/src/player_model.cpp.o
- ../include/player_model.h
+ /home/student/Desktop/CSE3310/Project/include/player_model.h
  /home/student/Desktop/CSE3310/Project/src/player_model.cpp
+CMakeFiles/bj_player.dir/src/player_state_model.cpp.o
+ /home/student/Desktop/CSE3310/Project/include/card_model.h
+ /home/student/Desktop/CSE3310/Project/include/player_state_model.h
+ /home/student/Desktop/CSE3310/Project/src/player_state_model.cpp
 CMakeFiles/bj_player.dir/src/table_controller.cpp.o
  ../include/lobby_controller.h
  ../include/lobby_view.h
