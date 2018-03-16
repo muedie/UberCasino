@@ -1,4 +1,4 @@
-#include "player_model.h"
+#include "../include/player_model.h"
 
 Player::Player(std::string uuid, std::string name) {
     _uuid = uuid;

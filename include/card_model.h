@@ -9,6 +9,7 @@ class Card
     Card(long value, suite_t suite);
     long get_value();
     void set_face(bool faced_up);
+    bool is_faced_up();
   private:
     long _value;
     suite_t _suite;
