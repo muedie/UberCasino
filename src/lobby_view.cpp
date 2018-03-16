@@ -3,7 +3,6 @@
 Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
 {
   begin();
-  resizable();
 
   background_img = new Fl_JPEG_Image("/home/student/Desktop/CSE3310/Project/extra/images/2.jpg");
   main_box = new Fl_Box(0, 0, 960, 640);

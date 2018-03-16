@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
-../include/card.h
+../include/card_model.h
+
+../include/hand_model.h
+vector
+-
+../include/card_model.h
+../include/card_model.h
 
 ../include/lobby_controller.h
 lobby_view.h
@@ -108,15 +114,71 @@ stdio.h
 stdlib.h
 -
 
-/home/student/Desktop/CSE3310/Project/src/card.cpp
-card.h
+../include/player_model.h
+string
 -
+
+../include/table_controller.h
+table_view.h
+../include/table_view.h
+FL/Fl.H
+-
+FL/Fl_Window.H
+-
+FL/Fl_Box.H
+-
+FL/Fl_Button.H
+-
+FL/Fl_Group.H
+-
+FL/Fl_Output.H
+-
+FL/Fl_Spinner.H
+-
+stdio.h
+-
+stdlib.h
+-
+iostream
+-
+
+../include/table_view.h
+FL/Fl.H
+-
+FL/Fl_Window.H
+-
+FL/Fl_Box.H
+-
+FL/Fl_Button.H
+-
+FL/Fl_Group.H
+-
+FL/Fl_Output.H
+-
+FL/Fl_Spinner.H
+-
+stdio.h
+-
+stdlib.h
+-
+
+/home/student/Desktop/CSE3310/Project/include/card_model.h
+
+/home/student/Desktop/CSE3310/Project/src/card_model.cpp
+../include/card_model.h
+/home/student/Desktop/CSE3310/Project/include/card_model.h
+
+/home/student/Desktop/CSE3310/Project/src/hand_model.cpp
+hand_model.h
+/home/student/Desktop/CSE3310/Project/src/hand_model.h
 
 /home/student/Desktop/CSE3310/Project/src/lobby_controller.cpp
 lobby_controller.h
 /home/student/Desktop/CSE3310/Project/src/lobby_controller.h
 login_controller.h
 /home/student/Desktop/CSE3310/Project/src/login_controller.h
+table_controller.h
+/home/student/Desktop/CSE3310/Project/src/table_controller.h
 
 /home/student/Desktop/CSE3310/Project/src/lobby_view.cpp
 lobby_view.h
@@ -137,4 +199,18 @@ login_controller.h
 /home/student/Desktop/CSE3310/Project/src/login_controller.h
 lobby_view.h
 /home/student/Desktop/CSE3310/Project/src/lobby_view.h
+
+/home/student/Desktop/CSE3310/Project/src/player_model.cpp
+player_model.h
+/home/student/Desktop/CSE3310/Project/src/player_model.h
+
+/home/student/Desktop/CSE3310/Project/src/table_controller.cpp
+lobby_controller.h
+/home/student/Desktop/CSE3310/Project/src/lobby_controller.h
+table_controller.h
+/home/student/Desktop/CSE3310/Project/src/table_controller.h
+
+/home/student/Desktop/CSE3310/Project/src/table_view.cpp
+table_view.h
+/home/student/Desktop/CSE3310/Project/src/table_view.h
 

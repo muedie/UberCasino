@@ -27,8 +27,10 @@ public:
   Lobby_controller ();
   static void ClickedLogout(Fl_Widget* w, void* data);
   static void ClickedRefresh(Fl_Widget* w, void* data);
+  static void ClickedJoin(Fl_Widget* w, void* data);
   void ClickedLogout_i();
   void ClickedRefresh_i();
+  void ClickedJoin_i();
 
 };
 #endif

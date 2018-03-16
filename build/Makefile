@@ -123,32 +123,59 @@ bj_player/fast:
 	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/build
 .PHONY : bj_player/fast
 
-src/card.o: src/card.cpp.o
+src/card_model.o: src/card_model.cpp.o
 
-.PHONY : src/card.o
+.PHONY : src/card_model.o
 
 # target to build an object file
-src/card.cpp.o:
-	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/card.cpp.o
-.PHONY : src/card.cpp.o
+src/card_model.cpp.o:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/card_model.cpp.o
+.PHONY : src/card_model.cpp.o
 
-src/card.i: src/card.cpp.i
+src/card_model.i: src/card_model.cpp.i
 
-.PHONY : src/card.i
+.PHONY : src/card_model.i
 
 # target to preprocess a source file
-src/card.cpp.i:
-	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/card.cpp.i
-.PHONY : src/card.cpp.i
+src/card_model.cpp.i:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/card_model.cpp.i
+.PHONY : src/card_model.cpp.i
 
-src/card.s: src/card.cpp.s
+src/card_model.s: src/card_model.cpp.s
 
-.PHONY : src/card.s
+.PHONY : src/card_model.s
 
 # target to generate assembly for a file
-src/card.cpp.s:
-	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/card.cpp.s
-.PHONY : src/card.cpp.s
+src/card_model.cpp.s:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/card_model.cpp.s
+.PHONY : src/card_model.cpp.s
+
+src/hand_model.o: src/hand_model.cpp.o
+
+.PHONY : src/hand_model.o
+
+# target to build an object file
+src/hand_model.cpp.o:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/hand_model.cpp.o
+.PHONY : src/hand_model.cpp.o
+
+src/hand_model.i: src/hand_model.cpp.i
+
+.PHONY : src/hand_model.i
+
+# target to preprocess a source file
+src/hand_model.cpp.i:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/hand_model.cpp.i
+.PHONY : src/hand_model.cpp.i
+
+src/hand_model.s: src/hand_model.cpp.s
+
+.PHONY : src/hand_model.s
+
+# target to generate assembly for a file
+src/hand_model.cpp.s:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/hand_model.cpp.s
+.PHONY : src/hand_model.cpp.s
 
 src/lobby_controller.o: src/lobby_controller.cpp.o
 
@@ -285,6 +312,87 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/player_model.o: src/player_model.cpp.o
+
+.PHONY : src/player_model.o
+
+# target to build an object file
+src/player_model.cpp.o:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/player_model.cpp.o
+.PHONY : src/player_model.cpp.o
+
+src/player_model.i: src/player_model.cpp.i
+
+.PHONY : src/player_model.i
+
+# target to preprocess a source file
+src/player_model.cpp.i:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/player_model.cpp.i
+.PHONY : src/player_model.cpp.i
+
+src/player_model.s: src/player_model.cpp.s
+
+.PHONY : src/player_model.s
+
+# target to generate assembly for a file
+src/player_model.cpp.s:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/player_model.cpp.s
+.PHONY : src/player_model.cpp.s
+
+src/table_controller.o: src/table_controller.cpp.o
+
+.PHONY : src/table_controller.o
+
+# target to build an object file
+src/table_controller.cpp.o:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/table_controller.cpp.o
+.PHONY : src/table_controller.cpp.o
+
+src/table_controller.i: src/table_controller.cpp.i
+
+.PHONY : src/table_controller.i
+
+# target to preprocess a source file
+src/table_controller.cpp.i:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/table_controller.cpp.i
+.PHONY : src/table_controller.cpp.i
+
+src/table_controller.s: src/table_controller.cpp.s
+
+.PHONY : src/table_controller.s
+
+# target to generate assembly for a file
+src/table_controller.cpp.s:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/table_controller.cpp.s
+.PHONY : src/table_controller.cpp.s
+
+src/table_view.o: src/table_view.cpp.o
+
+.PHONY : src/table_view.o
+
+# target to build an object file
+src/table_view.cpp.o:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/table_view.cpp.o
+.PHONY : src/table_view.cpp.o
+
+src/table_view.i: src/table_view.cpp.i
+
+.PHONY : src/table_view.i
+
+# target to preprocess a source file
+src/table_view.cpp.i:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/table_view.cpp.i
+.PHONY : src/table_view.cpp.i
+
+src/table_view.s: src/table_view.cpp.s
+
+.PHONY : src/table_view.s
+
+# target to generate assembly for a file
+src/table_view.cpp.s:
+	$(MAKE) -f CMakeFiles/bj_player.dir/build.make CMakeFiles/bj_player.dir/src/table_view.cpp.s
+.PHONY : src/table_view.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -294,9 +402,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bj_player"
-	@echo "... src/card.o"
-	@echo "... src/card.i"
-	@echo "... src/card.s"
+	@echo "... src/card_model.o"
+	@echo "... src/card_model.i"
+	@echo "... src/card_model.s"
+	@echo "... src/hand_model.o"
+	@echo "... src/hand_model.i"
+	@echo "... src/hand_model.s"
 	@echo "... src/lobby_controller.o"
 	@echo "... src/lobby_controller.i"
 	@echo "... src/lobby_controller.s"
@@ -312,6 +423,15 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/player_model.o"
+	@echo "... src/player_model.i"
+	@echo "... src/player_model.s"
+	@echo "... src/table_controller.o"
+	@echo "... src/table_controller.i"
+	@echo "... src/table_controller.s"
+	@echo "... src/table_view.o"
+	@echo "... src/table_view.i"
+	@echo "... src/table_view.s"
 .PHONY : help
 
 
