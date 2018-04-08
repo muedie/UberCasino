@@ -1,4 +1,6 @@
 #include "lobby_view.h"
+#include "login_controller.h"
+#include <string>
 
 Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
 {

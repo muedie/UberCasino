@@ -2,7 +2,7 @@
 #include "table_controller.h"
 
 
-Table_controller::Table_controller() : Table_view() {
+Table_controller::Table_controller(Player& p) : Table_view() , _p{p}{
   btn_leave->callback(ClickedLeave, this);
 
 }
@@ -19,6 +19,6 @@ void Table_controller::ClickedLeave_i()
 {
   //char* s = name_input->value();
   hide();
-  Lobby_controller win;
+  Lobby_controller win(_p);
   Fl::run();
 }

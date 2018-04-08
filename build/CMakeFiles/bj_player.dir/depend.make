@@ -13,17 +13,22 @@ CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o: ../include/lobby_controller
 CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o: ../include/lobby_view.h
 CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o: ../include/login_controller.h
 CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o: ../include/login_view.h
+CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o: ../include/player_model.h
 CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o: ../include/table_controller.h
 CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o: ../include/table_view.h
 CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o: ../src/lobby_controller.cpp
 
 CMakeFiles/bj_player.dir/src/lobby_view.cpp.o: ../include/lobby_view.h
+CMakeFiles/bj_player.dir/src/lobby_view.cpp.o: ../include/login_controller.h
+CMakeFiles/bj_player.dir/src/lobby_view.cpp.o: ../include/login_view.h
+CMakeFiles/bj_player.dir/src/lobby_view.cpp.o: ../include/player_model.h
 CMakeFiles/bj_player.dir/src/lobby_view.cpp.o: ../src/lobby_view.cpp
 
 CMakeFiles/bj_player.dir/src/login_controller.cpp.o: ../include/lobby_controller.h
 CMakeFiles/bj_player.dir/src/login_controller.cpp.o: ../include/lobby_view.h
 CMakeFiles/bj_player.dir/src/login_controller.cpp.o: ../include/login_controller.h
 CMakeFiles/bj_player.dir/src/login_controller.cpp.o: ../include/login_view.h
+CMakeFiles/bj_player.dir/src/login_controller.cpp.o: ../include/player_model.h
 CMakeFiles/bj_player.dir/src/login_controller.cpp.o: ../src/login_controller.cpp
 
 CMakeFiles/bj_player.dir/src/login_view.cpp.o: ../include/login_view.h
@@ -32,6 +37,7 @@ CMakeFiles/bj_player.dir/src/login_view.cpp.o: ../src/login_view.cpp
 CMakeFiles/bj_player.dir/src/main.cpp.o: ../include/lobby_view.h
 CMakeFiles/bj_player.dir/src/main.cpp.o: ../include/login_controller.h
 CMakeFiles/bj_player.dir/src/main.cpp.o: ../include/login_view.h
+CMakeFiles/bj_player.dir/src/main.cpp.o: ../include/player_model.h
 CMakeFiles/bj_player.dir/src/main.cpp.o: ../src/main.cpp
 
 CMakeFiles/bj_player.dir/src/player_model.cpp.o: ../include/player_model.h
@@ -43,6 +49,7 @@ CMakeFiles/bj_player.dir/src/player_state_model.cpp.o: ../src/player_state_model
 
 CMakeFiles/bj_player.dir/src/table_controller.cpp.o: ../include/lobby_controller.h
 CMakeFiles/bj_player.dir/src/table_controller.cpp.o: ../include/lobby_view.h
+CMakeFiles/bj_player.dir/src/table_controller.cpp.o: ../include/player_model.h
 CMakeFiles/bj_player.dir/src/table_controller.cpp.o: ../include/table_controller.h
 CMakeFiles/bj_player.dir/src/table_controller.cpp.o: ../include/table_view.h
 CMakeFiles/bj_player.dir/src/table_controller.cpp.o: ../src/table_controller.cpp

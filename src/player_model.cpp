@@ -1,8 +1,8 @@
 #include "../include/player_model.h"
 
-Player::Player(std::string uuid, std::string name) {
-    _uuid = uuid;
-    _name = name;
+Player::Player() {
+    _uuid = "00";
+    _name = "Player1";
     _balance = 500;
 }
 

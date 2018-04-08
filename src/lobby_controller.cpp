@@ -3,7 +3,10 @@
 #include "table_controller.h"
 
 
-Lobby_controller::Lobby_controller() : Lobby_view() {
+Lobby_controller::Lobby_controller(Player& p) : Lobby_view() , _p{p} {
+  player_name->value(_p.getName().c_str());
+  //player_balance->value(std::to_string(_p.getBalance()).c_str());
+
   logout_btn->callback(ClickedLogout, this);
   refresh_btn->callback(ClickedRefresh, (void*)this);
   join_btn->callback(ClickedJoin, (void*)this);
@@ -25,6 +28,8 @@ void Lobby_controller::ClickedJoin(Fl_Widget* w, void* data)
 }
 
 
+//Implement your model here in these call back function.
+
 void Lobby_controller::ClickedRefresh_i()
 {
   hide();
@@ -32,16 +37,14 @@ void Lobby_controller::ClickedRefresh_i()
 
 void Lobby_controller::ClickedLogout_i()
 {
-  //char* s = name_input->value();
   hide();
-  Login_controller win;
+  Login_controller win(_p);
   Fl::run();
 }
 
 void Lobby_controller::ClickedJoin_i()
 {
-  //char* s = name_input->value();
   hide();
-  Table_controller win;
+  Table_controller win(_p);
   Fl::run();
 }

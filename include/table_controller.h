@@ -18,10 +18,10 @@
 class Table_controller : public Table_view {
 
 private:
-
+  Player& _p;
 
 public:
-  Table_controller ();
+  Table_controller (Player& p);
   static void ClickedLeave(Fl_Widget* w, void* data);
 
   void ClickedLeave_i();

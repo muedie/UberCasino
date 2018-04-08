@@ -7,7 +7,7 @@ enum player_action_t {idle, hitting, standing, splitting, doubling};
 
 class Player {
     public:
-        Player(std::string uuid, std::string name);
+        Player();
         std::string getName();
         std::string getUUID();
         float getBalance();

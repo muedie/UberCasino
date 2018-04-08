@@ -14,17 +14,22 @@ CMakeFiles/bj_player.dir/src/lobby_controller.cpp.o
  ../include/lobby_view.h
  ../include/login_controller.h
  ../include/login_view.h
+ ../include/player_model.h
  ../include/table_controller.h
  ../include/table_view.h
  /home/student/Desktop/CSE3310/Project/src/lobby_controller.cpp
 CMakeFiles/bj_player.dir/src/lobby_view.cpp.o
  ../include/lobby_view.h
+ ../include/login_controller.h
+ ../include/login_view.h
+ ../include/player_model.h
  /home/student/Desktop/CSE3310/Project/src/lobby_view.cpp
 CMakeFiles/bj_player.dir/src/login_controller.cpp.o
  ../include/lobby_controller.h
  ../include/lobby_view.h
  ../include/login_controller.h
  ../include/login_view.h
+ ../include/player_model.h
  /home/student/Desktop/CSE3310/Project/src/login_controller.cpp
 CMakeFiles/bj_player.dir/src/login_view.cpp.o
  ../include/login_view.h
@@ -33,6 +38,7 @@ CMakeFiles/bj_player.dir/src/main.cpp.o
  ../include/lobby_view.h
  ../include/login_controller.h
  ../include/login_view.h
+ ../include/player_model.h
  /home/student/Desktop/CSE3310/Project/src/main.cpp
 CMakeFiles/bj_player.dir/src/player_model.cpp.o
  /home/student/Desktop/CSE3310/Project/include/player_model.h
@@ -44,6 +50,7 @@ CMakeFiles/bj_player.dir/src/player_state_model.cpp.o
 CMakeFiles/bj_player.dir/src/table_controller.cpp.o
  ../include/lobby_controller.h
  ../include/lobby_view.h
+ ../include/player_model.h
  ../include/table_controller.h
  ../include/table_view.h
  /home/student/Desktop/CSE3310/Project/src/table_controller.cpp

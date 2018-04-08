@@ -14,6 +14,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "player_model.h"
 
 class Lobby_view: public Fl_Window {
 protected:

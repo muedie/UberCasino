@@ -21,10 +21,10 @@
 class Lobby_controller : public Lobby_view {
 
 private:
-
+  Player& _p;
 
 public:
-  Lobby_controller ();
+  Lobby_controller (Player& p);
   static void ClickedLogout(Fl_Widget* w, void* data);
   static void ClickedRefresh(Fl_Widget* w, void* data);
   static void ClickedJoin(Fl_Widget* w, void* data);

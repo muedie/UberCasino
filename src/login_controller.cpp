@@ -2,7 +2,14 @@
 #include "lobby_controller.h"
 
 
-Login_controller::Login_controller() : Login_view() {
+#include <string>
+
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp>
+
+
+Login_controller::Login_controller(Player& p) : Login_view(), _p{p} {
   login_btn->callback(ClickedLogin, this);
   quit_btn->callback(ClickedQuit, (void*)this);
 }
@@ -25,8 +32,15 @@ void Login_controller::ClickedQuit_i()
 
 void Login_controller::ClickedLogin_i()
 {
-  //char* s = name_input->value();
+  std::string s = name_input->value();
+  if (s == "")
+  {
+    s = "Player1";
+  }
+  boost::uuids::uuid uuid = boost::uuids::random_generator()();
+  _p.setName(s);
+  _p.setUUID("aa");
   hide();
- Lobby_controller win;
+ Lobby_controller win(_p);
   Fl::run();
 }
