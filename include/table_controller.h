@@ -2,6 +2,7 @@
 #define TABLE_C_H
 
 #include "table_view.h"
+#include "player.h"
 
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
@@ -18,10 +19,10 @@
 class Table_controller : public Table_view {
 
 private:
-  Player& _p;
+  player& _p;
 
 public:
-  Table_controller (Player& p);
+  Table_controller (player& p);
   static void ClickedLeave(Fl_Widget* w, void* data);
 
   void ClickedLeave_i();

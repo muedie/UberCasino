@@ -1,9 +1,13 @@
 #include "login_controller.h"
-#include "lobby_view.h"
+#include "player.h"
+
+player* PTR;
+#include "callback.h"
 
 int main(int argc, char const *argv[]) {
-  Player p;
+  player p = player();
+ PTR = &p;
   Login_controller win(p);
-  //Lobby_view win;
+
   return (Fl::run());
 }

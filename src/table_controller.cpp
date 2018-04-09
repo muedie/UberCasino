@@ -2,7 +2,7 @@
 #include "table_controller.h"
 
 
-Table_controller::Table_controller(Player& p) : Table_view() , _p{p}{
+Table_controller::Table_controller(player& p) : Table_view() , _p{p}{
   btn_leave->callback(ClickedLeave, this);
 
 }

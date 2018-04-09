@@ -17,14 +17,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include "player.h"
 
 class Lobby_controller : public Lobby_view {
 
 private:
-  Player& _p;
+  player& _p;
 
 public:
-  Lobby_controller (Player& p);
+  Lobby_controller (player& p);
   static void ClickedLogout(Fl_Widget* w, void* data);
   static void ClickedRefresh(Fl_Widget* w, void* data);
   static void ClickedJoin(Fl_Widget* w, void* data);

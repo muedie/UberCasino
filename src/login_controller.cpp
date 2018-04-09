@@ -9,7 +9,7 @@
 #include <boost/uuid/uuid_io.hpp>
 
 
-Login_controller::Login_controller(Player& p) : Login_view(), _p{p} {
+Login_controller::Login_controller(player& p) : Login_view(), _p{p} {
   login_btn->callback(ClickedLogin, this);
   quit_btn->callback(ClickedQuit, (void*)this);
 }
@@ -39,7 +39,7 @@ void Login_controller::ClickedLogin_i()
   }
   boost::uuids::uuid uuid = boost::uuids::random_generator()();
   _p.setName(s);
-  _p.setUUID("aa");
+  memcpy ( _p.m_P.uid, &uuid, sizeof ( _p.m_P.uid ) );
   hide();
  Lobby_controller win(_p);
   Fl::run();

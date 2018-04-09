@@ -2,7 +2,7 @@
 #define LOGIN_C_H
 
 #include "login_view.h"
-#include "player_model.h"
+#include "player.h"
 
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
@@ -19,10 +19,10 @@
 class Login_controller : public Login_view {
 
 private:
-  Player& _p;
+  player& _p;
 
 public:
-  Login_controller (Player& p);
+  Login_controller (player& p);
   static void ClickedQuit(Fl_Widget* w, void* data);
   static void ClickedLogin(Fl_Widget* w, void* data);
   void ClickedQuit_i();
