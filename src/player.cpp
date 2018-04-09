@@ -112,7 +112,7 @@ void player::manage_state ()
          break;
       }
 
-      // on entrance
+      // on entrancesd
       switch (next_state)
       {
          case Init:
