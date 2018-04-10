@@ -17,6 +17,67 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   btn_leave->align(Fl_Align(FL_ALIGN_WRAP));
 
   {
+    player_interface = new Fl_Group(25, 672, 1275, 99);
+    player_interface->box(FL_GLEAM_THIN_UP_BOX);
+    player_interface->color((Fl_Color)36);
+
+    {
+      double_down = new Fl_Button(1025, 698, 105, 51, "Double Down");
+      double_down->box(FL_GLEAM_THIN_UP_BOX);
+      double_down->color((Fl_Color)138);
+      double_down->labelfont(1);
+      double_down->labelsize(18);
+      double_down->labelcolor((Fl_Color)26);
+      double_down->align(Fl_Align(FL_ALIGN_WRAP));
+
+      split = new Fl_Button(1150, 698, 105, 51, "Split");
+      split->box(FL_GLEAM_THIN_UP_BOX);
+      split->color((Fl_Color)138);
+      split->labelfont(1);
+      split->labelsize(18);
+      split->labelcolor((Fl_Color)26);
+      split->align(Fl_Align(FL_ALIGN_WRAP));
+
+      stand = new Fl_Button(900, 698, 105, 51, "Stand");
+      stand->box(FL_GLEAM_THIN_UP_BOX);
+      stand->color((Fl_Color)138);
+      stand->labelfont(1);
+      stand->labelsize(18);
+      stand->labelcolor((Fl_Color)26);
+      stand->align(Fl_Align(FL_ALIGN_WRAP));
+
+      hit = new Fl_Button(774, 698, 105, 51, "Hit");
+      hit->box(FL_GLEAM_THIN_UP_BOX);
+      hit->color((Fl_Color)138);
+      hit->labelfont(1);
+      hit->labelsize(18);
+      hit->labelcolor((Fl_Color)26);
+      hit->align(Fl_Align(FL_ALIGN_WRAP));
+
+      bet = new Fl_Button(188, 698, 105, 51, "Bet");
+      bet->box(FL_GLEAM_THIN_UP_BOX);
+      bet->color((Fl_Color)138);
+      bet->labelfont(1);
+      bet->labelsize(18);
+      bet->labelcolor((Fl_Color)26);
+      bet->align(Fl_Align(FL_ALIGN_WRAP));
+
+      balance = new Fl_Output(544, 705, 109, 35, "Balance ");
+      balance->box(FL_GTK_ROUND_UP_BOX);
+      balance->labelfont(1);
+      balance->labelsize(24);
+      balance->labelcolor((Fl_Color)26);
+      balance->textsize(24);
+      balance->textcolor(FL_GRAY0);
+
+      spn_bet = new Fl_Spinner(62, 700, 105, 45);
+      spn_bet->labelfont(1);
+      spn_bet->textfont(1);
+      spn_bet->textsize(24);
+    }
+  }
+
+  {
     dealer_info = new Fl_Group(135, 20, 855, 121);
     dealer_info->box(FL_GLEAM_THIN_UP_BOX);
     dealer_info->color((Fl_Color)36);
@@ -125,68 +186,6 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       player6->textcolor((Fl_Color)26);
     }
   }
-
-  {
-    player_interface = new Fl_Group(25, 672, 1275, 99);
-    player_interface->box(FL_GLEAM_THIN_UP_BOX);
-    player_interface->color((Fl_Color)36);
-
-    {
-      double_down = new Fl_Button(1025, 698, 105, 51, "Double Down");
-      double_down->box(FL_GLEAM_THIN_UP_BOX);
-      double_down->color((Fl_Color)138);
-      double_down->labelfont(1);
-      double_down->labelsize(18);
-      double_down->labelcolor((Fl_Color)26);
-      double_down->align(Fl_Align(FL_ALIGN_WRAP));
-
-      split = new Fl_Button(1150, 698, 105, 51, "Split");
-      split->box(FL_GLEAM_THIN_UP_BOX);
-      split->color((Fl_Color)138);
-      split->labelfont(1);
-      split->labelsize(18);
-      split->labelcolor((Fl_Color)26);
-      split->align(Fl_Align(FL_ALIGN_WRAP));
-
-      stand = new Fl_Button(900, 698, 105, 51, "Stand");
-      stand->box(FL_GLEAM_THIN_UP_BOX);
-      stand->color((Fl_Color)138);
-      stand->labelfont(1);
-      stand->labelsize(18);
-      stand->labelcolor((Fl_Color)26);
-      stand->align(Fl_Align(FL_ALIGN_WRAP));
-
-      hit = new Fl_Button(774, 698, 105, 51, "Hit");
-      hit->box(FL_GLEAM_THIN_UP_BOX);
-      hit->color((Fl_Color)138);
-      hit->labelfont(1);
-      hit->labelsize(18);
-      hit->labelcolor((Fl_Color)26);
-      hit->align(Fl_Align(FL_ALIGN_WRAP));
-
-      bet = new Fl_Button(188, 698, 105, 51, "Bet");
-      bet->box(FL_GLEAM_THIN_UP_BOX);
-      bet->color((Fl_Color)138);
-      bet->labelfont(1);
-      bet->labelsize(18);
-      bet->labelcolor((Fl_Color)26);
-      bet->align(Fl_Align(FL_ALIGN_WRAP));
-
-      balance = new Fl_Output(544, 705, 109, 35, "Balance ");
-      balance->box(FL_GTK_ROUND_UP_BOX);
-      balance->labelfont(1);
-      balance->labelsize(24);
-      balance->labelcolor((Fl_Color)26);
-      balance->textsize(24);
-      balance->textcolor(FL_GRAY0);
-
-      spn_bet = new Fl_Spinner(62, 700, 105, 45);
-      spn_bet->labelfont(1);
-      spn_bet->textfont(1);
-      spn_bet->textsize(24);
-    }
-  }
-
 
     {
       player_game = new Fl_Group(1015, 513, 275, 144);

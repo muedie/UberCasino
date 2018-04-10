@@ -5,8 +5,24 @@
 
 Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
   player_name->value(_p.getName().c_str());
-  player_balance->value(std::to_string(_p.m_P.balance).c_str());
+  float bal = _p.m_P.balance;
+  int b = int(bal + 0.5);
+  string uid = _p.m_P.uid;
+  player_balance->value(std::to_string(b).c_str());
+  player_id->value(uid.c_str());
+  player_games_played->value(std::to_string(_p.get_hands_played()).c_str());
+  player_hands_won->value(std::to_string(_p.get_hands_won()).c_str());
 
+  manual->when(FL_WHEN_CHANGED);
+  basic->when(FL_WHEN_CHANGED);
+  aggressive->when(FL_WHEN_CHANGED);
+  counting->when(FL_WHEN_CHANGED);
+  conservative->when(FL_WHEN_CHANGED);
+  manual->callback(ClickedRound, (void*) "1");
+  basic->callback(ClickedRound, (void*) "2");
+  aggressive->callback(ClickedRound,(void*) "3");
+  counting->callback(ClickedRound, (void*) "4");
+  conservative->callback(ClickedRound, (void*) "5");
   logout_btn->callback(ClickedLogout, this);
   refresh_btn->callback(ClickedRefresh, (void*)this);
   join_btn->callback(ClickedJoin, (void*)this);
@@ -25,6 +41,18 @@ void Lobby_controller::ClickedRefresh(Fl_Widget* w, void* data)
 void Lobby_controller::ClickedJoin(Fl_Widget* w, void* data)
 {
   ((Lobby_controller*)data)->ClickedJoin_i();
+}
+
+void Lobby_controller::ClickedRound(Fl_Widget* w, void* data)
+{
+  int x = std::stoi((char*) data);
+  std::cout << x;
+  ((Lobby_controller*)data)->ClickedRound_i(x);
+}
+
+void Lobby_controller::ClickedRound_i(int x)
+{
+  _p.set_play_style(x);
 }
 
 

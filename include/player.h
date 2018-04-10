@@ -41,6 +41,10 @@ class player
 
       std::string print_state ( player_state_t );
 
+      int hands_won;
+      int hands_played;
+      int play_style;
+
    public:
       Player m_P; // stores the last data
       Dealer m_D;
@@ -60,6 +64,9 @@ class player
       bool get_m_Dealer_recv();
       std::vector<Dealer> getDealer_list();
       void setClear();
+      void set_play_style(int x);
+      int get_hands_won();
+      int get_hands_played();
       player ();
       ~player ();
 };

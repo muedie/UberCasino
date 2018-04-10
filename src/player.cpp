@@ -275,8 +275,24 @@ bool player::get_m_Dealer_recv()
 std::vector<Dealer> player::getDealer_list(){
   return m_dealer_list;
 }
+
+int player::get_hands_won()
+{
+  return hands_won;
+}
+
+int player::get_hands_played()
+{
+  return hands_played;
+}
+
 void player::setClear(){
   player();
+}
+
+void player::set_play_style(int x)
+{
+//  play_style = x;   //fix this.. FCUKKKK .. gives segmentation fault..
 }
 
 player::player ()
@@ -307,6 +323,10 @@ player::player ()
    m_Player_recv = false;
    m_Game_recv   = false;
    m_Dealer_recv = false;
+
+   hands_won = 0;
+   hands_played = 0;
+   play_style = 1;
 }
 
 player::~player ()

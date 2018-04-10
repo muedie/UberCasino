@@ -24,8 +24,19 @@ private:
 public:
   Table_controller (player& p);
   static void ClickedLeave(Fl_Widget* w, void* data);
+  static void ClickedDoubledown(Fl_Widget* w, void* data);
+  static void ClickedSplit(Fl_Widget* w, void* data);
+  static void ClickedStand(Fl_Widget* w, void* data);
+  static void ClickedHit(Fl_Widget* w, void* data);
+  static void ClickedBet(Fl_Widget* w, void* data);
+
 
   void ClickedLeave_i();
+  void ClickedDoubledown_i();
+  void ClickedSplit_i();
+  void ClickedStand_i();
+  void ClickedHit_i();
+  void ClickedBet_i();
 
 
 };

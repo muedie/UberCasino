@@ -29,9 +29,11 @@ public:
   static void ClickedLogout(Fl_Widget* w, void* data);
   static void ClickedRefresh(Fl_Widget* w, void* data);
   static void ClickedJoin(Fl_Widget* w, void* data);
+  static void ClickedRound(Fl_Widget* w, void* data);
   void ClickedLogout_i();
   void ClickedRefresh_i();
   void ClickedJoin_i();
+  void ClickedRound_i(int x);
 
 };
 #endif
