@@ -19,6 +19,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_info = new Fl_Group(33, 34, 589, 142);
       dealer_info->box(FL_GLEAM_THIN_UP_BOX);
       dealer_info->color((Fl_Color)36);
+      dealer_info->hide();
 
       dealer_name = new Fl_Output(51, 54, 320, 35);
       dealer_name->box(FL_NO_BOX);
@@ -67,6 +68,169 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
 
       dealer_info->end();
     }
+
+    {
+      dealer_info2 = new Fl_Group(33, 34+155, 589, 142);
+      dealer_info2->box(FL_GLEAM_THIN_UP_BOX);
+      dealer_info2->color((Fl_Color)36);
+      dealer_info2->hide();
+
+      dealer_name2 = new Fl_Output(51, 54+155, 320, 35);
+      dealer_name2->box(FL_NO_BOX);
+      dealer_name2->textfont(1);
+      dealer_name2->textsize(24);
+      dealer_name2->textcolor((Fl_Color)26);
+
+      dealer_id2 = new Fl_Output(175, 89+155, 127, 35, "Dealer ID      ");
+      dealer_id2->box(FL_NO_BOX);
+      dealer_id2->labelfont(1);
+      dealer_id2->labelsize(16);
+      dealer_id2->labelcolor((Fl_Color)26);
+      dealer_id2->textsize(16);
+      dealer_id2->textcolor((Fl_Color)26);
+
+      dealer_plcount2 = new Fl_Output(176, 117+155, 127, 35, "Player Count ");
+      dealer_plcount2->box(FL_NO_BOX);
+      dealer_plcount2->labelfont(1);
+      dealer_plcount2->labelsize(16);
+      dealer_plcount2->labelcolor((Fl_Color)26);
+      dealer_plcount2->textsize(16);
+      dealer_plcount2->textcolor((Fl_Color)26);
+
+      dealer_ssize2 = new Fl_Output(497, 88+155, 120, 35, "Shoe size     ");
+      dealer_ssize2->box(FL_NO_BOX);
+      dealer_ssize2->labelfont(1);
+      dealer_ssize2->labelsize(16);
+      dealer_ssize2->labelcolor((Fl_Color)26);
+      dealer_ssize2->textsize(16);
+      dealer_ssize2->textcolor((Fl_Color)26);
+
+      dealer_mMbet2 = new Fl_Output(498, 116+155, 119, 35, "Min-Max bet ");
+      dealer_mMbet2->box(FL_NO_BOX);
+      dealer_mMbet2->labelfont(1);
+      dealer_mMbet2->labelsize(16);
+      dealer_mMbet2->labelcolor((Fl_Color)26);
+      dealer_mMbet2->textsize(16);
+      dealer_mMbet2->textcolor((Fl_Color)26);
+
+      join_btn2 = new Fl_Button(500, 54+155, 95, 35, "Join");
+      join_btn2->box(FL_GLEAM_THIN_UP_BOX);
+      join_btn2->color((Fl_Color)138);
+      join_btn2->labelfont(1);
+      join_btn2->labelsize(18);
+      join_btn2->labelcolor((Fl_Color)26);
+
+      dealer_info2->end();
+    }
+
+    {
+      dealer_info3 = new Fl_Group(33, 34+310, 589, 142);
+      dealer_info3->box(FL_GLEAM_THIN_UP_BOX);
+      dealer_info3->color((Fl_Color)36);
+      dealer_info3->hide();
+
+      dealer_name3 = new Fl_Output(51, 54+310, 320, 35);
+      dealer_name3->box(FL_NO_BOX);
+      dealer_name3->textfont(1);
+      dealer_name3->textsize(24);
+      dealer_name3->textcolor((Fl_Color)26);
+
+      dealer_id3 = new Fl_Output(175, 89+310, 127, 35, "Dealer ID      ");
+      dealer_id3->box(FL_NO_BOX);
+      dealer_id3->labelfont(1);
+      dealer_id3->labelsize(16);
+      dealer_id3->labelcolor((Fl_Color)26);
+      dealer_id3->textsize(16);
+      dealer_id3->textcolor((Fl_Color)26);
+
+      dealer_plcount3 = new Fl_Output(176, 117+310, 127, 35, "Player Count ");
+      dealer_plcount3->box(FL_NO_BOX);
+      dealer_plcount3->labelfont(1);
+      dealer_plcount3->labelsize(16);
+      dealer_plcount3->labelcolor((Fl_Color)26);
+      dealer_plcount3->textsize(16);
+      dealer_plcount3->textcolor((Fl_Color)26);
+
+      dealer_ssize3 = new Fl_Output(497, 88+310, 120, 35, "Shoe size     ");
+      dealer_ssize3->box(FL_NO_BOX);
+      dealer_ssize3->labelfont(1);
+      dealer_ssize3->labelsize(16);
+      dealer_ssize3->labelcolor((Fl_Color)26);
+      dealer_ssize3->textsize(16);
+      dealer_ssize3->textcolor((Fl_Color)26);
+
+      dealer_mMbet3 = new Fl_Output(498, 116+310, 119, 35, "Min-Max bet ");
+      dealer_mMbet3->box(FL_NO_BOX);
+      dealer_mMbet3->labelfont(1);
+      dealer_mMbet3->labelsize(16);
+      dealer_mMbet3->labelcolor((Fl_Color)26);
+      dealer_mMbet3->textsize(16);
+      dealer_mMbet3->textcolor((Fl_Color)26);
+
+      join_btn3 = new Fl_Button(500, 54+310, 95, 35, "Join");
+      join_btn3->box(FL_GLEAM_THIN_UP_BOX);
+      join_btn3->color((Fl_Color)138);
+      join_btn3->labelfont(1);
+      join_btn3->labelsize(18);
+      join_btn3->labelcolor((Fl_Color)26);
+
+      dealer_info3->end();
+    }
+
+    {
+      dealer_info4 = new Fl_Group(33, 34+465, 589, 142);
+      dealer_info4->box(FL_GLEAM_THIN_UP_BOX);
+      dealer_info4->color((Fl_Color)36);
+      dealer_info4->hide();
+
+      dealer_name4 = new Fl_Output(51, 54+465, 320, 35);
+      dealer_name4->box(FL_NO_BOX);
+      dealer_name4->textfont(1);
+      dealer_name4->textsize(24);
+      dealer_name4->textcolor((Fl_Color)26);
+
+      dealer_id4 = new Fl_Output(175, 89+465, 127, 35, "Dealer ID      ");
+      dealer_id4->box(FL_NO_BOX);
+      dealer_id4->labelfont(1);
+      dealer_id4->labelsize(16);
+      dealer_id4->labelcolor((Fl_Color)26);
+      dealer_id4->textsize(16);
+      dealer_id4->textcolor((Fl_Color)26);
+
+      dealer_plcount4 = new Fl_Output(176, 117+465, 127, 35, "Player Count ");
+      dealer_plcount4->box(FL_NO_BOX);
+      dealer_plcount4->labelfont(1);
+      dealer_plcount4->labelsize(16);
+      dealer_plcount4->labelcolor((Fl_Color)26);
+      dealer_plcount4->textsize(16);
+      dealer_plcount4->textcolor((Fl_Color)26);
+
+      dealer_ssize4 = new Fl_Output(497, 88+465, 120, 35, "Shoe size     ");
+      dealer_ssize4->box(FL_NO_BOX);
+      dealer_ssize4->labelfont(1);
+      dealer_ssize4->labelsize(16);
+      dealer_ssize4->labelcolor((Fl_Color)26);
+      dealer_ssize4->textsize(16);
+      dealer_ssize4->textcolor((Fl_Color)26);
+
+      dealer_mMbet4 = new Fl_Output(498, 116+465, 119, 35, "Min-Max bet ");
+      dealer_mMbet4->box(FL_NO_BOX);
+      dealer_mMbet4->labelfont(1);
+      dealer_mMbet4->labelsize(16);
+      dealer_mMbet4->labelcolor((Fl_Color)26);
+      dealer_mMbet4->textsize(16);
+      dealer_mMbet4->textcolor((Fl_Color)26);
+
+      join_btn4 = new Fl_Button(500, 54+465, 95, 35, "Join");
+      join_btn4->box(FL_GLEAM_THIN_UP_BOX);
+      join_btn4->color((Fl_Color)138);
+      join_btn4->labelfont(1);
+      join_btn4->labelsize(18);
+      join_btn4->labelcolor((Fl_Color)26);
+
+      dealer_info4->end();
+    }
+
 
     scroll_window->end();
   }

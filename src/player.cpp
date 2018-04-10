@@ -286,10 +286,6 @@ int player::get_hands_played()
   return hands_played;
 }
 
-void player::setClear(){
-  player();
-}
-
 void player::set_play_style(int x)
 {
 //  play_style = x;   //fix this.. FCUKKKK .. gives segmentation fault..

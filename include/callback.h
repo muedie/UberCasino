@@ -1,5 +1,8 @@
 #include "../ccpp_UberCasino.h"
 #include "player.h"
+
+
+
 // PTR is a global.  Horrible hack
 extern player* PTR;
 

@@ -63,7 +63,7 @@ class player
       std::string getName();
       bool get_m_Dealer_recv();
       std::vector<Dealer> getDealer_list();
-      void setClear();
+    
       void set_play_style(int x);
       int get_hands_won();
       int get_hands_played();
