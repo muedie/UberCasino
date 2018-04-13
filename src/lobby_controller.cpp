@@ -18,17 +18,21 @@ Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
   aggressive->when(FL_WHEN_CHANGED);
   counting->when(FL_WHEN_CHANGED);
   conservative->when(FL_WHEN_CHANGED);
-  manual->callback(ClickedRound, (void*) "1");
-  basic->callback(ClickedRound, (void*) "2");
-  aggressive->callback(ClickedRound,(void*) "3");
-  counting->callback(ClickedRound, (void*) "4");
-  conservative->callback(ClickedRound, (void*) "5");
+
+  manual->callback(ClickedRound1, (void*) this);
+  basic->callback(ClickedRound2, (void*) this);
+  aggressive->callback(ClickedRound3,(void*) this);
+  counting->callback(ClickedRound4, (void*) this);
+  conservative->callback(ClickedRound5, (void*) this);
+
   logout_btn->callback(ClickedLogout, this);
+
   refresh_btn->callback(ClickedRefresh, (void*)this);
-  join_btn->callback(ClickedJoin, (void*) "0");
-  join_btn2->callback(ClickedJoin, (void*) "1");
-  join_btn3->callback(ClickedJoin, (void*) "2");
-  join_btn4->callback(ClickedJoin, (void*) "3");
+
+  join_btn->callback(ClickedJoin1, (void*)this);
+  join_btn2->callback(ClickedJoin2, (void*)this);
+  join_btn3->callback(ClickedJoin3, (void*)this);
+  join_btn4->callback(ClickedJoin4, (void*)this);
 }
 
 void Lobby_controller::ClickedLogout(Fl_Widget* w, void* data)
@@ -41,21 +45,78 @@ void Lobby_controller::ClickedRefresh(Fl_Widget* w, void* data)
   ((Lobby_controller*)data)->ClickedRefresh_i();
 }
 
-void Lobby_controller::ClickedJoin(Fl_Widget* w, void* data)
+void Lobby_controller::ClickedJoin1(Fl_Widget* w, void* data)
 {
-  char * x = (char*) data;
-  ((Lobby_controller*)data)->ClickedJoin_i(x);
+  ((Lobby_controller*)data)->ClickedJoin1_i();
 }
 
-void Lobby_controller::ClickedRound(Fl_Widget* w, void* data)
+void Lobby_controller::ClickedJoin2(Fl_Widget* w, void* data)
 {
-  int x = std::stoi((char*) data);
-  ((Lobby_controller*)data)->ClickedRound_i(x);
+  ((Lobby_controller*)data)->ClickedJoin2_i();
 }
 
-void Lobby_controller::ClickedRound_i(int x)
+void Lobby_controller::ClickedJoin3(Fl_Widget* w, void* data)
 {
-  _p.set_play_style(x);
+  ((Lobby_controller*)data)->ClickedJoin3_i();
+}
+
+void Lobby_controller::ClickedJoin4(Fl_Widget* w, void* data)
+{
+  ((Lobby_controller*)data)->ClickedJoin4_i();
+}
+
+void Lobby_controller::ClickedRound1(Fl_Widget* w, void* data)
+{
+  ((Lobby_controller*)data)->ClickedRound1_i();
+}
+
+void Lobby_controller::ClickedRound1_i()
+{
+  _p.set_play_style(1);
+
+}
+
+void Lobby_controller::ClickedRound2(Fl_Widget* w, void* data)
+{
+  ((Lobby_controller*)data)->ClickedRound2_i();
+}
+
+void Lobby_controller::ClickedRound2_i()
+{
+  _p.set_play_style(2);
+
+}
+
+void Lobby_controller::ClickedRound3(Fl_Widget* w, void* data)
+{
+  ((Lobby_controller*)data)->ClickedRound3_i();
+}
+
+void Lobby_controller::ClickedRound3_i()
+{
+  _p.set_play_style(3);
+
+}
+
+void Lobby_controller::ClickedRound4(Fl_Widget* w, void* data)
+{
+  ((Lobby_controller*)data)->ClickedRound4_i();
+}
+
+void Lobby_controller::ClickedRound4_i()
+{
+  _p.set_play_style(4);
+
+}
+
+void Lobby_controller::ClickedRound5(Fl_Widget* w, void* data)
+{
+  ((Lobby_controller*)data)->ClickedRound5_i();
+}
+
+void Lobby_controller::ClickedRound5_i()
+{
+  _p.set_play_style(5);
 }
 
 
@@ -106,10 +167,34 @@ void Lobby_controller::ClickedLogout_i()
   Fl::run();
 }
 
-void Lobby_controller::ClickedJoin_i(char* x)
+void Lobby_controller::ClickedJoin1_i()
 {
   hide();
-  _p.user_input(x);
+  _p.user_input("1");
+  Table_controller win(_p);
+  Fl::run();
+}
+
+void Lobby_controller::ClickedJoin2_i()
+{
+  hide();
+  _p.user_input("2");
+  Table_controller win(_p);
+  Fl::run();
+}
+
+void Lobby_controller::ClickedJoin3_i()
+{
+  hide();
+  _p.user_input("3");
+  Table_controller win(_p);
+  Fl::run();
+}
+
+void Lobby_controller::ClickedJoin4_i()
+{
+  hide();
+  _p.user_input("4");
   Table_controller win(_p);
   Fl::run();
 }

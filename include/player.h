@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include <boost/thread.hpp>
 
 #include <boost/uuid/uuid.hpp>            // uuid class
 #include <boost/uuid/uuid_generators.hpp> // generators
@@ -15,37 +16,42 @@
 
 class player
 {
-   private:
-      enum player_state_t {Init,Waiting,Playing,Turn} m_player_state;
-      std::string m_name;
-      void manage_state ();
-      void lock ();
-      void unlock ();
+public:
 
-      unsigned int m_dealer_idx;
-      std::vector<Dealer> m_dealer_list;
-      std::string m_user_event_string;
+private:
+   enum player_state_t {Init,StartHand,Playing,EndHand} m_player_state;
+   std::string m_name;
+   void manage_state ();
+   void lock ();
+   void unlock ();
+   unsigned int m_dealer_idx;
+   std::vector<Dealer> m_dealer_list;
+   std::string m_user_event_string;
+   boost::uuids::uuid m_current_game_uuid;
+   boost::thread *m_timer_thread;
+   float m_balance;
+   bool m_timer_event;   // timer has expired
+   bool m_user_event;    // user typed in something
+   bool m_Player_recv;   // data recved
+   bool m_Game_recv;     // data recved, the game UID matches
+   bool m_Game_recv_idx; // data recved, the player index matches
+   bool m_Dealer_recv;   // data recved
 
-      bool m_timer_event; // timer has expired
-      bool m_user_event;  // user typed in something
-      bool m_Player_recv; // data recved
-      bool m_Game_recv;   // data recved
-      bool m_Dealer_recv; // data recved
+   dds_io<Player,PlayerSeq,PlayerTypeSupport_var,PlayerTypeSupport,PlayerDataWriter_var,
+          PlayerDataWriter,PlayerDataReader_var,PlayerDataReader> *p_io;
+   dds_io<Dealer,DealerSeq,DealerTypeSupport_var,DealerTypeSupport,DealerDataWriter_var,
+          DealerDataWriter,DealerDataReader_var,DealerDataReader> *d_io;
+   dds_io<Game,GameSeq,GameTypeSupport_var,GameTypeSupport,GameDataWriter_var,
+          GameDataWriter,GameDataReader_var,GameDataReader> *g_io;
 
-      dds_io<Player,PlayerSeq,PlayerTypeSupport_var,PlayerTypeSupport,PlayerDataWriter_var,
-             PlayerDataWriter,PlayerDataReader_var,PlayerDataReader> *p_io;
-      dds_io<Dealer,DealerSeq,DealerTypeSupport_var,DealerTypeSupport,DealerDataWriter_var,
-             DealerDataWriter,DealerDataReader_var,DealerDataReader> *d_io;
-      dds_io<Game,GameSeq,GameTypeSupport_var,GameTypeSupport,GameDataWriter_var,
-             GameDataWriter,GameDataReader_var,GameDataReader> *g_io;
-
-      std::string print_state ( player_state_t );
+   std::string to_string ( player_state_t );
 
       int hands_won;
       int hands_played;
       int play_style;
 
    public:
+     boost::uuids::uuid m_my_uid;
       Player m_P; // stores the last data
       Dealer m_D;
       Game   m_G;
@@ -63,7 +69,7 @@ class player
       std::string getName();
       bool get_m_Dealer_recv();
       std::vector<Dealer> getDealer_list();
-    
+
       void set_play_style(int x);
       int get_hands_won();
       int get_hands_played();

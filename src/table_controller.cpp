@@ -1,5 +1,6 @@
 #include "lobby_controller.h"
 #include "table_controller.h"
+#include "player.h"
 
 
 Table_controller::Table_controller(player& p) : Table_view() , _p{p}{

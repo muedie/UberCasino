@@ -28,12 +28,26 @@ public:
   Lobby_controller (player& p);
   static void ClickedLogout(Fl_Widget* w, void* data);
   static void ClickedRefresh(Fl_Widget* w, void* data);
-  static void ClickedJoin(Fl_Widget* w, void* data);
-  static void ClickedRound(Fl_Widget* w, void* data);
+  static void ClickedJoin1(Fl_Widget* w, void* data);
+  static void ClickedJoin2(Fl_Widget* w, void* data);
+  static void ClickedJoin3(Fl_Widget* w, void* data);
+  static void ClickedJoin4(Fl_Widget* w, void* data);
+  static void ClickedRound1(Fl_Widget* w, void* data);
+  static void ClickedRound2(Fl_Widget* w, void* data);
+  static void ClickedRound3(Fl_Widget* w, void* data);
+  static void ClickedRound4(Fl_Widget* w, void* data);
+  static void ClickedRound5(Fl_Widget* w, void* data);
   void ClickedLogout_i();
   void ClickedRefresh_i();
-  void ClickedJoin_i(char* x);
-  void ClickedRound_i(int x);
+  void ClickedJoin1_i();
+  void ClickedJoin2_i();
+  void ClickedJoin3_i();
+  void ClickedJoin4_i();
+  void ClickedRound1_i();
+  void ClickedRound2_i();
+  void ClickedRound3_i();
+  void ClickedRound4_i();
+  void ClickedRound5_i();
 
 };
 #endif

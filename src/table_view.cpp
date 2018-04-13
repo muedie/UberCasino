@@ -71,6 +71,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       balance->textcolor(FL_GRAY0);
 
       spn_bet = new Fl_Spinner(62, 700, 105, 45);
+      spn_bet->range(1,10);
       spn_bet->labelfont(1);
       spn_bet->textfont(1);
       spn_bet->textsize(24);
