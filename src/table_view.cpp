@@ -29,6 +29,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       double_down->labelsize(18);
       double_down->labelcolor((Fl_Color)26);
       double_down->align(Fl_Align(FL_ALIGN_WRAP));
+      double_down->deactivate();
 
       split = new Fl_Button(1150, 698, 105, 51, "Split");
       split->box(FL_GLEAM_THIN_UP_BOX);
@@ -37,6 +38,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       split->labelsize(18);
       split->labelcolor((Fl_Color)26);
       split->align(Fl_Align(FL_ALIGN_WRAP));
+      split->deactivate();
 
       stand = new Fl_Button(900, 698, 105, 51, "Stand");
       stand->box(FL_GLEAM_THIN_UP_BOX);
@@ -45,6 +47,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       stand->labelsize(18);
       stand->labelcolor((Fl_Color)26);
       stand->align(Fl_Align(FL_ALIGN_WRAP));
+      stand->deactivate();
 
       hit = new Fl_Button(774, 698, 105, 51, "Hit");
       hit->box(FL_GLEAM_THIN_UP_BOX);
@@ -53,6 +56,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       hit->labelsize(18);
       hit->labelcolor((Fl_Color)26);
       hit->align(Fl_Align(FL_ALIGN_WRAP));
+      hit->deactivate();
 
       bet = new Fl_Button(188, 698, 105, 51, "Bet");
       bet->box(FL_GLEAM_THIN_UP_BOX);
@@ -61,6 +65,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       bet->labelsize(18);
       bet->labelcolor((Fl_Color)26);
       bet->align(Fl_Align(FL_ALIGN_WRAP));
+      bet->deactivate();
 
       balance = new Fl_Output(544, 705, 109, 35, "Balance ");
       balance->box(FL_GTK_ROUND_UP_BOX);
@@ -189,7 +194,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   }
 
     {
-      player_game = new Fl_Group(1015, 513, 275, 144);
+      player_game = new Fl_Group(1015, 513, 280, 144);
       player_game->box(FL_GLEAM_THIN_UP_BOX);
       player_game->color((Fl_Color)36);
 
@@ -203,7 +208,16 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
         player_name->textsize(24);
         player_name->textcolor((Fl_Color)26);
 
-        player_count = new Fl_Output(1151, 575, 120, 35, "Count           ");
+        play_style = new Fl_Output(1151, 575, 120, 35, "Strategy       ");
+        play_style->box(FL_NO_BOX);
+        play_style->labelfont(1);
+        play_style->labelsize(16);
+        play_style->labelcolor((Fl_Color)26);
+        play_style->textfont(1);
+        play_style->textsize(16);
+        play_style->textcolor((Fl_Color)26);
+
+        player_count = new Fl_Output(1151, 597, 120, 35, "Count           ");
         player_count->box(FL_NO_BOX);
         player_count->labelfont(1);
         player_count->labelsize(16);
@@ -211,7 +225,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
         player_count->textsize(16);
         player_count->textcolor((Fl_Color)26);
 
-        player_suggestion = new Fl_Output(1151, 597, 120, 35, "Suggestion   ");
+        player_suggestion = new Fl_Output(1151, 619, 120, 35, "Suggestion   ");
         player_suggestion->box(FL_NO_BOX);
         player_suggestion->labelfont(1);
         player_suggestion->labelsize(16);

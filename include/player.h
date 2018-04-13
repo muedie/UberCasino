@@ -49,6 +49,7 @@ private:
       int hands_won;
       int hands_played;
       int play_style;
+      std::string uid;
 
    public:
      boost::uuids::uuid m_my_uid;
@@ -73,6 +74,11 @@ private:
       void set_play_style(int x);
       int get_hands_won();
       int get_hands_played();
+      std::string getStyle();
+      std::string getDealerName();
+      std::string getDealerID();
+      std::string getPlayerID();
+      void setUID(std::string s);
       player ();
       ~player ();
 };

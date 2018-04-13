@@ -41,6 +41,7 @@ protected:
   Fl_Spinner* spn_bet;
   Fl_Group* player_game;
   Fl_Output* player_name;
+  Fl_Output* play_style;
   Fl_Output* player_count;
   Fl_Output* player_suggestion;
   Fl_Group* dealer_cards;

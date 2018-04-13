@@ -4,7 +4,7 @@
 Login_view::Login_view() : Fl_Window(430, 475, "Login")
 {
   begin();
-  background_img = new Fl_JPEG_Image("/home/student/Desktop/CSE3310/Project/extra/images/login.jpeg");
+  background_img = new Fl_JPEG_Image("./extra/images/login.jpeg");
   main_box = new Fl_Box(0, 0, 430, 475);
   main_box->image(background_img);
 

@@ -1,6 +1,9 @@
 #include <iostream>
 #include <functional>
 #include <cstdlib>
+#include <boost/uuid/uuid.hpp>
+
+#include <boost/uuid/uuid_io.hpp>
 
 
 #include <boost/thread.hpp>
@@ -451,6 +454,37 @@ void player::set_play_style(int x)
 {
  play_style = x;
 }
+
+std::string player::getStyle(){
+  string res;
+  switch(play_style)
+  {
+    case 1: res = "Manual"; break;
+    case 2: res = "Basic";  break;
+    case 3: res = "Aggressive"; break;
+    case 4: res = "Counting"; break;
+    case 5: res = "Conservative"; break;
+  }
+  return res;
+}
+
+std::string player::getDealerName(){
+return m_dealer_list[m_dealer_idx-1].name;
+}
+
+std::string player::getDealerID(){
+return m_dealer_list[m_dealer_idx-1].uid;
+}
+
+std::string player::getPlayerID() {
+  return uid;
+}
+
+void player::setUID(std::string s)
+{
+  uid = s;
+}
+
 
 player::player ()
 {

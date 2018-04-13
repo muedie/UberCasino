@@ -33,14 +33,19 @@ void Login_controller::ClickedQuit_i()
 void Login_controller::ClickedLogin_i()
 {
   std::string s = name_input->value();
-  if (s == "")
+  if (s.size() <= 32) 
   {
-    s = "Player1";
+    if (s == "")
+    {
+      s = "Player1";
+    }
+    boost::uuids::uuid uuid = boost::uuids::random_generator()();
+    _p.setName(s);
+    _p.setUID(boost::uuids::to_string(uuid));
+    memcpy ( _p.m_P.uid, &uuid, sizeof ( _p.m_P.uid ) );
+    hide();
+   Lobby_controller win(_p);
+    Fl::run();
   }
-  boost::uuids::uuid uuid = boost::uuids::random_generator()();
-  _p.setName(s);
-  memcpy ( _p.m_P.uid, &uuid, sizeof ( _p.m_P.uid ) );
-  hide();
- Lobby_controller win(_p);
-  Fl::run();
+
 }

@@ -7,9 +7,8 @@ Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
   player_name->value(_p.getName().c_str());
   float bal = _p.m_P.balance;
   int b = int(bal + 0.5);
-  string uid = _p.m_P.uid;
   player_balance->value(std::to_string(b).c_str());
-  player_id->value(uid.c_str());
+  player_id->value(_p.getPlayerID().c_str());
   player_games_played->value(std::to_string(_p.get_hands_played()).c_str());
   player_hands_won->value(std::to_string(_p.get_hands_won()).c_str());
 
