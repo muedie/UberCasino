@@ -101,25 +101,37 @@ void player::manage_state ()
    // determine if we have a state transition
    bool transition = false;
    player_state_t next_state = m_player_state;
+   std::cout << "\n1: m_player_state: " << to_string(m_player_state);
    switch ( m_player_state )
    {
      case Init:
          {
+            std::cout << "\nEntered init state: m_Dealer_recv: " << m_Dealer_recv;
             // a dealer is starting a game
             if ( m_Dealer_recv )
             {
+                std::cout << "m_Dealer_recv was true";
                 transition = true;
             }
             // the player has entered a string
+
+            std::cout << "m_user_event: " << m_user_event;
+
             if ( m_user_event )
             {
                // you must enter in something that does not
                // exception.  like a number
                m_dealer_idx = std::stoi ( m_user_event_string );
+
+               std::cout << "m_user_event was true & m_dealer_idx" << m_dealer_idx << " m_dealer_list size: " << m_dealer_list.size ();
+
+
                if ( m_dealer_idx < m_dealer_list.size () )
                {
+                   std::cout << "transition should change\n\n";
                   transition = true;
                   next_state = StartHand;
+                  std::cout << "transtion changed to starthand\n\n";
                }
             }
          }
@@ -161,23 +173,22 @@ void player::manage_state ()
 
    if ( m_player_state != next_state )
    {
-#ifdef DEBUG_STATES
       std::cout << "State change from " << to_string (m_player_state)
                 << " to " << to_string ( next_state ) << std::endl;
-#endif
    }
    // if there is a transition, then we have to run the exit
    // and entrance processing
    if (transition)
    {
       // on exit
+      std::cout << "\nNext: m_player_state: " << to_string(m_player_state);
       switch (m_player_state)
       {
          case Init:
          {
-#ifdef DEBUG_STATES
+//#ifdef DEBUG_STATES
            std::cout << "Init: Exit" << std::endl;
-#endif
+//#endif
            // Wait 30 seconds for the dealer to act
            // if he does not act, then he has not accepted us into the game
            TIMER(30);
@@ -185,9 +196,9 @@ void player::manage_state ()
          break;
          case StartHand:
          {
-#ifdef DEBUG_STATES
+//#ifdef DEBUG_STATES
            std::cout << "StartHand Exit" << std::endl;
-#endif
+//#endif
          }
          break;
          case Playing:
@@ -207,6 +218,8 @@ void player::manage_state ()
       }
 
       // on entrance
+      std::cout << "\nnext_state: " << to_string(next_state);
+
       switch (next_state)
       {
          case Init:
@@ -232,9 +245,9 @@ void player::manage_state ()
          break;
          case StartHand:
          {
-#ifdef DEBUG_STATES
+//#ifdef DEBUG_STATES
                std::cout << "Waiting: StartHand" << std::endl;
-#endif
+//#endif
                memcpy ( m_P.game_uid,
                         m_dealer_list[m_dealer_idx].game_uid,
                         sizeof ( m_P.game_uid ) );
@@ -254,6 +267,15 @@ void player::manage_state ()
 #endif
             unsigned int value = Hand_Value ( m_G.p[m_G.active_player].cards );
             std::cout << "The value of my hand is "<< value << std::endl;
+
+
+            if (strcmp(m_user_event_string.c_str(), "hit") == 0) {
+                m_P.A = hitting;
+            } else if (strcmp(m_user_event_string.c_str(), "stand") == 0) {
+                m_P.A = standing;
+            }
+
+            /*
             if ( value > 11 )
             {
                std::cout << "I have decided to stand " << std::endl;
@@ -265,6 +287,7 @@ void player::manage_state ()
                std::cout << "I have decided to hit " << std::endl;
                m_P.A = hitting;
             }
+            */
             p_io->publish  ( m_P );
          }
          break;
@@ -420,7 +443,7 @@ void player::user_input (std::string I)
    lock ();
    m_user_event_string = I;
    m_user_event = true;
-   std::cout << "User input received" << std::endl;
+   std::cout << "User input received: " << m_user_event_string << std::endl;
    manage_state ();
    unlock ();
 }

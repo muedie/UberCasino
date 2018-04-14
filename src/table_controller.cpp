@@ -90,16 +90,21 @@ void Table_controller::ClickedStand_i()
 {
   //char* s = name_input->value();
   hide();
-  Lobby_controller win(_p);
-  Fl::run();
+  _p.user_input("stand");
+  //Lobby_controller win(_p);
+  std::cout << "\nLobby update\n";
+  //Fl::awake();
 }
 
 void Table_controller::ClickedHit_i()
 {
   //char* s = name_input->value();
   hide();
-  Lobby_controller win(_p);
-  Fl::run();
+  _p.user_input("hit");
+
+  std::cout << "\nLobby update\n";
+  //Lobby_controller win(_p);
+  //Fl::awake();
 }
 
 

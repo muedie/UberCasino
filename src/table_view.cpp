@@ -104,7 +104,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       stand->labelsize(18);
       stand->labelcolor((Fl_Color)26);
       stand->align(Fl_Align(FL_ALIGN_WRAP));
-      stand->deactivate();
+      stand->activate();
 
       hit = new Fl_Button(774, 698, 105, 51, "Hit");
       hit->box(FL_GLEAM_THIN_UP_BOX);
@@ -113,7 +113,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       hit->labelsize(18);
       hit->labelcolor((Fl_Color)26);
       hit->align(Fl_Align(FL_ALIGN_WRAP));
-      hit->deactivate();
+      hit->activate();
 
       bet = new Fl_Button(188, 698, 105, 51, "Bet");
       bet->box(FL_GLEAM_THIN_UP_BOX);
