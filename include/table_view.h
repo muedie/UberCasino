@@ -9,12 +9,67 @@
 #include <FL/Fl_Group.H>
 #include <FL/Fl_Output.H>
 #include <FL/Fl_Spinner.H>
+#include <FL/Fl_JPEG_Image.H>
 
 #include <stdio.h>
 #include <stdlib.h>
 
 class Table_view: public Fl_Window {
 protected:
+  Fl_JPEG_Image* back_card;
+  Fl_JPEG_Image* cd2C;
+  Fl_JPEG_Image* cd3C;
+  Fl_JPEG_Image* cd4C;
+  Fl_JPEG_Image* cd5C;
+  Fl_JPEG_Image* cd6C;
+  Fl_JPEG_Image* cd7C;
+  Fl_JPEG_Image* cd8C;
+  Fl_JPEG_Image* cd9C;
+  Fl_JPEG_Image* cd10C;
+  Fl_JPEG_Image* cdAC;
+  Fl_JPEG_Image* cdJC;
+  Fl_JPEG_Image* cdQC;
+  Fl_JPEG_Image* cdKC;
+  Fl_JPEG_Image* cd2S;
+  Fl_JPEG_Image* cd3S;
+  Fl_JPEG_Image* cd4S;
+  Fl_JPEG_Image* cd5S;
+  Fl_JPEG_Image* cd6S;
+  Fl_JPEG_Image* cd7S;
+  Fl_JPEG_Image* cd8S;
+  Fl_JPEG_Image* cd9S;
+  Fl_JPEG_Image* cd10S;
+  Fl_JPEG_Image* cdAS;
+  Fl_JPEG_Image* cdJS;
+  Fl_JPEG_Image* cdQS;
+  Fl_JPEG_Image* cdKS;
+  Fl_JPEG_Image* cd2H;
+  Fl_JPEG_Image* cd3H;
+  Fl_JPEG_Image* cd4H;
+  Fl_JPEG_Image* cd5H;
+  Fl_JPEG_Image* cd6H;
+  Fl_JPEG_Image* cd7H;
+  Fl_JPEG_Image* cd8H;
+  Fl_JPEG_Image* cd9H;
+  Fl_JPEG_Image* cd10H;
+  Fl_JPEG_Image* cdAH;
+  Fl_JPEG_Image* cdJH;
+  Fl_JPEG_Image* cdQH;
+  Fl_JPEG_Image* cdKH;
+  Fl_JPEG_Image* cd2D;
+  Fl_JPEG_Image* cd3D;
+  Fl_JPEG_Image* cd4D;
+  Fl_JPEG_Image* cd5D;
+  Fl_JPEG_Image* cd6D;
+  Fl_JPEG_Image* cd7D;
+  Fl_JPEG_Image* cd8D;
+  Fl_JPEG_Image* cd9D;
+  Fl_JPEG_Image* cd10D;
+  Fl_JPEG_Image* cdAD;
+  Fl_JPEG_Image* cdJD;
+  Fl_JPEG_Image* cdQD;
+  Fl_JPEG_Image* cdKD;
+
   Fl_Box* main_box;
   Fl_Button* btn_leave;
   Fl_Group* dealer_info;

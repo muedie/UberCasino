@@ -6,10 +6,13 @@
 Table_controller::Table_controller(player& p) : Table_view() , _p{p}{
 player_name->value(_p.getName().c_str());
 play_style->value(_p.getStyle().c_str());
+float bal = _p.m_P.balance;
+int b = int(bal + 0.5);
+balance->value(to_string(b).c_str());
+
 
 dealer_name->value(_p.getDealerName().c_str());
 dealer_id->value(_p.getDealerID().c_str());
-
 
   btn_leave->callback(ClickedLeave, (void*)this);
  double_down->callback(ClickedDoubledown, (void*)this);

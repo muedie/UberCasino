@@ -5,7 +5,7 @@
 
 Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
   player_name->value(_p.getName().c_str());
-  float bal = _p.m_P.balance;
+  float bal = _p.getBalance();
   int b = int(bal + 0.5);
   player_balance->value(std::to_string(b).c_str());
   player_id->value(_p.getPlayerID().c_str());

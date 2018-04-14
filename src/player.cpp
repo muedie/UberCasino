@@ -319,6 +319,11 @@ void player::manage_state ()
 
 }
 
+/*int* getUpdates() {
+  //array of evernt returns
+}*/
+
+
 void player::timer_expired ( )
 {
    // this is called by the timer thread callback when the delay has expired
@@ -483,6 +488,11 @@ std::string player::getPlayerID() {
 void player::setUID(std::string s)
 {
   uid = s;
+}
+
+float player::getBalance()
+{
+  return m_balance;
 }
 
 
