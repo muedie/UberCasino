@@ -23,6 +23,7 @@ class Lobby_controller : public Lobby_view {
 
 private:
   player& _p;
+  boost::thread *lobby_thread;
 
 public:
   Lobby_controller (player& p);

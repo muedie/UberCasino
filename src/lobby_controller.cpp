@@ -2,8 +2,26 @@
 #include "login_controller.h"
 #include "table_controller.h"
 
+#include <functional>
+#include <cstdlib>
+
+#include <boost/thread.hpp>
+
+
+void lob_thread ( int seconds, std::function <void(void)> callback)
+{
+  while(1)
+  {
+    boost::this_thread::sleep_for(boost::chrono::milliseconds(seconds));
+    callback ();
+  }
+}
+
+
+
 
 Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
+  lobby_thread = new boost::thread ( lob_thread , 10 , std::bind ( &Lobby_controller::ClickedRefresh_i, this) );
   player_name->value(_p.getName().c_str());
   float bal = _p.getBalance();
   int b = int(bal + 0.5);
@@ -123,6 +141,7 @@ void Lobby_controller::ClickedRound5_i()
 
 void Lobby_controller::ClickedRefresh_i()
 {
+  std::cout << "aa" << std::endl;
     vector<Dealer> v = _p.getDealer_list();
     string s1, s2;
     switch (v.size()) {
