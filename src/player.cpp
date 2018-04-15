@@ -101,37 +101,42 @@ void player::manage_state ()
    // determine if we have a state transition
    bool transition = false;
    player_state_t next_state = m_player_state;
-   std::cout << "\n1: m_player_state: " << to_string(m_player_state);
+   //std::cout << "\n1: m_player_state: " << to_string(m_player_state);
    switch ( m_player_state )
    {
      case Init:
          {
-            std::cout << "\nEntered init state: m_Dealer_recv: " << m_Dealer_recv;
+            //std::cout << "\nEntered init state: m_Dealer_recv: " << m_Dealer_recv;
             // a dealer is starting a game
             if ( m_Dealer_recv )
             {
-                std::cout << "m_Dealer_recv was true";
+                std::cout << "\nm_Dealer_recv was true\n";
                 transition = true;
             }
             // the player has entered a string
 
-            std::cout << "m_user_event: " << m_user_event;
+            std::cout << "\nm_user_event: " << m_user_event;
 
             if ( m_user_event )
             {
                // you must enter in something that does not
                // exception.  like a number
-               m_dealer_idx = std::stoi ( m_user_event_string );
+
+               try {
+                   m_dealer_idx = std::stoi ( m_user_event_string );
+               } catch (const std::invalid_argument& e) {
+                   std::cout << "\nTry-catch: m_user_event_string: " << m_user_event_string;
+                   std::cout << "\nm_player_state: " << to_string(m_player_state) << ", next_state: " << to_string(next_state);
+                   std::cout << "\n" << e.what() << std::endl;
+               }
 
                std::cout << "m_user_event was true & m_dealer_idx" << m_dealer_idx << " m_dealer_list size: " << m_dealer_list.size ();
 
 
                if ( m_dealer_idx < m_dealer_list.size () )
                {
-                   std::cout << "transition should change\n\n";
                   transition = true;
                   next_state = StartHand;
-                  std::cout << "transtion changed to starthand\n\n";
                }
             }
          }
@@ -140,6 +145,7 @@ void player::manage_state ()
          {
              if ( m_timer_event )
              {
+                std::cout << "\nTIME EVENT\n";
                  transition = true;
                  next_state = Init;
              }
@@ -181,7 +187,7 @@ void player::manage_state ()
    if (transition)
    {
       // on exit
-      std::cout << "\nNext: m_player_state: " << to_string(m_player_state);
+      std::cout << "\nTransition (True): m_player_state: " << to_string(m_player_state) << std::endl;
       switch (m_player_state)
       {
          case Init:
@@ -230,7 +236,7 @@ void player::manage_state ()
             if (m_Dealer_recv)
             {
                m_dealer_list.push_back ( m_D );
-            }
+           }
             // print the list to stdout
             if (m_dealer_list.size () > 0 )
             {
@@ -270,9 +276,12 @@ void player::manage_state ()
 
 
             if (strcmp(m_user_event_string.c_str(), "hit") == 0) {
+                std::cout << "\nHIT: m_user_event: " << m_user_event_string << "Next state: " << next_state;
                 m_P.A = hitting;
             } else if (strcmp(m_user_event_string.c_str(), "stand") == 0) {
+                std::cout << "\nSTAND: m_user_event: " << m_user_event_string << "Next state: " << next_state;
                 m_P.A = standing;
+                TIMER(1);
             }
 
             /*
@@ -516,6 +525,10 @@ void player::setUID(std::string s)
 float player::getBalance()
 {
   return m_balance;
+}
+
+void player::getUserState() {
+    std::cout << "\n Table call: m_player_state: " << to_string(m_player_state) << endl;
 }
 
 

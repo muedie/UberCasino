@@ -71,6 +71,8 @@ private:
       bool get_m_Dealer_recv();
       std::vector<Dealer> getDealer_list();
 
+      void getUserState();
+
       void set_play_style(int x);
       float getBalance();
       int get_hands_won();

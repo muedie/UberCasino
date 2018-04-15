@@ -15,7 +15,7 @@ dealer_name->value(_p.getDealerName().c_str());
 dealer_id->value(_p.getDealerID().c_str());
 
   btn_leave->callback(ClickedLeave, (void*)this);
- double_down->callback(ClickedDoubledown, (void*)this);
+  double_down->callback(ClickedDoubledown, (void*)this);
   split->callback(ClickedSplit, (void*)this);
   stand->callback(ClickedStand, (void*)this);
   hit->callback(ClickedHit, (void*)this);
@@ -62,12 +62,7 @@ void Table_controller::ClickedLeave_i()
   Fl::run();
 }
 
-
-
-
 //Implement model here
-
-
 void Table_controller::ClickedDoubledown_i()
 {
   //char* s = name_input->value();
@@ -86,19 +81,12 @@ void Table_controller::ClickedSplit_i()
 void Table_controller::ClickedStand_i()
 {
   _p.user_input("stand");
-
-  std::cout << "\nLobby update\n";
-
 }
 
 void Table_controller::ClickedHit_i()
 {
   _p.user_input("hit");
-
-  std::cout << "\nLobby update\n";
 }
-
-
 
 void Table_controller::ClickedBet_i()
 {
