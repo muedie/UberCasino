@@ -506,11 +506,11 @@ std::string player::getStyle(){
 }
 
 std::string player::getDealerName(){
-return m_dealer_list[m_dealer_idx-1].name;
+return m_dealer_list[m_dealer_idx].name;
 }
 
 std::string player::getDealerID(){
-return m_dealer_list[m_dealer_idx-1].uid;
+return m_dealer_list[m_dealer_idx].uid;
 }
 
 std::string player::getPlayerID() {
