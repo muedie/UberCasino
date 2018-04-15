@@ -188,7 +188,7 @@ void Lobby_controller::ClickedLogout_i()
 void Lobby_controller::ClickedJoin1_i()
 {
   hide();
-  _p.user_input("1");
+  _p.user_input("0");
   Table_controller win(_p);
   Fl::run();
 }
@@ -196,7 +196,7 @@ void Lobby_controller::ClickedJoin1_i()
 void Lobby_controller::ClickedJoin2_i()
 {
   hide();
-  _p.user_input("2");
+  _p.user_input("1");
   Table_controller win(_p);
   Fl::run();
 }
@@ -204,7 +204,7 @@ void Lobby_controller::ClickedJoin2_i()
 void Lobby_controller::ClickedJoin3_i()
 {
   hide();
-  _p.user_input("3");
+  _p.user_input("2");
   Table_controller win(_p);
   Fl::run();
 }
@@ -212,7 +212,7 @@ void Lobby_controller::ClickedJoin3_i()
 void Lobby_controller::ClickedJoin4_i()
 {
   hide();
-  _p.user_input("4");
+  _p.user_input("3");
   Table_controller win(_p);
   Fl::run();
 }
