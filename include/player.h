@@ -29,6 +29,7 @@ private:
    std::string m_user_event_string;
    boost::uuids::uuid m_current_game_uuid;
    boost::thread *m_timer_thread;
+   
    float m_balance;
    bool m_timer_event;   // timer has expired
    bool m_user_event;    // user typed in something

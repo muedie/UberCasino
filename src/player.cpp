@@ -98,7 +98,6 @@ std::string player::to_string ( player_state_t p )
 
 void player::manage_state ()
 {
-   // determine if we have a state transition
    bool transition = false;
    player_state_t next_state = m_player_state;
    //std::cout << "\n1: m_player_state: " << to_string(m_player_state);
@@ -119,25 +118,9 @@ void player::manage_state ()
 
             if ( m_user_event )
             {
-               // you must enter in something that does not
-               // exception.  like a number
-
-               try {
                    m_dealer_idx = std::stoi ( m_user_event_string );
-               } catch (const std::invalid_argument& e) {
-                   std::cout << "\nTry-catch: m_user_event_string: " << m_user_event_string;
-                   std::cout << "\nm_player_state: " << to_string(m_player_state) << ", next_state: " << to_string(next_state);
-                   std::cout << "\n" << e.what() << std::endl;
-               }
-
-               std::cout << "m_user_event was true & m_dealer_idx" << m_dealer_idx << " m_dealer_list size: " << m_dealer_list.size ();
-
-
-               if ( m_dealer_idx < m_dealer_list.size () )
-               {
                   transition = true;
                   next_state = StartHand;
-               }
             }
          }
          break;
@@ -164,7 +147,7 @@ void player::manage_state ()
                  transition = true;
                  next_state = EndHand;
              }
-             if ( m_Game_recv_idx )
+             if ( m_Game_recv_idx || m_user_event )
              {
                  transition = true;
                  next_state = Playing;
@@ -273,6 +256,7 @@ void player::manage_state ()
 #endif
             unsigned int value = Hand_Value ( m_G.p[m_G.active_player].cards );
             std::cout << "The value of my hand is "<< value << std::endl;
+            std::cout << "State " << to_string ( next_state ) << std::endl;
 
 
             if (strcmp(m_user_event_string.c_str(), "hit") == 0) {
@@ -297,6 +281,7 @@ void player::manage_state ()
                m_P.A = hitting;
             }
             */
+
             p_io->publish  ( m_P );
          }
          break;
@@ -414,10 +399,12 @@ void player::external_data (Game G)
         memcpy ( &active_player_uuid,
                  G.p[i].uid,
                  sizeof ( active_player_uuid ) );
+                 std::cout << "aaaaaaaaaaaaaaaaaaaaaa/n";
         if ( m_my_uid == active_player_uuid )
         {
             // and last, need to be sure we are
             // 'playing' the game
+
             if ( G.gstate == playing )
             {
                m_Game_recv_idx = true;
@@ -439,7 +426,7 @@ void player::external_data (Game G)
    }
    else
       // single player, this is a problem.  otherwise it is OK
-      // std::cout << "Game was ignored " << std::endl;
+       std::cout << "Game was ignored " << std::endl;
 
    unlock ();
 }
@@ -447,8 +434,6 @@ void player::external_data (Game G)
 
 void player::user_input (std::string I)
 {
-   // this is called when the user types in input
-   // from the console.  any / all input is accepted
    lock ();
    m_user_event_string = I;
    m_user_event = true;

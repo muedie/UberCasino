@@ -33,7 +33,7 @@ void Login_controller::ClickedQuit_i()
 void Login_controller::ClickedLogin_i()
 {
   std::string s = name_input->value();
-  if (s.size() <= 32) 
+  if (s.size() <= 32)
   {
     if (s == "")
     {
@@ -43,6 +43,7 @@ void Login_controller::ClickedLogin_i()
     _p.setName(s);
     _p.setUID(boost::uuids::to_string(uuid));
     memcpy ( _p.m_P.uid, &uuid, sizeof ( _p.m_P.uid ) );
+    _p.m_my_uid = uuid;
     hide();
    Lobby_controller win(_p);
     Fl::run();
