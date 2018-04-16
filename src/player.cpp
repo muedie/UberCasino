@@ -494,7 +494,10 @@ return m_dealer_list[m_dealer_idx].name;
 }
 
 std::string player::getDealerID(){
-return m_dealer_list[m_dealer_idx].uid;
+  boost::uuids::uuid u;
+  memcpy (m_dealer_list[m_dealer_idx].uid , &u, 16 );
+  string s = boost::uuids::to_string(u);
+return s;
 }
 
 std::string player::getPlayerID() {

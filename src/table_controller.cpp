@@ -16,14 +16,12 @@ void tab_thread ( int seconds, std::function <void(void)> callback)
 
 
 Table_controller::Table_controller(player& p) : Table_view() , _p{p}{
-//update = new boost::thread ( tab_thread , 0.1 , std::bind ( &Table_controller::Update , this ) );
+update = new boost::thread ( tab_thread , 1 , std::bind ( &Table_controller::Update , this ) );
 player_name->value(_p.getName().c_str());
 play_style->value(_p.getStyle().c_str());
 
 dealer_name->value(_p.getDealerName().c_str());
-std::ostringstream st;
-st << _p.getDealerID();
-std::string s = st.str();
+string s = _p.getDealerID();
 dealer_id->value(s.c_str());
 
   btn_leave->callback(ClickedLeave, (void*)this);

@@ -141,37 +141,37 @@ void Lobby_controller::ClickedRefresh_i()
 {
   Fl::lock();
     vector<Dealer> v = _p.getDealer_list();
-    std::ostringstream st;
+    boost::uuids::uuid uuid;
     string s1, s2;
     switch (v.size()) {
       case 4:
       dealer_info4->show();
       s1 = v[3].name;
-      st << v[3].uid;
-      s2 = st.str();
+      memcpy ( v[3].uid, &uuid, 16 );
+      s2 = boost::uuids::to_string(uuid);
       dealer_name4->value(s1.c_str());
       dealer_id4->value(s2.c_str());
 
       case 3:
       dealer_info3->show();
       s1 = v[2].name;
-      st << v[2].uid;
-      s2 = st.str();
+      memcpy ( v[2].uid, &uuid, 16 );
+      s2 = boost::uuids::to_string(uuid);
       dealer_name3->value(s1.c_str());
       dealer_id3->value(s2.c_str());
 
       case 2:
       dealer_info2->show();
       s1 = v[1].name;
-      st << v[1].uid;
-      s2 = st.str();
+      memcpy ( v[1].uid, &uuid, 16 );
+      s2 = boost::uuids::to_string(uuid);
       dealer_name2->value(s1.c_str());
       dealer_id2->value(s2.c_str());
 
       case 1:
       s1 = v[0].name;
-      st << v[0].uid;
-      s2 = st.str();
+      memcpy ( v[0].uid, &uuid, 16 );
+      s2 = boost::uuids::to_string(uuid);
       dealer_name->value(s1.c_str());
       dealer_id->value(s2.c_str());
       dealer_info->show();
