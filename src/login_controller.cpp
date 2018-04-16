@@ -30,6 +30,11 @@ void Login_controller::ClickedQuit_i()
   hide();
 }
 
+void timer_cb(void *v)
+{
+  Fl::repeat_timeout(double(1.0)/15, timer_cb);
+}
+
 void Login_controller::ClickedLogin_i()
 {
   std::string s = name_input->value();
@@ -46,6 +51,7 @@ void Login_controller::ClickedLogin_i()
     _p.m_my_uid = uuid;
     hide();
    Lobby_controller win(_p);
+   Fl::add_timeout(0.1,timer_cb);
     Fl::run();
   }
 

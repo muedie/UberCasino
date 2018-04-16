@@ -16,7 +16,6 @@
 
 class player
 {
-public:
 
 private:
    enum player_state_t {Init,StartHand,Playing,EndHand} m_player_state;
@@ -24,12 +23,12 @@ private:
    void manage_state ();
    void lock ();
    void unlock ();
-   unsigned int m_dealer_idx;
+   int m_dealer_idx;
    std::vector<Dealer> m_dealer_list;
    std::string m_user_event_string;
    boost::uuids::uuid m_current_game_uuid;
    boost::thread *m_timer_thread;
-   
+
    float m_balance;
    bool m_timer_event;   // timer has expired
    bool m_user_event;    // user typed in something
@@ -58,6 +57,8 @@ private:
       Dealer m_D;
       Game   m_G;
 
+      float bet_amt;
+
       void setName (std::string);
       // There are 3 possible inputs to the dealer
       //    1. timer expiration
@@ -72,9 +73,10 @@ private:
       bool get_m_Dealer_recv();
       std::vector<Dealer> getDealer_list();
 
-      void getUserState();
+      int getPlayerState();
 
       void set_play_style(int x);
+      void setDealerIDX(int x);
       float getBalance();
       int get_hands_won();
       int get_hands_played();

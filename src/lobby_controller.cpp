@@ -8,20 +8,25 @@
 #include <boost/thread.hpp>
 
 
-/*void lob_thread ( int seconds, std::function <void(void)> callback)
+void timr_cb(void *v)
+{
+  Fl::repeat_timeout(double(1.0)/15, timr_cb);
+}
+
+void lob_thread ( int seconds, std::function <void(void)> callback)
 {
   while(1)
   {
-    boost::this_thread::sleep_for(boost::chrono::milliseconds(seconds));
+    boost::this_thread::sleep_for(boost::chrono::seconds(seconds));
     callback ();
   }
-}*/
+}
 
 
 
 
 Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
-  //lobby_thread = new boost::thread ( lob_thread , 10 , std::bind ( &Lobby_controller::ClickedRefresh_i, this) );
+  lobby_thread = new boost::thread ( lob_thread , 0.1 , std::bind ( &Lobby_controller::ClickedRefresh_i, this) );
   player_name->value(_p.getName().c_str());
   float bal = _p.getBalance();
   int b = int(bal + 0.5);
@@ -44,8 +49,6 @@ Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
 
   logout_btn->callback(ClickedLogout, this);
 
-  refresh_btn->callback(ClickedRefresh, (void*)this);
-
   join_btn->callback(ClickedJoin1, (void*)this);
   join_btn2->callback(ClickedJoin2, (void*)this);
   join_btn3->callback(ClickedJoin3, (void*)this);
@@ -55,11 +58,6 @@ Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
 void Lobby_controller::ClickedLogout(Fl_Widget* w, void* data)
 {
   ((Lobby_controller*)data)->ClickedLogout_i();
-}
-
-void Lobby_controller::ClickedRefresh(Fl_Widget* w, void* data)
-{
-  ((Lobby_controller*)data)->ClickedRefresh_i();
 }
 
 void Lobby_controller::ClickedJoin1(Fl_Widget* w, void* data)
@@ -141,45 +139,53 @@ void Lobby_controller::ClickedRound5_i()
 
 void Lobby_controller::ClickedRefresh_i()
 {
-  //std::cout << "aa" << std::endl;
+  Fl::lock();
     vector<Dealer> v = _p.getDealer_list();
+    std::ostringstream st;
     string s1, s2;
     switch (v.size()) {
       case 4:
       dealer_info4->show();
       s1 = v[3].name;
-      s2 = v[3].uid;
+      st << v[3].uid;
+      s2 = st.str();
       dealer_name4->value(s1.c_str());
       dealer_id4->value(s2.c_str());
 
       case 3:
       dealer_info3->show();
       s1 = v[2].name;
-      s2 = v[2].uid;
+      st << v[2].uid;
+      s2 = st.str();
       dealer_name3->value(s1.c_str());
       dealer_id3->value(s2.c_str());
 
       case 2:
       dealer_info2->show();
       s1 = v[1].name;
-      s2 = v[1].uid;
+      st << v[1].uid;
+      s2 = st.str();
       dealer_name2->value(s1.c_str());
       dealer_id2->value(s2.c_str());
 
       case 1:
-      dealer_info->show();
       s1 = v[0].name;
-      s2 = v[0].uid;
+      st << v[0].uid;
+      s2 = st.str();
       dealer_name->value(s1.c_str());
       dealer_id->value(s2.c_str());
-
+      dealer_info->show();
       default: break;
     }
+    Fl::unlock();
 }
 
 void Lobby_controller::ClickedLogout_i()
 {
   hide();
+  lobby_thread->interrupt ();
+  delete lobby_thread;
+  lobby_thread = NULL;
   _p = player();
   Login_controller win(_p);
   Fl::run();
@@ -188,31 +194,47 @@ void Lobby_controller::ClickedLogout_i()
 void Lobby_controller::ClickedJoin1_i()
 {
   hide();
-  _p.user_input("0");
+  lobby_thread->interrupt ();
+  delete lobby_thread;
+  lobby_thread = NULL;
+  _p.setDealerIDX(0);
   Table_controller win(_p);
+  Fl::add_timeout(0.1,timr_cb);
   Fl::run();
 }
 
 void Lobby_controller::ClickedJoin2_i()
 {
   hide();
-  _p.user_input("1");
+  lobby_thread->interrupt ();
+  delete lobby_thread;
+  lobby_thread = NULL;
+  _p.setDealerIDX(1);
   Table_controller win(_p);
+  Fl::add_timeout(0.1,timr_cb);
   Fl::run();
 }
 
 void Lobby_controller::ClickedJoin3_i()
 {
   hide();
-  _p.user_input("2");
+  lobby_thread->interrupt ();
+  delete lobby_thread;
+  lobby_thread = NULL;
+  _p.setDealerIDX(2);
   Table_controller win(_p);
+  Fl::add_timeout(0.1,timr_cb);
   Fl::run();
 }
 
 void Lobby_controller::ClickedJoin4_i()
 {
   hide();
-  _p.user_input("3");
+  lobby_thread->interrupt ();
+  delete lobby_thread;
+  lobby_thread = NULL;
+  _p.setDealerIDX(3);
   Table_controller win(_p);
+  Fl::add_timeout(0.1,timr_cb);
   Fl::run();
 }

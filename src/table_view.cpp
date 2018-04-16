@@ -122,7 +122,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       bet->labelsize(18);
       bet->labelcolor((Fl_Color)26);
       bet->align(Fl_Align(FL_ALIGN_WRAP));
-      bet->deactivate();
+      //bet->deactivate();
 
       balance = new Fl_Output(544, 705, 109, 35, "Balance ");
       balance->box(FL_GTK_ROUND_UP_BOX);

@@ -116,9 +116,8 @@ void player::manage_state ()
 
             std::cout << "\nm_user_event: " << m_user_event;
 
-            if ( m_user_event )
+            if ( m_user_event && strcmp(m_user_event_string.c_str(), "bet") == 0 )
             {
-                   m_dealer_idx = std::stoi ( m_user_event_string );
                   transition = true;
                   next_state = StartHand;
             }
@@ -300,12 +299,12 @@ void player::manage_state ()
               if ( dealer_points > 21 || ( (player_points > dealer_points) && (player_points < 21) ) )
               {
                  std::cout << "Player Wins" << std::endl;
-                 m_balance = m_balance + 10.0;
+                 m_balance = m_balance + bet_amt;
               }
               else
               {
                  std::cout << "Dealer Wins" << std::endl;
-                 m_balance = m_balance - 10.0;
+                 m_balance = m_balance - bet_amt;
               }
 
               if (m_balance > 10.0 )
@@ -512,8 +511,13 @@ float player::getBalance()
   return m_balance;
 }
 
-void player::getUserState() {
-    std::cout << "\n Table call: m_player_state: " << to_string(m_player_state) << endl;
+int player::getPlayerState() {
+    return m_player_state;
+}
+
+void player::setDealerIDX(int x)
+{
+  m_dealer_idx = x;
 }
 
 

@@ -235,13 +235,6 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     scroll_window->end();
   }
 
-  refresh_btn = new Fl_Button(120, 585, 155, 40, "Refresh");
-  refresh_btn->box(FL_GLEAM_THIN_UP_BOX);
-  refresh_btn->color((Fl_Color)138);
-  refresh_btn->labelfont(1);
-  refresh_btn->labelsize(18);
-  refresh_btn->labelcolor((Fl_Color)26);
-
   logout_btn = new Fl_Button(400, 585, 155, 40, "Logout");
   logout_btn->box(FL_GLEAM_THIN_UP_BOX);
   logout_btn->color((Fl_Color)138);

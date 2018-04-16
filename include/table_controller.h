@@ -12,6 +12,8 @@
 #include <FL/Fl_Output.H>
 #include <FL/Fl_Spinner.H>
 
+#include <boost/thread.hpp>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -20,9 +22,11 @@ class Table_controller : public Table_view {
 
 private:
   player& _p;
+  boost::thread *update;
 
 public:
   Table_controller (player& p);
+  void Update();
   static void ClickedLeave(Fl_Widget* w, void* data);
   static void ClickedDoubledown(Fl_Widget* w, void* data);
   static void ClickedSplit(Fl_Widget* w, void* data);

@@ -28,7 +28,6 @@ private:
 public:
   Lobby_controller (player& p);
   static void ClickedLogout(Fl_Widget* w, void* data);
-  static void ClickedRefresh(Fl_Widget* w, void* data);
   static void ClickedJoin1(Fl_Widget* w, void* data);
   static void ClickedJoin2(Fl_Widget* w, void* data);
   static void ClickedJoin3(Fl_Widget* w, void* data);

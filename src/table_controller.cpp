@@ -2,17 +2,29 @@
 #include "table_controller.h"
 #include "player.h"
 
+void time_cb(void *v)
+{
+  Fl::repeat_timeout(double(1.0)/15, time_cb);
+}
+
+void tab_thread ( int seconds, std::function <void(void)> callback)
+{
+  // this routine is created as a posix thread.
+  boost::this_thread::sleep_for(boost::chrono::seconds(seconds));
+  callback ();
+}
+
 
 Table_controller::Table_controller(player& p) : Table_view() , _p{p}{
+//update = new boost::thread ( tab_thread , 0.1 , std::bind ( &Table_controller::Update , this ) );
 player_name->value(_p.getName().c_str());
 play_style->value(_p.getStyle().c_str());
-float bal = _p.m_P.balance;
-int b = int(bal + 0.5);
-balance->value(to_string(b).c_str());
-
 
 dealer_name->value(_p.getDealerName().c_str());
-dealer_id->value(_p.getDealerID().c_str());
+std::ostringstream st;
+st << _p.getDealerID();
+std::string s = st.str();
+dealer_id->value(s.c_str());
 
   btn_leave->callback(ClickedLeave, (void*)this);
   double_down->callback(ClickedDoubledown, (void*)this);
@@ -20,8 +32,18 @@ dealer_id->value(_p.getDealerID().c_str());
   stand->callback(ClickedStand, (void*)this);
   hit->callback(ClickedHit, (void*)this);
   bet->callback(ClickedBet, (void*)this);
+}
 
-
+void Table_controller::Update()
+{
+  Fl::lock();
+  while(1)
+  {
+    float bal = _p.getBalance();
+    int b = int(bal + 0.5);
+    balance->value(std::to_string(b).c_str());
+  }
+  Fl::unlock();
 }
 
 void Table_controller::ClickedLeave(Fl_Widget* w, void* data)
@@ -56,16 +78,15 @@ void Table_controller::ClickedBet(Fl_Widget* w, void* data)
 
 void Table_controller::ClickedLeave_i()
 {
-  //char* s = name_input->value();
   hide();
   Lobby_controller win(_p);
+  Fl::add_timeout(0.1,time_cb);
   Fl::run();
 }
 
 //Implement model here
 void Table_controller::ClickedDoubledown_i()
 {
-  //char* s = name_input->value();
   hide();
   Lobby_controller win(_p);
   Fl::run();
@@ -90,7 +111,9 @@ void Table_controller::ClickedHit_i()
 
 void Table_controller::ClickedBet_i()
 {
-  hide();
-  Lobby_controller win(_p);
-  Fl::run();
+  float a = (float) spn_bet->value();
+  _p.bet_amt = a;
+  std::string s = std::to_string(a);
+  betting_amount->value(s.c_str());
+  _p.user_input("bet");
 }
