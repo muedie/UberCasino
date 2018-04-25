@@ -4,74 +4,75 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
 {
   begin();
 
-  back_card = new Fl_JPEG_Image("./extra/images/cards/Gray_back.jpg");
-  cd2C = new Fl_JPEG_Image("./extra/images/cards/2C.jpg");
-  cd3C = new Fl_JPEG_Image("./extra/images/cards/3C.jpg");
-  cd4C = new Fl_JPEG_Image("./extra/images/cards/4C.jpg");
-  cd5C = new Fl_JPEG_Image("./extra/images/cards/5C.jpg");
-  cd6C = new Fl_JPEG_Image("./extra/images/cards/6C.jpg");
-  cd7C = new Fl_JPEG_Image("./extra/images/cards/7C.jpg");
-  cd8C = new Fl_JPEG_Image("./extra/images/cards/8C.jpg");
-  cd9C = new Fl_JPEG_Image("./extra/images/cards/9C.jpg");
-  cd10C = new Fl_JPEG_Image("./extra/images/cards/10C.jpg");
-  cdAC = new Fl_JPEG_Image("./extra/images/cards/AC.jpg");
-  cdJC = new Fl_JPEG_Image("./extra/images/cards/JC.jpg");
-  cdQC = new Fl_JPEG_Image("./extra/images/cards/QC.jpg");
-  cdKC = new Fl_JPEG_Image("./extra/images/cards/KC.jpg");
+  card[0] = new Fl_JPEG_Image("./extra/images/cards/Gray_back.jpg");
 
-  cd2S = new Fl_JPEG_Image("./extra/images/cards/2S.jpg");
-  cd3S = new Fl_JPEG_Image("./extra/images/cards/3S.jpg");
-  cd4S = new Fl_JPEG_Image("./extra/images/cards/4S.jpg");
-  cd5S = new Fl_JPEG_Image("./extra/images/cards/5S.jpg");
-  cd6S = new Fl_JPEG_Image("./extra/images/cards/6S.jpg");
-  cd7S = new Fl_JPEG_Image("./extra/images/cards/7S.jpg");
-  cd8S = new Fl_JPEG_Image("./extra/images/cards/8S.jpg");
-  cd9S = new Fl_JPEG_Image("./extra/images/cards/9S.jpg");
-  cd10S = new Fl_JPEG_Image("./extra/images/cards/10S.jpg");
-  cdAS = new Fl_JPEG_Image("./extra/images/cards/AS.jpg");
-  cdJS = new Fl_JPEG_Image("./extra/images/cards/JS.jpg");
-  cdQS = new Fl_JPEG_Image("./extra/images/cards/QS.jpg");
-  cdKS = new Fl_JPEG_Image("./extra/images/cards/KS.jpg");
+  card[2] = new Fl_JPEG_Image("./extra/images/cards/2C.jpg");
+  card[3] = new Fl_JPEG_Image("./extra/images/cards/3C.jpg");
+  card[4] = new Fl_JPEG_Image("./extra/images/cards/4C.jpg");
+  card[5] = new Fl_JPEG_Image("./extra/images/cards/5C.jpg");
+  card[6] = new Fl_JPEG_Image("./extra/images/cards/6C.jpg");
+  card[7] = new Fl_JPEG_Image("./extra/images/cards/7C.jpg");
+  card[8] = new Fl_JPEG_Image("./extra/images/cards/8C.jpg");
+  card[9] = new Fl_JPEG_Image("./extra/images/cards/9C.jpg");
+  card[10] = new Fl_JPEG_Image("./extra/images/cards/10C.jpg");
+  card[1] = new Fl_JPEG_Image("./extra/images/cards/AC.jpg");
+  card[11] = new Fl_JPEG_Image("./extra/images/cards/JC.jpg");
+  card[12] = new Fl_JPEG_Image("./extra/images/cards/QC.jpg");
+  card[13] = new Fl_JPEG_Image("./extra/images/cards/KC.jpg");
 
-  cd2D = new Fl_JPEG_Image("./extra/images/cards/2D.jpg");
-  cd3D = new Fl_JPEG_Image("./extra/images/cards/3D.jpg");
-  cd4D = new Fl_JPEG_Image("./extra/images/cards/4D.jpg");
-  cd5D = new Fl_JPEG_Image("./extra/images/cards/5D.jpg");
-  cd6D = new Fl_JPEG_Image("./extra/images/cards/6D.jpg");
-  cd7D = new Fl_JPEG_Image("./extra/images/cards/7D.jpg");
-  cd8D = new Fl_JPEG_Image("./extra/images/cards/8D.jpg");
-  cd9D = new Fl_JPEG_Image("./extra/images/cards/9D.jpg");
-  cd10D = new Fl_JPEG_Image("./extra/images/cards/10D.jpg");
-  cdAD = new Fl_JPEG_Image("./extra/images/cards/AD.jpg");
-  cdJD = new Fl_JPEG_Image("./extra/images/cards/JD.jpg");
-  cdQD = new Fl_JPEG_Image("./extra/images/cards/QD.jpg");
-  cdKD = new Fl_JPEG_Image("./extra/images/cards/KD.jpg");
+  card[15] = new Fl_JPEG_Image("./extra/images/cards/2S.jpg");
+  card[16] = new Fl_JPEG_Image("./extra/images/cards/3S.jpg");
+  card[17] = new Fl_JPEG_Image("./extra/images/cards/4S.jpg");
+  card[18] = new Fl_JPEG_Image("./extra/images/cards/5S.jpg");
+  card[19] = new Fl_JPEG_Image("./extra/images/cards/6S.jpg");
+  card[20] = new Fl_JPEG_Image("./extra/images/cards/7S.jpg");
+  card[21] = new Fl_JPEG_Image("./extra/images/cards/8S.jpg");
+  card[22] = new Fl_JPEG_Image("./extra/images/cards/9S.jpg");
+  card[23] = new Fl_JPEG_Image("./extra/images/cards/10S.jpg");
+  card[14] = new Fl_JPEG_Image("./extra/images/cards/AS.jpg");
+  card[24] = new Fl_JPEG_Image("./extra/images/cards/JS.jpg");
+  card[25] = new Fl_JPEG_Image("./extra/images/cards/QS.jpg");
+  card[26] = new Fl_JPEG_Image("./extra/images/cards/KS.jpg");
 
-  cd2H = new Fl_JPEG_Image("./extra/images/cards/2H.jpg");
-  cd3H = new Fl_JPEG_Image("./extra/images/cards/3H.jpg");
-  cd4H = new Fl_JPEG_Image("./extra/images/cards/4H.jpg");
-  cd5H = new Fl_JPEG_Image("./extra/images/cards/5H.jpg");
-  cd6H = new Fl_JPEG_Image("./extra/images/cards/6H.jpg");
-  cd7H = new Fl_JPEG_Image("./extra/images/cards/7H.jpg");
-  cd8H = new Fl_JPEG_Image("./extra/images/cards/8H.jpg");
-  cd9H = new Fl_JPEG_Image("./extra/images/cards/9H.jpg");
-  cd10H = new Fl_JPEG_Image("./extra/images/cards/10H.jpg");
-  cdAH = new Fl_JPEG_Image("./extra/images/cards/AH.jpg");
-  cdJH = new Fl_JPEG_Image("./extra/images/cards/JH.jpg");
-  cdQH = new Fl_JPEG_Image("./extra/images/cards/QH.jpg");
-  cdKH = new Fl_JPEG_Image("./extra/images/cards/KH.jpg");
+  card[28] = new Fl_JPEG_Image("./extra/images/cards/2D.jpg");
+  card[29] = new Fl_JPEG_Image("./extra/images/cards/3D.jpg");
+  card[30] = new Fl_JPEG_Image("./extra/images/cards/4D.jpg");
+  card[31] = new Fl_JPEG_Image("./extra/images/cards/5D.jpg");
+  card[32] = new Fl_JPEG_Image("./extra/images/cards/6D.jpg");
+  card[33] = new Fl_JPEG_Image("./extra/images/cards/7D.jpg");
+  card[34] = new Fl_JPEG_Image("./extra/images/cards/8D.jpg");
+  card[35] = new Fl_JPEG_Image("./extra/images/cards/9D.jpg");
+  card[36] = new Fl_JPEG_Image("./extra/images/cards/10D.jpg");
+  card[27] = new Fl_JPEG_Image("./extra/images/cards/AD.jpg");
+  card[37] = new Fl_JPEG_Image("./extra/images/cards/JD.jpg");
+  card[38] = new Fl_JPEG_Image("./extra/images/cards/QD.jpg");
+  card[39] = new Fl_JPEG_Image("./extra/images/cards/KD.jpg");
+
+  card[41] = new Fl_JPEG_Image("./extra/images/cards/2H.jpg");
+  card[42] = new Fl_JPEG_Image("./extra/images/cards/3H.jpg");
+  card[43] = new Fl_JPEG_Image("./extra/images/cards/4H.jpg");
+  card[44] = new Fl_JPEG_Image("./extra/images/cards/5H.jpg");
+  card[45] = new Fl_JPEG_Image("./extra/images/cards/6H.jpg");
+  card[46] = new Fl_JPEG_Image("./extra/images/cards/7H.jpg");
+  card[47] = new Fl_JPEG_Image("./extra/images/cards/8H.jpg");
+  card[48] = new Fl_JPEG_Image("./extra/images/cards/9H.jpg");
+  card[49] = new Fl_JPEG_Image("./extra/images/cards/10H.jpg");
+  card[40] = new Fl_JPEG_Image("./extra/images/cards/AH.jpg");
+  card[50] = new Fl_JPEG_Image("./extra/images/cards/JH.jpg");
+  card[51] = new Fl_JPEG_Image("./extra/images/cards/QH.jpg");
+  card[52] = new Fl_JPEG_Image("./extra/images/cards/KH.jpg");
 
   main_box = new Fl_Box(0, 0, 1325, 785);
   main_box->box(FL_GLEAM_THIN_UP_BOX);
   main_box->color((Fl_Color)58);
 
-  btn_leave = new Fl_Button(19, 23, 100, 55, "Leave Game");
-  btn_leave->box(FL_GLEAM_THIN_UP_BOX);
-  btn_leave->color((Fl_Color)138);
-  btn_leave->labelfont(1);
-  btn_leave->labelsize(18);
-  btn_leave->labelcolor((Fl_Color)26);
-  btn_leave->align(Fl_Align(FL_ALIGN_WRAP));
+  btn_refresh = new Fl_Button(19, 23, 100, 55, "Refresh Game");
+  btn_refresh->box(FL_GLEAM_THIN_UP_BOX);
+  btn_refresh->color((Fl_Color)138);
+  btn_refresh->labelfont(1);
+  btn_refresh->labelsize(18);
+  btn_refresh->labelcolor((Fl_Color)26);
+  btn_refresh->align(Fl_Align(FL_ALIGN_WRAP));
 
   {
     player_interface = new Fl_Group(25, 672, 1275, 99);
@@ -131,6 +132,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       balance->labelcolor((Fl_Color)26);
       balance->textsize(24);
       balance->textcolor(FL_GRAY0);
+      balance->value("24");
 
       spn_bet = new Fl_Spinner(62, 700, 105, 45);
       spn_bet->range(1,10);
@@ -295,91 +297,91 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
     {
       dealer_cards = new Fl_Group(42, 150, 768, 196);
       {
-        dl_card1 = new Fl_Box(65, 175, 65, 99);
-        dl_card1->box(FL_GTK_UP_BOX);
-        dl_card1->color((Fl_Color)18);
+        dl_card[0] = new Fl_Box(65, 175, 65, 99);
+        dl_card[0]->box(FL_GTK_UP_BOX);
+        dl_card[0]->color((Fl_Color)18);
 
-        dl_card2 = new Fl_Box(136, 175, 65, 99);
-        dl_card2->box(FL_GTK_UP_BOX);
-        dl_card2->color((Fl_Color)18);
+        dl_card[1] = new Fl_Box(136, 175, 65, 99);
+        dl_card[1]->box(FL_GTK_UP_BOX);
+        dl_card[1]->color((Fl_Color)18);
 
-        dl_card3 = new Fl_Box(207, 176, 65, 99);
-        dl_card3->box(FL_GTK_UP_BOX);
-        dl_card3->color((Fl_Color)18);
+        dl_card[2] = new Fl_Box(207, 176, 65, 99);
+        dl_card[2]->box(FL_GTK_UP_BOX);
+        dl_card[2]->color((Fl_Color)18);
 
-        dl_card4 = new Fl_Box(278, 177, 65, 99);
-        dl_card4->box(FL_GTK_UP_BOX);
-        dl_card4->color((Fl_Color)18);
+        dl_card[3] = new Fl_Box(278, 177, 65, 99);
+        dl_card[3]->box(FL_GTK_UP_BOX);
+        dl_card[3]->color((Fl_Color)18);
 
-        dl_card5 = new Fl_Box(350, 178, 65, 99);
-        dl_card5->box(FL_GTK_UP_BOX);
-        dl_card5->color((Fl_Color)18);
+        dl_card[4] = new Fl_Box(350, 178, 65, 99);
+        dl_card[4]->box(FL_GTK_UP_BOX);
+        dl_card[4]->color((Fl_Color)18);
 
-        dl_card6 = new Fl_Box(421, 178, 65, 99);
-        dl_card6->box(FL_GTK_UP_BOX);
-        dl_card6->color((Fl_Color)18);
+        dl_card[5] = new Fl_Box(421, 178, 65, 99);
+        dl_card[5]->box(FL_GTK_UP_BOX);
+        dl_card[5]->color((Fl_Color)18);
 
-        dl_card7 = new Fl_Box(493, 179, 65, 99);
-        dl_card7->box(FL_GTK_UP_BOX);
-        dl_card7->color((Fl_Color)18);
+        dl_card[6] = new Fl_Box(493, 179, 65, 99);
+        dl_card[6]->box(FL_GTK_UP_BOX);
+        dl_card[6]->color((Fl_Color)18);
 
-        dl_card8 = new Fl_Box(565, 180, 65, 99);
-        dl_card8->box(FL_GTK_UP_BOX);
-        dl_card8->color((Fl_Color)18);
+        dl_card[7] = new Fl_Box(565, 180, 65, 99);
+        dl_card[7]->box(FL_GTK_UP_BOX);
+        dl_card[7]->color((Fl_Color)18);
 
-        dl_card9 = new Fl_Box(637, 181, 65, 99);
-        dl_card9->box(FL_GTK_UP_BOX);
-        dl_card9->color((Fl_Color)18);
+        dl_card[8] = new Fl_Box(637, 181, 65, 99);
+        dl_card[8]->box(FL_GTK_UP_BOX);
+        dl_card[8]->color((Fl_Color)18);
 
-        dl_card10 = new Fl_Box(709, 181, 65, 99);
-        dl_card10->box(FL_GTK_UP_BOX);
-        dl_card10->color((Fl_Color)18);
+        dl_card[9] = new Fl_Box(709, 181, 65, 99);
+        dl_card[9]->box(FL_GTK_UP_BOX);
+        dl_card[9]->color((Fl_Color)18);
       }
     }
 
     {
       player_cards = new Fl_Group(42, 522, 758, 145);
       {
-        pl_card1 = new Fl_Box(65, 547, 65, 99);
-        pl_card1->box(FL_GTK_UP_BOX);
-        pl_card1->color((Fl_Color)18);
+        pl_card[0] = new Fl_Box(65, 547, 65, 99);
+        pl_card[0]->box(FL_GTK_UP_BOX);
+        pl_card[0]->color((Fl_Color)18);
 
-        pl_card2 = new Fl_Box(136, 547, 65, 99);
-        pl_card2->box(FL_GTK_UP_BOX);
-        pl_card2->color((Fl_Color)18);
+        pl_card[1] = new Fl_Box(136, 547, 65, 99);
+        pl_card[1]->box(FL_GTK_UP_BOX);
+        pl_card[1]->color((Fl_Color)18);
 
-        pl_card3 = new Fl_Box(207, 548, 65, 99);
-        pl_card3->box(FL_GTK_UP_BOX);
-        pl_card3->color((Fl_Color)18);
+        pl_card[2] = new Fl_Box(207, 548, 65, 99);
+        pl_card[2]->box(FL_GTK_UP_BOX);
+        pl_card[2]->color((Fl_Color)18);
 
-        pl_card4 = new Fl_Box(278, 549, 65, 99);
-        pl_card4->box(FL_GTK_UP_BOX);
-        pl_card4->color((Fl_Color)18);
+        pl_card[3] = new Fl_Box(278, 549, 65, 99);
+        pl_card[3]->box(FL_GTK_UP_BOX);
+        pl_card[3]->color((Fl_Color)18);
 
-        pl_card5 = new Fl_Box(350, 550, 65, 99);
-        pl_card5->box(FL_GTK_UP_BOX);
-        pl_card5->color((Fl_Color)18);
+        pl_card[4] = new Fl_Box(350, 550, 65, 99);
+        pl_card[4]->box(FL_GTK_UP_BOX);
+        pl_card[4]->color((Fl_Color)18);
 
-        pl_card6 = new Fl_Box(421, 550, 65, 99);
-        pl_card6->box(FL_GTK_UP_BOX);
-        pl_card6->color((Fl_Color)18);
+        pl_card[5] = new Fl_Box(421, 550, 65, 99);
+        pl_card[5]->box(FL_GTK_UP_BOX);
+        pl_card[5]->color((Fl_Color)18);
 
-        pl_card7 = new Fl_Box(493, 551, 65, 99);
-        pl_card7->box(FL_GTK_UP_BOX);
-        pl_card7->color((Fl_Color)18);
+        pl_card[6] = new Fl_Box(493, 551, 65, 99);
+        pl_card[6]->box(FL_GTK_UP_BOX);
+        pl_card[6]->color((Fl_Color)18);
 
-        pl_card8 = new Fl_Box(565, 552, 65, 99);
-        pl_card8->box(FL_GTK_UP_BOX);
-        pl_card8->color((Fl_Color)18);
+        pl_card[7] = new Fl_Box(565, 552, 65, 99);
+        pl_card[7]->box(FL_GTK_UP_BOX);
+        pl_card[7]->color((Fl_Color)18);
 
-        pl_card9 = new Fl_Box(637, 553, 65, 99);
-        pl_card9->box(FL_GTK_UP_BOX);
-        pl_card9->color((Fl_Color)18);
+        pl_card[8] = new Fl_Box(637, 553, 65, 99);
+        pl_card[8]->box(FL_GTK_UP_BOX);
+        pl_card[8]->color((Fl_Color)18);
 
-        pl_card10 = new Fl_Box(709, 553, 65, 99);
-        pl_card10->image(cd2C);
-        pl_card10->box(FL_GTK_UP_BOX);
-        pl_card10->color((Fl_Color)18);
+        pl_card[9] = new Fl_Box(709, 553, 65, 99);
+        pl_card[9]->image(card[0]);
+        pl_card[9]->box(FL_GTK_UP_BOX);
+        pl_card[9]->color((Fl_Color)18);
 
       }
     }
@@ -387,6 +389,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
     betting_box = new Fl_Box(424, 328, 125, 120);
     betting_box->box(FL_GTK_ROUND_UP_BOX);
     betting_box->color((Fl_Color)4);
+    betting_box->hide();
 
     betting_amount = new Fl_Output(448, 360, 75, 54);
     betting_amount->box(FL_NO_BOX);

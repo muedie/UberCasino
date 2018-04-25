@@ -5,28 +5,7 @@
 #include <functional>
 #include <cstdlib>
 
-#include <boost/thread.hpp>
-
-
-void timr_cb(void *v)
-{
-  Fl::repeat_timeout(double(1.0)/15, timr_cb);
-}
-
-void lob_thread ( int seconds, std::function <void(void)> callback)
-{
-  while(1)
-  {
-    boost::this_thread::sleep_for(boost::chrono::seconds(seconds));
-    callback ();
-  }
-}
-
-
-
-
 Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
-  lobby_thread = new boost::thread ( lob_thread , 0.1 , std::bind ( &Lobby_controller::ClickedRefresh_i, this) );
   player_name->value(_p.getName().c_str());
   float bal = _p.getBalance();
   int b = int(bal + 0.5);
@@ -47,6 +26,7 @@ Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
   counting->callback(ClickedRound4, (void*) this);
   conservative->callback(ClickedRound5, (void*) this);
 
+  refresh_btn->callback(ClickedRefresh, this);
   logout_btn->callback(ClickedLogout, this);
 
   join_btn->callback(ClickedJoin1, (void*)this);
@@ -58,6 +38,11 @@ Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
 void Lobby_controller::ClickedLogout(Fl_Widget* w, void* data)
 {
   ((Lobby_controller*)data)->ClickedLogout_i();
+}
+
+void Lobby_controller::ClickedRefresh(Fl_Widget* w, void* data)
+{
+  ((Lobby_controller*)data)->ClickedRefresh_i();
 }
 
 void Lobby_controller::ClickedJoin1(Fl_Widget* w, void* data)
@@ -139,7 +124,6 @@ void Lobby_controller::ClickedRound5_i()
 
 void Lobby_controller::ClickedRefresh_i()
 {
-  Fl::lock();
     vector<Dealer> v = _p.getDealer_list();
     boost::uuids::uuid uuid;
     string s1, s2;
@@ -177,15 +161,11 @@ void Lobby_controller::ClickedRefresh_i()
       dealer_info->show();
       default: break;
     }
-    Fl::unlock();
 }
 
 void Lobby_controller::ClickedLogout_i()
 {
   hide();
-  lobby_thread->interrupt ();
-  delete lobby_thread;
-  lobby_thread = NULL;
   _p = player();
   Login_controller win(_p);
   Fl::run();
@@ -194,47 +174,31 @@ void Lobby_controller::ClickedLogout_i()
 void Lobby_controller::ClickedJoin1_i()
 {
   hide();
-  lobby_thread->interrupt ();
-  delete lobby_thread;
-  lobby_thread = NULL;
   _p.setDealerIDX(0);
   Table_controller win(_p);
-  Fl::add_timeout(0.1,timr_cb);
   Fl::run();
 }
 
 void Lobby_controller::ClickedJoin2_i()
 {
   hide();
-  lobby_thread->interrupt ();
-  delete lobby_thread;
-  lobby_thread = NULL;
   _p.setDealerIDX(1);
   Table_controller win(_p);
-  Fl::add_timeout(0.1,timr_cb);
   Fl::run();
 }
 
 void Lobby_controller::ClickedJoin3_i()
 {
   hide();
-  lobby_thread->interrupt ();
-  delete lobby_thread;
-  lobby_thread = NULL;
   _p.setDealerIDX(2);
   Table_controller win(_p);
-  Fl::add_timeout(0.1,timr_cb);
   Fl::run();
 }
 
 void Lobby_controller::ClickedJoin4_i()
 {
   hide();
-  lobby_thread->interrupt ();
-  delete lobby_thread;
-  lobby_thread = NULL;
   _p.setDealerIDX(3);
   Table_controller win(_p);
-  Fl::add_timeout(0.1,timr_cb);
   Fl::run();
 }

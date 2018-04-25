@@ -253,7 +253,11 @@ void player::manage_state ()
 #ifdef DEBUG_STATES
             std::cout << "Playing: Entry " << std::endl;
 #endif
-            unsigned int value = Hand_Value ( m_G.p[m_G.active_player].cards );
+            memcpy(p_cards,m_G.p[m_G.active_player].cards,sizeof(p_cards));
+            memcpy(d_cards,m_G.dealer_cards,sizeof(p_cards));
+            set_card_id();
+            d_value = Hand_Value ( m_G.dealer_cards );
+            value = Hand_Value ( m_G.p[m_G.active_player].cards );
             std::cout << "The value of my hand is "<< value << std::endl;
             std::cout << "State " << to_string ( next_state ) << std::endl;
 
@@ -293,10 +297,10 @@ void player::manage_state ()
             {
               std::cout << "The dealer says end of hand." << std::endl;
               // calculate win or lose
-              int dealer_points = Hand_Value ( m_G.dealer_cards );
-              int player_points = Hand_Value ( m_G.p[m_G.active_player].cards );
-              std::cout << "Dealer has " << dealer_points << " Player has " << player_points << std::endl;
-              if ( dealer_points > 21 || ( (player_points > dealer_points) && (player_points < 21) ) )
+              d_value = Hand_Value ( m_G.dealer_cards );
+              value = Hand_Value ( m_G.p[m_G.active_player].cards );
+              std::cout << "Dealer has " << d_value << " Player has " << value << std::endl;
+              if ( d_value > 21 || ( (value > d_value) && (value < 21) ) )
               {
                  std::cout << "Player Wins" << std::endl;
                  m_balance = m_balance + bet_amt;
@@ -523,6 +527,94 @@ void player::setDealerIDX(int x)
   m_dealer_idx = x;
 }
 
+int* player::get_p_cards()
+{
+  return p_card_id;
+}
+
+int* player::get_d_cards(){
+  return d_card_id;
+}
+
+void player::set_card_id(){
+  int i;
+  for (i=0;i<10;i++)
+  {
+     if ( p_cards[i].valid )
+     {
+       int x = 0;
+       switch ( p_cards[i].suite )
+       {
+         case hearts:x += 39;break;
+         case diamonds:x += 26;break;
+         case clubs:x += 0;break;
+         case spades:x += 13;break;
+       }
+
+       switch ( p_cards[i].card )
+       {
+          case ace:x += 1;break;
+          case two:x += 2;break;
+          case three:x += 3;break;
+          case four:x += 4;break;
+          case five:x += 5;break;
+          case six:x += 6;break;
+          case seven:x += 7;break;
+          case eight:x += 8;break;
+          case nine:x += 9;break;
+          case ten:x += 10;break;
+          case jack:x += 11;break;
+          case queen:x += 12;break;
+          case king:x += 13;break;
+       }
+       p_card_id[i] = x;
+     }
+  }
+  for (i=0;i<10;i++)
+  {
+    if ( d_cards[i].valid )
+    {
+      int x = 0;
+      switch ( d_cards[i].suite )
+      {
+        case hearts:x += 39;break;
+        case diamonds:x += 26;break;
+        case clubs:x += 0;break;
+        case spades:x += 13;break;
+      }
+
+      switch ( d_cards[i].card )
+      {
+         case ace:x += 1;break;
+         case two:x += 2;break;
+         case three:x += 3;break;
+         case four:x += 4;break;
+         case five:x += 5;break;
+         case six:x += 6;break;
+         case seven:x += 7;break;
+         case eight:x += 8;break;
+         case nine:x += 9;break;
+         case ten:x += 10;break;
+         case jack:x += 11;break;
+         case queen:x += 12;break;
+         case king:x += 13;break;
+      }
+      d_card_id[i] = x;
+    }
+  }
+
+}
+
+int player::get_value()
+{
+  return value;
+}
+
+int player::get_d_value()
+{
+  return d_value;
+}
+
 
 player::player ()
 {
@@ -532,6 +624,7 @@ player::player ()
   m_P.balance = m_balance;
   m_dealer_list.clear ();
   m_timer_thread = NULL;
+  bet_amt = 0.0;
   // member objects
   p_io = new dds_io<Player,PlayerSeq,PlayerTypeSupport_var,PlayerTypeSupport,PlayerDataWriter_var,
                     PlayerDataWriter,PlayerDataReader_var,PlayerDataReader>

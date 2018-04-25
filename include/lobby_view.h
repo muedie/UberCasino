@@ -48,6 +48,7 @@ protected:
   Fl_Output* dealer_mMbet4;
   Fl_Button* join_btn4;
   Fl_Button* logout_btn;
+  Fl_Button* refresh_btn;
   Fl_JPEG_Image* background_img;
   Fl_Box* side_box;
   Fl_Group* player_info;

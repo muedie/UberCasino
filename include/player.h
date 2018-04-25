@@ -51,6 +51,13 @@ private:
       int play_style;
       std::string uid;
 
+      int p_card_id[10];
+      int d_card_id[10];
+      int value;
+      int d_value;
+      card_t p_cards[10];
+      card_t d_cards[10];
+
    public:
      boost::uuids::uuid m_my_uid;
       Player m_P; // stores the last data
@@ -85,6 +92,12 @@ private:
       std::string getDealerID();
       std::string getPlayerID();
       void setUID(std::string s);
+      int get_value();
+      int get_d_value();
+      int* get_p_cards();
+      int* get_d_cards();
+      void set_card_id();
+
       player ();
       ~player ();
 };

@@ -72,12 +72,17 @@ void _cb ( UberCasino::Player P )
 
   PTR->external_data ( P );
 }
+
+
 void _cb ( UberCasino::Dealer D )
 {
     std::cout << "\nDealer Received!\n";
 
   PTR->external_data ( D );
 }
+
+
+
 void _cb ( UberCasino::Game G )
 {
 

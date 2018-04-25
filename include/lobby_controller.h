@@ -23,10 +23,10 @@ class Lobby_controller : public Lobby_view {
 
 private:
   player& _p;
-  boost::thread *lobby_thread;
 
 public:
   Lobby_controller (player& p);
+  static void ClickedRefresh(Fl_Widget* w, void* data);
   static void ClickedLogout(Fl_Widget* w, void* data);
   static void ClickedJoin1(Fl_Widget* w, void* data);
   static void ClickedJoin2(Fl_Widget* w, void* data);
