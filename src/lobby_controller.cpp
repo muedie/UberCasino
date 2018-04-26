@@ -7,7 +7,7 @@
 
 void timer_cb(void *v)
 {
-  Fl::repeat_timeout(double(1.0)/15,timer_cb);
+  Fl::repeat_timeout(double(1.0)/1,timer_cb);
 }
 
 Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {

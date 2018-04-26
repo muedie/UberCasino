@@ -62,9 +62,11 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   card[51] = new Fl_JPEG_Image("./extra/images/cards/QH.jpg");
   card[52] = new Fl_JPEG_Image("./extra/images/cards/KH.jpg");
 
+  bg_img = new Fl_JPEG_Image("./extra/images/x.jpg");
+  chip = new Fl_PNG_Image("./extra/images/ch.png");
+
   main_box = new Fl_Box(0, 0, 1325, 785);
-  main_box->box(FL_GLEAM_THIN_UP_BOX);
-  main_box->color((Fl_Color)58);
+  main_box->image(bg_img);
 
   btn_refresh = new Fl_Button(19, 23, 100, 55, "Refresh Game");
   btn_refresh->box(FL_GLEAM_THIN_UP_BOX);
@@ -73,12 +75,6 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   btn_refresh->labelsize(18);
   btn_refresh->labelcolor((Fl_Color)26);
   btn_refresh->align(Fl_Align(FL_ALIGN_WRAP));
-
-  betting_amount = new Fl_Output(448, 360, 75, 54);
-  betting_amount->box(FL_NO_BOX);
-  betting_amount->textfont(1);
-  betting_amount->textsize(34);
-  betting_amount->textcolor((Fl_Color)26);
 
   {
     player_interface = new Fl_Group(25, 672, 1275, 99);
@@ -390,9 +386,22 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       }
     }
 
-    betting_box = new Fl_Box(424, 328, 125, 120);
-    betting_box->box(FL_GTK_ROUND_UP_BOX);
-    betting_box->color((Fl_Color)4);
+{
+  betting_box = new Fl_Box(424, 328, 125, 120);
+  betting_box->image(chip);
+  betting_box->hide();
+  //betting_box->box(FL_GTK_ROUND_UP_BOX);
+  //betting_box->color((Fl_Color)4);
+
+
+    betting_amount = new Fl_Output(457, 360, 75, 54);
+    betting_amount->box(FL_NO_BOX);
+    betting_amount->textfont(1);
+    betting_amount->textsize(28);
+    betting_amount->textcolor((Fl_Color)26);
+
+}
+
 
 
 

@@ -10,6 +10,7 @@
 #include <FL/Fl_Output.H>
 #include <FL/Fl_Spinner.H>
 #include <FL/Fl_JPEG_Image.H>
+#include <FL/Fl_PNG_Image.H>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,6 +18,8 @@
 class Table_view: public Fl_Window {
 protected:
   Fl_JPEG_Image* card[53];
+  Fl_JPEG_Image* bg_img;
+  Fl_PNG_Image* chip; 
 
   Fl_Box* main_box;
   Fl_Button* btn_refresh;

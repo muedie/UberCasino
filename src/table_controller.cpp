@@ -14,7 +14,7 @@ void tab_thread ( int seconds, std::function <void(void)> callback)
 
 
 Table_controller::Table_controller(player& p) : Table_view() , _p{p}{
-update = new boost::thread ( tab_thread , 0.5, std::bind ( &Table_controller::ClickedRefresh_i , this ) );
+update = new boost::thread ( tab_thread , 1, std::bind ( &Table_controller::ClickedRefresh_i , this ) );
 player_name->value(_p.getName().c_str());
 play_style->value(_p.getStyle().c_str());
 
@@ -71,10 +71,6 @@ void Table_controller::ClickedRefresh_i()
   dealer_count->value(std::to_string(b).c_str());
   b = int(bal + 0.5);
   balance->value(std::to_string(b).c_str());
-  float a = _p.bet_amt;
-  b = int(a + 0.5);
-  std::string s = std::to_string(b);
-  betting_amount->value(s.c_str());
   int p[10];
   memcpy(p,_p.get_p_cards(),sizeof(p));
   int d[10];
@@ -122,7 +118,12 @@ void Table_controller::ClickedHit_i()
 
 void Table_controller::ClickedBet_i()
 {
+  betting_box->show();
+  bet->deactivate();
   float a = (float) spn_bet->value();
   _p.bet_amt = a;
+  int b = int(a + 0.5);
+  std::string s = "$" + std::to_string(b);
+  betting_amount->value(s.c_str());
   _p.user_input("bet");
 }
