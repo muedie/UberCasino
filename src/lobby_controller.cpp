@@ -5,6 +5,11 @@
 #include <functional>
 #include <cstdlib>
 
+void timer_cb(void *v)
+{
+  Fl::repeat_timeout(double(1.0)/15,timer_cb);
+}
+
 Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
   player_name->value(_p.getName().c_str());
   float bal = _p.getBalance();
@@ -176,6 +181,7 @@ void Lobby_controller::ClickedJoin1_i()
   hide();
   _p.setDealerIDX(0);
   Table_controller win(_p);
+  Fl::add_timeout(0.1,timer_cb);
   Fl::run();
 }
 
@@ -184,6 +190,7 @@ void Lobby_controller::ClickedJoin2_i()
   hide();
   _p.setDealerIDX(1);
   Table_controller win(_p);
+  Fl::add_timeout(0.1,timer_cb);
   Fl::run();
 }
 
@@ -192,6 +199,7 @@ void Lobby_controller::ClickedJoin3_i()
   hide();
   _p.setDealerIDX(2);
   Table_controller win(_p);
+  Fl::add_timeout(0.1,timer_cb);
   Fl::run();
 }
 
@@ -200,5 +208,6 @@ void Lobby_controller::ClickedJoin4_i()
   hide();
   _p.setDealerIDX(3);
   Table_controller win(_p);
+  Fl::add_timeout(0.1,timer_cb);
   Fl::run();
 }

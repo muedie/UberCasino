@@ -253,9 +253,6 @@ void player::manage_state ()
 #ifdef DEBUG_STATES
             std::cout << "Playing: Entry " << std::endl;
 #endif
-            memcpy(p_cards,m_G.p[m_G.active_player].cards,sizeof(p_cards));
-            memcpy(d_cards,m_G.dealer_cards,sizeof(p_cards));
-            set_card_id();
             d_value = Hand_Value ( m_G.dealer_cards );
             value = Hand_Value ( m_G.p[m_G.active_player].cards );
             std::cout << "The value of my hand is "<< value << std::endl;
@@ -425,6 +422,9 @@ void player::external_data (Game G)
       {
         std::cout << "Game (uid matched and idx ) received" << std::endl;
       }
+      memcpy(p_cards,G.p[G.active_player].cards,sizeof(p_cards));
+      memcpy(d_cards,G.dealer_cards,sizeof(p_cards));
+      set_card_id();
       manage_state ();
    }
    else
@@ -625,6 +625,14 @@ player::player ()
   m_dealer_list.clear ();
   m_timer_thread = NULL;
   bet_amt = 0.0;
+  value = 0;
+  d_value = 0;
+  int i;
+  for(i = 0; i< 10; i++)
+  {
+    p_card_id[i] = 100;
+    d_card_id[i] = 100;
+  }
   // member objects
   p_io = new dds_io<Player,PlayerSeq,PlayerTypeSupport_var,PlayerTypeSupport,PlayerDataWriter_var,
                     PlayerDataWriter,PlayerDataReader_var,PlayerDataReader>

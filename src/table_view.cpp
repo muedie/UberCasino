@@ -74,6 +74,12 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   btn_refresh->labelcolor((Fl_Color)26);
   btn_refresh->align(Fl_Align(FL_ALIGN_WRAP));
 
+  betting_amount = new Fl_Output(448, 360, 75, 54);
+  betting_amount->box(FL_NO_BOX);
+  betting_amount->textfont(1);
+  betting_amount->textsize(34);
+  betting_amount->textcolor((Fl_Color)26);
+
   {
     player_interface = new Fl_Group(25, 672, 1275, 99);
     player_interface->box(FL_GLEAM_THIN_UP_BOX);
@@ -132,7 +138,6 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       balance->labelcolor((Fl_Color)26);
       balance->textsize(24);
       balance->textcolor(FL_GRAY0);
-      balance->value("24");
 
       spn_bet = new Fl_Spinner(62, 700, 105, 45);
       spn_bet->range(1,10);
@@ -258,6 +263,14 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       player_game->color((Fl_Color)36);
 
       {
+        player_count = new Fl_Output(1151, 597, 120, 35, "Count           ");
+        player_count->box(FL_NO_BOX);
+        player_count->labelfont(1);
+        player_count->labelsize(16);
+        player_count->labelcolor((Fl_Color)26);
+        player_count->textsize(16);
+        player_count->textcolor((Fl_Color)26);
+
         player_name = new Fl_Output(1059, 536, 177, 40);
         player_name->box(FL_NO_BOX);
         player_name->labelfont(1);
@@ -275,14 +288,6 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
         play_style->textfont(1);
         play_style->textsize(16);
         play_style->textcolor((Fl_Color)26);
-
-        player_count = new Fl_Output(1151, 597, 120, 35, "Count           ");
-        player_count->box(FL_NO_BOX);
-        player_count->labelfont(1);
-        player_count->labelsize(16);
-        player_count->labelcolor((Fl_Color)26);
-        player_count->textsize(16);
-        player_count->textcolor((Fl_Color)26);
 
         player_suggestion = new Fl_Output(1151, 619, 120, 35, "Suggestion   ");
         player_suggestion->box(FL_NO_BOX);
@@ -379,7 +384,6 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
         pl_card[8]->color((Fl_Color)18);
 
         pl_card[9] = new Fl_Box(709, 553, 65, 99);
-        pl_card[9]->image(card[0]);
         pl_card[9]->box(FL_GTK_UP_BOX);
         pl_card[9]->color((Fl_Color)18);
 
@@ -389,13 +393,8 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
     betting_box = new Fl_Box(424, 328, 125, 120);
     betting_box->box(FL_GTK_ROUND_UP_BOX);
     betting_box->color((Fl_Color)4);
-    betting_box->hide();
 
-    betting_amount = new Fl_Output(448, 360, 75, 54);
-    betting_amount->box(FL_NO_BOX);
-    betting_amount->textfont(1);
-    betting_amount->textsize(34);
-    betting_amount->textcolor((Fl_Color)26);
+
 
   end();
   show();

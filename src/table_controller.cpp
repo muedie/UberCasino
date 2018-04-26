@@ -5,14 +5,14 @@
 
 void tab_thread ( int seconds, std::function <void(void)> callback)
 {
-  // this routine is created as a posix thread.
+  std::cout<< "apple" <<std::endl;
   boost::this_thread::sleep_for(boost::chrono::seconds(seconds));
   callback ();
 }
 
 
 Table_controller::Table_controller(player& p) : Table_view() , _p{p}{
-//update = new boost::thread ( tab_thread , 1 , std::bind ( &Table_controller::Update , this ) );
+update = new boost::thread ( tab_thread , 0.1, std::bind ( &Table_controller::ClickedRefresh_i , this ) );
 player_name->value(_p.getName().c_str());
 play_style->value(_p.getStyle().c_str());
 
@@ -61,16 +61,36 @@ void Table_controller::ClickedBet(Fl_Widget* w, void* data)
 void Table_controller::ClickedRefresh_i()
 {
   float bal = _p.getBalance();
-  int b = int(bal + 0.5);
-  balance->value(std::to_string(b).c_str());
-  b = int(_p.bet_amt + 0.5);
-  betting_amount->value(std::to_string(b).c_str());
+  int b;
   b = _p.get_value();
+
   player_count->value(std::to_string(b).c_str());
   b = _p.get_d_value();
   dealer_count->value(std::to_string(b).c_str());
+  b = int(bal + 0.5);
+  balance->value(std::to_string(b).c_str());
+  float a = _p.bet_amt;
+  b = int(a + 0.5);
+  std::string s = std::to_string(b);
+  betting_amount->value(s.c_str());
+  int p[10];
+  memcpy(p,_p.get_p_cards(),sizeof(p));
+  int d[10];
+  memcpy(d,_p.get_d_cards(),sizeof(d));
+  int i;
+  for(i = 0; i< 10; i++)
+  {
+    if(p[i] < 53){
+      pl_card[i]->image(card[p[i]]);
+    }
+    if(d[i] < 53)
+    {
 
-
+      dl_card[i]->image(card[d[i]]);
+    }
+  }
+  this->damage();
+  this->redraw();
 }
 
 //Implement model here
@@ -102,7 +122,5 @@ void Table_controller::ClickedBet_i()
 {
   float a = (float) spn_bet->value();
   _p.bet_amt = a;
-  std::string s = std::to_string(a);
-  betting_amount->value(s.c_str());
   _p.user_input("bet");
 }
