@@ -5,14 +5,16 @@
 
 void tab_thread ( int seconds, std::function <void(void)> callback)
 {
-  std::cout<< "apple" <<std::endl;
-  boost::this_thread::sleep_for(boost::chrono::seconds(seconds));
-  callback ();
+  while(1)
+  {
+    boost::this_thread::sleep_for(boost::chrono::seconds(seconds));
+    callback ();
+  }
 }
 
 
 Table_controller::Table_controller(player& p) : Table_view() , _p{p}{
-update = new boost::thread ( tab_thread , 0.1, std::bind ( &Table_controller::ClickedRefresh_i , this ) );
+update = new boost::thread ( tab_thread , 0.5, std::bind ( &Table_controller::ClickedRefresh_i , this ) );
 player_name->value(_p.getName().c_str());
 play_style->value(_p.getStyle().c_str());
 
