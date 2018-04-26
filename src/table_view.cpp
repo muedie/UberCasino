@@ -4,6 +4,8 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
 {
   begin();
 
+  // All images are taken from google. So, all the credit goes to whoever they belong to. Thanks for making my project look great..
+
   card[0] = new Fl_JPEG_Image("./extra/images/cards/Gray_back.jpg");
 
   card[2] = new Fl_JPEG_Image("./extra/images/cards/2C.jpg");
