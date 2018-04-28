@@ -678,6 +678,7 @@ void player::new_game()
   d_down = false;
   d_value = 0;
   value = 0;
+
   win = -1;
   suggest = "";
   int i;
@@ -686,6 +687,11 @@ void player::new_game()
     p_card_id[i] = 100;
     d_card_id[i] = 100;
   }
+  bet_amt = 0;
+}
+
+void player::bet_game()
+{
   m_balance = m_balance - bet_amt;
 }
 

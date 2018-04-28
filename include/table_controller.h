@@ -26,7 +26,8 @@ private:
 
 public:
   Table_controller (player& p);
-  static void ClickedRefresh(Fl_Widget* w, void* data);
+  static void ClickedLeave(Fl_Widget* w, void* data);
+  static void ClickedNewGame(Fl_Widget* w, void* data);
   static void ClickedDoubledown(Fl_Widget* w, void* data);
   static void ClickedSplit(Fl_Widget* w, void* data);
   static void ClickedStand(Fl_Widget* w, void* data);
@@ -35,6 +36,8 @@ public:
 
 
   void ClickedRefresh_i();
+  void ClickedNewGame_i();
+  void ClickedLeave_i();
   void ClickedDoubledown_i();
   void ClickedSplit_i();
   void ClickedStand_i();

@@ -23,7 +23,8 @@ string s = _p.getDealerID();
 dealer_id->value(s.c_str());
 game_id->value(_p.get_game_uid().c_str());
 
-  btn_refresh->callback(ClickedRefresh, (void*)this);
+  btn_leave->callback(ClickedLeave, (void*)this);
+  btn_new->callback(ClickedNewGame, (void*)this);
   double_down->callback(ClickedDoubledown, (void*)this);
   split->callback(ClickedSplit, (void*)this);
   stand->callback(ClickedStand, (void*)this);
@@ -31,10 +32,16 @@ game_id->value(_p.get_game_uid().c_str());
   bet->callback(ClickedBet, (void*)this);
 }
 
-void Table_controller::ClickedRefresh(Fl_Widget* w, void* data)
+void Table_controller::ClickedLeave(Fl_Widget* w, void* data)
 {
-  ((Table_controller*)data)->ClickedRefresh_i();
+  ((Table_controller*)data)->ClickedLeave_i();
 }
+
+void Table_controller::ClickedNewGame(Fl_Widget* w, void* data)
+{
+  ((Table_controller*)data)->ClickedNewGame_i();
+}
+
 void Table_controller::ClickedDoubledown(Fl_Widget* w, void* data)
 {
   ((Table_controller*)data)->ClickedDoubledown_i();
@@ -63,9 +70,9 @@ void Table_controller::ClickedBet(Fl_Widget* w, void* data)
 
 void Table_controller::ClickedRefresh_i()
 {
-  if (_p.start)
+  if (_p.get_win() != -1)
   {
-    bet->activate();
+    btn_new->activate();
     hit->deactivate();
     stand->deactivate();
     double_down->deactivate();
@@ -139,6 +146,20 @@ void Table_controller::ClickedDoubledown_i()
 }
 
 
+void Table_controller::ClickedLeave_i()
+{
+  hide();
+  Lobby_controller win(_p);
+  Fl::run();
+}
+
+void Table_controller::ClickedNewGame_i()
+{
+  bet->activate();
+  btn_new->deactivate();
+  _p.new_game();
+}
+
 void Table_controller::ClickedSplit_i()
 {
 
@@ -163,7 +184,6 @@ void Table_controller::ClickedHit_i()
 
 void Table_controller::ClickedBet_i()
 {
-  betting_box->show();
   bet->deactivate();
   hit->activate();
   stand->activate();
@@ -171,6 +191,6 @@ void Table_controller::ClickedBet_i()
   _p.start = false;
   float a = (float) spn_bet->value();
   _p.bet_amt = a;
-  _p.new_game();
+  _p.bet_game();
   _p.user_input("bet");
 }

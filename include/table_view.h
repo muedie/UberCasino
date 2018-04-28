@@ -25,7 +25,8 @@ protected:
   Fl_PNG_Image* tie_img;
 
   Fl_Box* main_box;
-  Fl_Button* btn_refresh;
+  Fl_Button* btn_leave;
+  Fl_Button* btn_new;
   Fl_Group* dealer_info;
   Fl_Output* dealer_name;
   Fl_Output* dealer_id;

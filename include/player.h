@@ -106,6 +106,7 @@ private:
       std::string get_game_uid();
       bool start;
       void new_game();
+      void bet_game();
       int get_win();
 
 

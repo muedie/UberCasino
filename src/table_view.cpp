@@ -73,13 +73,22 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   main_box = new Fl_Box(0, 0, 1325, 785);
   main_box->image(bg_img);
 
-  btn_refresh = new Fl_Button(19, 23, 100, 55, "Refresh Game");
-  btn_refresh->box(FL_GLEAM_THIN_UP_BOX);
-  btn_refresh->color((Fl_Color)138);
-  btn_refresh->labelfont(1);
-  btn_refresh->labelsize(18);
-  btn_refresh->labelcolor((Fl_Color)26);
-  btn_refresh->align(Fl_Align(FL_ALIGN_WRAP));
+  btn_new = new Fl_Button(19, 23, 100, 55, "New Game");
+  btn_new->box(FL_GLEAM_THIN_UP_BOX);
+  btn_new->color((Fl_Color)138);
+  btn_new->labelfont(1);
+  btn_new->labelsize(18);
+  btn_new->labelcolor((Fl_Color)26);
+  btn_new->align(Fl_Align(FL_ALIGN_WRAP));
+  btn_new->deactivate();
+
+  btn_leave = new Fl_Button(19, 90, 100, 55, "Leave Game");
+  btn_leave->box(FL_GLEAM_THIN_UP_BOX);
+  btn_leave->color((Fl_Color)138);
+  btn_leave->labelfont(1);
+  btn_leave->labelsize(18);
+  btn_leave->labelcolor((Fl_Color)26);
+  btn_leave->align(Fl_Align(FL_ALIGN_WRAP));
 
   {
     player_interface = new Fl_Group(25, 672, 1275, 99);
