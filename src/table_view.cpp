@@ -65,10 +65,13 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   card[52] = new Fl_JPEG_Image("./extra/images/cards/KH.jpg");
 
   bg_img = new Fl_JPEG_Image("./extra/images/x.jpg");
+  clk_img = new Fl_PNG_Image("./extra/images/clk.png");
   chip = new Fl_PNG_Image("./extra/images/ch.png");
   win_img = new Fl_PNG_Image("./extra/images/win.png");
   lose_img = new Fl_PNG_Image("./extra/images/lose.png");
   tie_img = new Fl_PNG_Image("./extra/images/tie.png");
+  bj_img = new Fl_PNG_Image("./extra/images/bj.png");
+  timeout_img = new Fl_PNG_Image("./extra/images/timeout.png");
 
   main_box = new Fl_Box(0, 0, 1325, 785);
   main_box->image(bg_img);
@@ -141,13 +144,22 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       bet->align(Fl_Align(FL_ALIGN_WRAP));
       //bet->deactivate();
 
-      balance = new Fl_Output(544, 705, 109, 35, "Balance ");
+      balance = new Fl_Output(467, 705, 109, 35, "Balance ");
       balance->box(FL_GTK_ROUND_UP_BOX);
       balance->labelfont(1);
       balance->labelsize(24);
       balance->labelcolor((Fl_Color)26);
       balance->textsize(24);
       balance->textcolor(FL_GRAY0);
+
+      cd_time = new Fl_Output(701, 703, 45, 40);
+      cd_time->box(FL_GTK_UP_BOX);
+      cd_time->labelfont(1);
+      cd_time->labelsize(24);
+      cd_time->labelcolor((Fl_Color)26);
+      cd_time->textsize(24);
+      cd_time->textcolor(FL_GRAY0);
+      cd_time->image(clk_img);
 
       spn_bet = new Fl_Spinner(62, 700, 105, 45);
       spn_bet->range(1,10);

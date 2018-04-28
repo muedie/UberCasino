@@ -55,8 +55,6 @@ unsigned int Hand_Value ( UberCasino::card_t cards[] )
 
 void delay_thread ( int seconds, std::function <void(void)> callback)
 {
-  // this routine is created as a posix thread.
-  boost::this_thread::sleep_for(boost::chrono::seconds(seconds));
   callback ();
 }
 
@@ -125,12 +123,6 @@ void player::manage_state ()
          break;
      case StartHand:
          {
-             if ( m_timer_event )
-             {
-                std::cout << "\nTIME EVENT\n";
-                 transition = true;
-                 next_state = Init;
-             }
              if ( m_Game_recv_idx )
              {
                  transition = true;
@@ -180,6 +172,7 @@ void player::manage_state ()
 //#endif
            // Wait 30 seconds for the dealer to act
            // if he does not act, then he has not accepted us into the game
+           m_timer_event    = 30;
            TIMER(30);
          }
          break;
@@ -288,7 +281,7 @@ void player::manage_state ()
             } else if (strcmp(m_user_event_string.c_str(), "stand") == 0) {
                 std::cout << "\nSTAND: m_user_event: " << m_user_event_string << "Next state: " << next_state;
                 m_P.A = standing;
-                TIMER(1);
+                boost::this_thread::sleep_for(boost::chrono::seconds(1));
                 p_io->publish  ( m_P );
             }
             else if (strcmp(m_user_event_string.c_str(), "dd") == 0) {
@@ -316,15 +309,24 @@ void player::manage_state ()
               if ( d_value > 21 || ( (value > d_value) && (value <= 21) ) )
               {
                  std::cout << "Player Wins" << std::endl;
-                 m_balance = m_balance + (2.0*bet_amt);
+                 if(value == 21)
+                 {
+                   win = 4;
+                   m_balance = m_balance + (2.5*bet_amt); //BlackJack.. 3:2 payout
+                 }
+                 else
+                 {
+                  m_balance = m_balance + (2.0*bet_amt);
+                 }
                  hands_won++;
                  hands_played++;
                  win = 1;
               }
               else if (value == d_value)
               {
-                std::cout << "Draw" << std::endl;
+                std::cout << "PUSH" << std::endl;
                 hands_played++;
+                m_balance = m_balance + bet_amt;
                 win = 0;
               }
               else
@@ -333,10 +335,12 @@ void player::manage_state ()
                  hands_played++;
                  win = 2;
               }
+              m_timer_event    = 15;
+              TIMER(15);
 
               if (m_balance > 10.0 )
               {
-                 TIMER(2);
+                 boost::this_thread::sleep_for(boost::chrono::seconds(2));
                  next_state = Init;
                  start = true;
               }
@@ -358,7 +362,6 @@ void player::manage_state ()
 
    // clear all event flags
    m_user_event_string = "";
-   m_timer_event   = false;
    m_user_event    = false;
    m_Player_recv   = false;
    m_Game_recv_idx = false;
@@ -369,14 +372,14 @@ void player::manage_state ()
 
 void player::timer_expired ( )
 {
-   // this is called by the timer thread callback when the delay has expired
-   // note: only one timer can be active at a time
-   lock ();
-   m_timer_event = true;
-   std::cout << "Timer event has been received " << std::endl;
-   //manage_state ();
-   unlock ();
+  while(m_timer_event != 0)
+  {
+    boost::this_thread::sleep_for(boost::chrono::seconds(1));
+    m_timer_event--;
+  }
 }
+
+
 
 void player::external_data (Player P)
 {
@@ -453,6 +456,8 @@ void player::external_data (Game G)
       set_card_id();
       manage_state ();
       act = true;
+      m_timer_event    = 15;
+      TIMER(15);
    }
    else
       // single player, this is a problem.  otherwise it is OK
@@ -679,6 +684,13 @@ void player::new_game()
   d_value = 0;
   value = 0;
 
+  if ( m_timer_thread )
+  {
+     m_timer_thread->interrupt ();
+     delete ( m_timer_thread );
+     m_timer_thread = NULL;
+  }
+
   win = -1;
   suggest = "";
   int i;
@@ -693,6 +705,13 @@ void player::new_game()
 void player::bet_game()
 {
   m_balance = m_balance - bet_amt;
+  m_timer_event    = 15;
+  TIMER(15);
+}
+
+int player::get_timer_event()
+{
+  return m_timer_event;
 }
 
 
@@ -708,6 +727,7 @@ player::player ()
   m_P.balance = m_balance;
   m_dealer_list.clear ();
   m_timer_thread = NULL;
+
   bet_amt = 0.0;
   value = 0;
   d_value = 0;
@@ -732,7 +752,7 @@ player::player ()
                ( (char*) "game", false, true );
 
   // event flags
-  m_timer_event    = false;
+  m_timer_event    = 15;
   m_user_event     = false;
   m_Player_recv    = false;
   m_Game_recv      = false;

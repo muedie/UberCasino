@@ -70,9 +70,20 @@ void Table_controller::ClickedBet(Fl_Widget* w, void* data)
 
 void Table_controller::ClickedRefresh_i()
 {
+  int time = _p.get_timer_event();
+  cd_time->value(std::to_string(time).c_str());
+  if ( time == 0)
+  {
+    result1->image(timeout_img);
+    result2->image(timeout_img);
+    //_p.new_game();
+    boost::this_thread::sleep_for(boost::chrono::seconds(2));
+    ClickedLeave_i();
+  }
   if (_p.get_win() != -1)
   {
     btn_new->activate();
+    btn_leave->activate();
     hit->deactivate();
     stand->deactivate();
     double_down->deactivate();
@@ -130,6 +141,7 @@ void Table_controller::ClickedRefresh_i()
     case 0: result1->image(tie_img); result2->image(tie_img); break;
     case 1: result1->image(win_img); result2->image(win_img); break;
     case 2: result1->image(lose_img); result2->image(lose_img); break;
+    case 4: result1->image(bj_img); result2->image(bj_img); break;
     case -1: result1->image(NULL); result2->image(NULL); break;
   }
   this->damage();
@@ -188,6 +200,7 @@ void Table_controller::ClickedBet_i()
   hit->activate();
   stand->activate();
   double_down->activate();
+  btn_leave->deactivate();
   _p.start = false;
   float a = (float) spn_bet->value();
   _p.bet_amt = a;

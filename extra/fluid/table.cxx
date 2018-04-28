@@ -174,7 +174,7 @@ Fl_Double_Window* make_window() {
         o->labelcolor((Fl_Color)26);
         o->align(Fl_Align(FL_ALIGN_WRAP));
       } // Fl_Button* o
-      { Fl_Output* o = new Fl_Output(544, 705, 109, 35, "Balance ");
+      { Fl_Output* o = new Fl_Output(467, 705, 109, 35, "Balance ");
         o->box(FL_GTK_ROUND_UP_BOX);
         o->labelfont(1);
         o->labelsize(24);
@@ -187,6 +187,14 @@ Fl_Double_Window* make_window() {
         o->textfont(1);
         o->textsize(24);
       } // Fl_Spinner* o
+      { Fl_Output* o = new Fl_Output(701, 703, 45, 40);
+        o->box(FL_GTK_UP_BOX);
+        o->labelfont(1);
+        o->labelsize(24);
+        o->labelcolor((Fl_Color)26);
+        o->textsize(24);
+        o->textcolor(FL_GRAY0);
+      } // Fl_Output* o
       o->end();
     } // Fl_Group* o
     { Fl_Group* o = new Fl_Group(1015, 513, 275, 144);

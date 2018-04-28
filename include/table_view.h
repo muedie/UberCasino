@@ -19,10 +19,13 @@ class Table_view: public Fl_Window {
 protected:
   Fl_JPEG_Image* card[53];
   Fl_JPEG_Image* bg_img;
+  Fl_PNG_Image* clk_img;
   Fl_PNG_Image* chip;
   Fl_PNG_Image* win_img;
   Fl_PNG_Image* lose_img;
   Fl_PNG_Image* tie_img;
+  Fl_PNG_Image* bj_img;
+  Fl_PNG_Image* timeout_img;
 
   Fl_Box* main_box;
   Fl_Button* btn_leave;
@@ -33,6 +36,7 @@ protected:
   Fl_Output* game_id;
   Fl_Output* shoe_size;
   Fl_Output* mM_bet;
+  Fl_Output* cd_time;
   Fl_Output* dealer_count;
   Fl_Group* other_players;
   Fl_Output* player1;

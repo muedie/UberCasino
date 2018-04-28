@@ -30,7 +30,7 @@ private:
    boost::thread *m_timer_thread;
 
    float m_balance;
-   bool m_timer_event;   // timer has expired
+   int m_timer_event;   // timer has expired
    bool m_user_event;    // user typed in something
    bool m_Player_recv;   // data recved
    bool m_Game_recv;     // data recved, the game UID matches
@@ -108,6 +108,7 @@ private:
       void new_game();
       void bet_game();
       int get_win();
+      int get_timer_event();
 
 
       player ();

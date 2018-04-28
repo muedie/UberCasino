@@ -6,7 +6,7 @@ Function {make_window()} {open
 } {
   Fl_Window {} {
     label Table open
-    xywh {103 135 1325 785} type Double visible
+    xywh {161 130 1325 785} type Double visible
   } {
     Fl_Box {} {selected
       xywh {0 0 1325 785} box GLEAM_THIN_UP_BOX color 58
@@ -93,10 +93,13 @@ Function {make_window()} {open
       }
       Fl_Output {} {
         label {Balance }
-        xywh {544 705 109 35} box GTK_ROUND_UP_BOX labelfont 1 labelsize 24 labelcolor 26 textsize 24 textcolor 32
+        xywh {467 705 109 35} box GTK_ROUND_UP_BOX labelfont 1 labelsize 24 labelcolor 26 textsize 24 textcolor 32
       }
       Fl_Spinner {} {
         xywh {62 700 105 45} labelfont 1 textfont 1 textsize 24
+      }
+      Fl_Output {} {
+        xywh {701 703 45 40} box GTK_UP_BOX labelfont 1 labelsize 24 labelcolor 26 textsize 24 textcolor 32
       }
     }
     Fl_Group {} {open
