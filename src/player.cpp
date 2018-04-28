@@ -155,7 +155,7 @@ void player::manage_state ()
          break;
      case EndHand:
          {
-           next_state = Init;
+
          }
          break;
    }
@@ -275,23 +275,9 @@ void player::manage_state ()
                 m_P.A = hitting;
                 d_down = true;
                 p_io->publish  ( m_P );
+                m_balance = m_balance - bet_amt;
+                bet_amt = 2*bet_amt;
             }
-
-            /*
-            if ( value > 11 )
-            {
-               std::cout << "I have decided to stand " << std::endl;
-               m_P.A = standing;
-               TIMER(1);
-            }
-            else
-            {
-               std::cout << "I have decided to hit " << std::endl;
-               m_P.A = hitting;
-            }
-            */
-
-
          }
          break;
          case EndHand:
@@ -309,7 +295,7 @@ void player::manage_state ()
               if ( d_value > 21 || ( (value > d_value) && (value <= 21) ) )
               {
                  std::cout << "Player Wins" << std::endl;
-                 m_balance = m_balance + bet_amt;
+                 m_balance = m_balance + (2.0*bet_amt);
                  hands_won++;
                  hands_played++;
                  win = 1;
@@ -322,7 +308,6 @@ void player::manage_state ()
               else
               {
                  std::cout << "Dealer Wins" << std::endl;
-                 m_balance = m_balance - bet_amt;
                  hands_played++;
                  win = 2;
               }
@@ -330,6 +315,7 @@ void player::manage_state ()
               if (m_balance > 10.0 )
               {
                  TIMER(2);
+                 next_state = Init;
                  start = true;
               }
               else
@@ -538,6 +524,12 @@ std::string player::getDealerID(){
 return s;
 }
 
+std::string player::get_game_uid()
+{
+  string s = boost::uuids::to_string(m_current_game_uuid);
+return s;
+}
+
 std::string player::getPlayerID() {
   return uid;
 }
@@ -647,6 +639,20 @@ int player::get_value()
 int player::get_d_value()
 {
   return d_value;
+}
+
+void player::new_game()
+{
+  d_down = false;
+  d_value = 0;
+  value = 0;
+  int i;
+  for(i = 0; i< 10; i++)
+  {
+    p_card_id[i] = 100;
+    d_card_id[i] = 100;
+  }
+  m_balance = m_balance - bet_amt;
 }
 
 

@@ -399,7 +399,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
     betting_amount = new Fl_Output(460, 360, 75, 54);
     betting_amount->box(FL_NO_BOX);
     betting_amount->textfont(1);
-    betting_amount->textsize(26);
+    betting_amount->textsize(24);
     betting_amount->textcolor((Fl_Color)26);
 
 }

@@ -101,7 +101,10 @@ private:
       int* get_d_cards();
       void set_card_id();
       bool get_act();
+      std::string get_game_uid();
       bool start;
+      void new_game();
+
 
       player ();
       ~player ();

@@ -21,6 +21,7 @@ play_style->value(_p.getStyle().c_str());
 dealer_name->value(_p.getDealerName().c_str());
 string s = _p.getDealerID();
 dealer_id->value(s.c_str());
+game_id->value(_p.get_game_uid().c_str());
 
   btn_refresh->callback(ClickedRefresh, (void*)this);
   double_down->callback(ClickedDoubledown, (void*)this);
@@ -78,6 +79,10 @@ void Table_controller::ClickedRefresh_i()
   dealer_count->value(std::to_string(b).c_str());
   b = int(bal + 0.5);
   balance->value(std::to_string(b).c_str());
+  float a = _p.bet_amt;
+  b = int(a + 0.5);
+  std::string s = "$" + std::to_string(b);
+  betting_amount->value(s.c_str());
   int p[10];
   memcpy(p,_p.get_p_cards(),sizeof(p));
   int d[10];
@@ -88,6 +93,10 @@ void Table_controller::ClickedRefresh_i()
     if(p[i] < 53){
       pl_card[i]->image(card[p[i]]);
     }
+    else
+    {
+      pl_card[i]->image(NULL);
+    }
     if(d[i] < 53)
     {
       dl_card[i]->image(card[d[i]]);
@@ -95,6 +104,11 @@ void Table_controller::ClickedRefresh_i()
       {
         dl_card[1]->image(card[0]);
       }
+    }
+    else
+    {
+      dl_card[i]->image(NULL);
+      dl_card[1]->image(card[0]);
     }
   }
   if (_p.get_act() && !_p.start)
@@ -150,8 +164,6 @@ void Table_controller::ClickedBet_i()
   _p.start = false;
   float a = (float) spn_bet->value();
   _p.bet_amt = a;
-  int b = int(a + 0.5);
-  std::string s = "$" + std::to_string(b);
-  betting_amount->value(s.c_str());
+  _p.new_game();
   _p.user_input("bet");
 }
