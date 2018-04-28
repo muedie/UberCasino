@@ -62,6 +62,13 @@ void Table_controller::ClickedBet(Fl_Widget* w, void* data)
 
 void Table_controller::ClickedRefresh_i()
 {
+  if (_p.start)
+  {
+    bet->activate();
+    hit->deactivate();
+    stand->deactivate();
+    double_down->deactivate();
+  }
   float bal = _p.getBalance();
   int b;
   b = _p.get_value();
@@ -83,9 +90,19 @@ void Table_controller::ClickedRefresh_i()
     }
     if(d[i] < 53)
     {
-
       dl_card[i]->image(card[d[i]]);
+      if(d[1] > 52)
+      {
+        dl_card[1]->image(card[0]);
+      }
     }
+  }
+  if (_p.get_act() && !_p.start)
+  {
+    hit->activate();
+    stand->activate();
+    double_down->activate();
+
   }
   this->damage();
   this->redraw();
@@ -94,9 +111,10 @@ void Table_controller::ClickedRefresh_i()
 //Implement model here
 void Table_controller::ClickedDoubledown_i()
 {
-  hide();
-  Lobby_controller win(_p);
-  Fl::run();
+  hit->deactivate();
+  stand->deactivate();
+  double_down->deactivate();
+  _p.user_input("dd");
 }
 
 
@@ -108,11 +126,17 @@ void Table_controller::ClickedSplit_i()
 
 void Table_controller::ClickedStand_i()
 {
+  hit->deactivate();
+  stand->deactivate();
+  double_down->deactivate();
   _p.user_input("stand");
 }
 
 void Table_controller::ClickedHit_i()
 {
+  hit->deactivate();
+  stand->deactivate();
+  double_down->deactivate();
   _p.user_input("hit");
 }
 
@@ -120,6 +144,10 @@ void Table_controller::ClickedBet_i()
 {
   betting_box->show();
   bet->deactivate();
+  hit->activate();
+  stand->activate();
+  double_down->activate();
+  _p.start = false;
   float a = (float) spn_bet->value();
   _p.bet_amt = a;
   int b = int(a + 0.5);

@@ -208,6 +208,6 @@ void Lobby_controller::ClickedJoin4_i()
   hide();
   _p.setDealerIDX(3);
   Table_controller win(_p);
-//  Fl::add_timeout(0.1,timer_cb,&win);
+  Fl::add_timeout(0.1,timer_cb,&win);
   Fl::run();
 }

@@ -50,6 +50,9 @@ private:
       int hands_played;
       int play_style;
       std::string uid;
+      bool d_down;
+      int win;
+      bool act;
 
       int p_card_id[10];
       int d_card_id[10];
@@ -97,6 +100,8 @@ private:
       int* get_p_cards();
       int* get_d_cards();
       void set_card_id();
+      bool get_act();
+      bool start;
 
       player ();
       ~player ();
