@@ -70,6 +70,7 @@ void Table_controller::ClickedRefresh_i()
     stand->deactivate();
     double_down->deactivate();
   }
+  player_suggestion->value(_p.getSuggestion().c_str());
   float bal = _p.getBalance();
   int b;
   b = _p.get_value();
@@ -100,15 +101,14 @@ void Table_controller::ClickedRefresh_i()
     if(d[i] < 53)
     {
       dl_card[i]->image(card[d[i]]);
-      if(d[1] > 52)
+    }
+    else if(d[1] > 52 && d[2] > 52 && d[0] < 53)
       {
         dl_card[1]->image(card[0]);
       }
-    }
     else
     {
       dl_card[i]->image(NULL);
-      dl_card[1]->image(card[0]);
     }
   }
   if (_p.get_act() && !_p.start)
@@ -117,6 +117,13 @@ void Table_controller::ClickedRefresh_i()
     stand->activate();
     double_down->activate();
 
+  }
+  switch(_p.get_win())
+  {
+    case 0: result1->image(tie_img); result2->image(tie_img); break;
+    case 1: result1->image(win_img); result2->image(win_img); break;
+    case 2: result1->image(lose_img); result2->image(lose_img); break;
+    case -1: result1->image(NULL); result2->image(NULL); break;
   }
   this->damage();
   this->redraw();

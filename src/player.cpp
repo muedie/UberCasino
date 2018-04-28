@@ -259,6 +259,27 @@ void player::manage_state ()
             std::cout << "The value of my hand is "<< value << std::endl;
             std::cout << "State " << to_string ( next_state ) << std::endl;
 
+              //Strategy Suggestion
+
+            switch(play_style)
+            {
+              case 1:
+              break;
+              case 2: //implement for basic strategy here
+              break;
+              case 3:
+                    if (value <17) suggest = "Hit";
+                    else suggest = "Stand";
+              break;
+              case 4:
+              break;
+              case 5:
+                    if (value <12) suggest = "Hit";
+                    else suggest = "Stand";
+              break;
+
+            }
+
 
             if (strcmp(m_user_event_string.c_str(), "hit") == 0) {
                 std::cout << "\nHIT: m_user_event: " << m_user_event_string << "Next state: " << next_state;
@@ -304,6 +325,7 @@ void player::manage_state ()
               {
                 std::cout << "Draw" << std::endl;
                 hands_played++;
+                win = 0;
               }
               else
               {
@@ -641,11 +663,23 @@ int player::get_d_value()
   return d_value;
 }
 
+std::string player::getSuggestion()
+{
+  return suggest;
+}
+
+int player::get_win()
+{
+  return win;
+}
+
 void player::new_game()
 {
   d_down = false;
   d_value = 0;
   value = 0;
+  win = -1;
+  suggest = "";
   int i;
   for(i = 0; i< 10; i++)
   {
@@ -662,6 +696,7 @@ player::player ()
   start = true;
   act = false;
   d_down = false;
+  suggest = "";
   m_player_state = Init;
   m_balance = 1000.0;
   m_P.balance = m_balance;
@@ -670,6 +705,7 @@ player::player ()
   bet_amt = 0.0;
   value = 0;
   d_value = 0;
+  win = -1;
   int i;
   for(i = 0; i< 10; i++)
   {

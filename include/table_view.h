@@ -19,7 +19,10 @@ class Table_view: public Fl_Window {
 protected:
   Fl_JPEG_Image* card[53];
   Fl_JPEG_Image* bg_img;
-  Fl_PNG_Image* chip; 
+  Fl_PNG_Image* chip;
+  Fl_PNG_Image* win_img;
+  Fl_PNG_Image* lose_img;
+  Fl_PNG_Image* tie_img;
 
   Fl_Box* main_box;
   Fl_Button* btn_refresh;
@@ -56,6 +59,8 @@ protected:
   Fl_Box* pl_card[10];
   Fl_Box* betting_box;
   Fl_Output* betting_amount;
+  Fl_Box* result1;
+  Fl_Box* result2;
 
 public:
   Table_view();

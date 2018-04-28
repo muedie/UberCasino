@@ -66,6 +66,9 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
 
   bg_img = new Fl_JPEG_Image("./extra/images/x.jpg");
   chip = new Fl_PNG_Image("./extra/images/ch.png");
+  win_img = new Fl_PNG_Image("./extra/images/win.png");
+  lose_img = new Fl_PNG_Image("./extra/images/lose.png");
+  tie_img = new Fl_PNG_Image("./extra/images/tie.png");
 
   main_box = new Fl_Box(0, 0, 1325, 785);
   main_box->image(bg_img);
@@ -179,6 +182,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       shoe_size->labelcolor((Fl_Color)26);
       shoe_size->textsize(16);
       shoe_size->textcolor((Fl_Color)26);
+      shoe_size->value("Infinity");
 
       mM_bet = new Fl_Output(600, 101, 110, 21, "Min-Max bet ");
       mM_bet->box(FL_NO_BOX);
@@ -187,6 +191,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       mM_bet->labelcolor((Fl_Color)26);
       mM_bet->textsize(16);
       mM_bet->textcolor((Fl_Color)26);
+      mM_bet->value("$1 - $10");
 
       dealer_count = new Fl_Output(834, 79, 127, 36, "Count ");
       dealer_count->box(FL_NO_BOX);
@@ -391,10 +396,6 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
 {
   betting_box = new Fl_Box(424, 328, 125, 120);
   betting_box->image(chip);
-  betting_box->hide();
-  //betting_box->box(FL_GTK_ROUND_UP_BOX);
-  //betting_box->color((Fl_Color)4);
-
 
     betting_amount = new Fl_Output(460, 360, 75, 54);
     betting_amount->box(FL_NO_BOX);
@@ -403,6 +404,10 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
     betting_amount->textcolor((Fl_Color)26);
 
 }
+
+result1 = new Fl_Box(160, 300, 250, 150);
+
+result2 = new Fl_Box(550, 300, 250, 150);
 
 
 

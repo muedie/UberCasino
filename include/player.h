@@ -53,6 +53,7 @@ private:
       bool d_down;
       int win;
       bool act;
+      std::string suggest;
 
       int p_card_id[10];
       int d_card_id[10];
@@ -95,6 +96,7 @@ private:
       std::string getDealerID();
       std::string getPlayerID();
       void setUID(std::string s);
+      std::string getSuggestion();
       int get_value();
       int get_d_value();
       int* get_p_cards();
@@ -104,6 +106,7 @@ private:
       std::string get_game_uid();
       bool start;
       void new_game();
+      int get_win();
 
 
       player ();

@@ -42,6 +42,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_plcount->labelcolor((Fl_Color)26);
       dealer_plcount->textsize(16);
       dealer_plcount->textcolor((Fl_Color)26);
+      dealer_plcount->value("0");
 
       dealer_ssize = new Fl_Output(497, 88, 120, 35, "Shoe size     ");
       dealer_ssize->box(FL_NO_BOX);
@@ -50,6 +51,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_ssize->labelcolor((Fl_Color)26);
       dealer_ssize->textsize(16);
       dealer_ssize->textcolor((Fl_Color)26);
+      dealer_ssize->value("Infinity");
 
       dealer_mMbet = new Fl_Output(498, 116, 119, 35, "Min-Max bet ");
       dealer_mMbet->box(FL_NO_BOX);
@@ -58,6 +60,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_mMbet->labelcolor((Fl_Color)26);
       dealer_mMbet->textsize(16);
       dealer_mMbet->textcolor((Fl_Color)26);
+      dealer_mMbet->value("$1 - $10");
 
       join_btn = new Fl_Button(500, 54, 95, 35, "Join");
       join_btn->box(FL_GLEAM_THIN_UP_BOX);
