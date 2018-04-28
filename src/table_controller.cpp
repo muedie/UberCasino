@@ -160,6 +160,9 @@ void Table_controller::ClickedDoubledown_i()
 
 void Table_controller::ClickedLeave_i()
 {
+  update->interrupt ();
+  delete ( update );
+  update = NULL;
   hide();
   Lobby_controller win(_p);
   Fl::run();

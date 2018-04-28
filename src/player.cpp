@@ -684,12 +684,7 @@ void player::new_game()
   d_value = 0;
   value = 0;
 
-  if ( m_timer_thread )
-  {
-     m_timer_thread->interrupt ();
-     delete ( m_timer_thread );
-     m_timer_thread = NULL;
-  }
+
 
   win = -1;
   suggest = "";
