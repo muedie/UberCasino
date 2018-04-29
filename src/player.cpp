@@ -381,15 +381,30 @@ void player::timer_expired ( )
 
 
 
-void player::external_data (Player P)
+void player::external_data (Player P)     //Not receiving any signal
 {
-   // this is called when data is received
+   /*// this is called when data is received
    lock ();
-   m_P = P;
-   m_Player_recv = true;
-   std::cout << "Player data has been received" << std::endl;
-   manage_state ();
+   if(players.size() < 7)
+   {
+     int i;
+     int check = -1;
+     std::cout << "Player data has been received" << std::endl;
+     if(strcmp(P.game_uid,m_P.game_uid) == 0)
+     {
+       for (i = 0; i < players.size(); i++) {
+         if(strcmp(players[i].uid, P.uid) == 0)
+         {
+           check = i;
+           break;
+         }
+         players.push_back(P);
+       }
+     }
+     std::cout << players.size() << "aaaaaaaaaaaaaaaaaa" << std::endl;
+   }
    unlock ();
+   */
 }
 
 void player::external_data (Dealer D)
@@ -428,7 +443,6 @@ void player::external_data (Game G)
         memcpy ( &active_player_uuid,
                  G.p[i].uid,
                  sizeof ( active_player_uuid ) );
-                 std::cout << "aaaaaaaaaaaaaaaaaaaaaa/n";
         if ( m_my_uid == active_player_uuid )
         {
             // and last, need to be sure we are
@@ -456,7 +470,7 @@ void player::external_data (Game G)
       set_card_id();
       manage_state ();
       act = true;
-      m_timer_event    = 15;
+      m_timer_event = 15;
       TIMER(15);
    }
    else
