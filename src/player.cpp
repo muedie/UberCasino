@@ -53,6 +53,27 @@ unsigned int Hand_Value ( UberCasino::card_t cards[] )
    return total;
 }
 
+int card_value (UberCasino::card_t card) {
+  if (card.valid) {
+    switch (card.card) {
+      case ace: return 1;
+      case two: return 2;
+      case three: return 3;
+      case four: return 4;
+      case five: return 5;
+      case six: return 6;
+      case seven: return 7;
+      case eight: return 8;
+      case nine: return 9;
+      case ten:
+      case jack:
+      case queen: 
+      case king: return 10;
+    }
+  }
+  return 0;
+}
+
 void delay_thread ( int seconds, std::function <void(void)> callback)
 {
   callback ();
@@ -258,13 +279,156 @@ void player::manage_state ()
             {
               case 1:
               break;
-              case 2: //implement for basic strategy here
+              case 2: {
+                  //implement for basic strategy here
+                  int d_upcard = card_value(m_G.dealer_cards[1]);
+                  
+                  // on value basis
+                  if (value >= 5 && value <= 8) {
+                    suggest = "Hit";
+                  } else if (value == 9) {
+                    if (d_upcard >= 3 && d_upcard <= 6) {
+                      suggest = "Double";
+                    } else suggest = "Hit";
+                  } else if (value == 10) {
+                    if (d_upcard >= 2 && d_upcard <= 9) {
+                      suggest = "Double";
+                    } else if (d_upcard == 1 || d_upcard == 10) {
+                      suggest = "Hit";
+                    }
+                  } else if (value == 11) {
+                    if (d_upcard >= 2 && d_upcard <= 10) {
+                      suggest = "Double";
+                    } else if (d_upcard == 1) {
+                      suggest = "Hit";
+                    }
+                  } else if (value == 12) {
+                    if (d_upcard >= 4 && d_upcard <= 6) {
+                      suggest = "Stand";
+                    } else {
+                      suggest = "Hit";
+                    }
+                  } else if (value >= 13 && value <= 16) {
+                    if (d_upcard >= 2 && d_upcard <= 6) {
+                      suggest = "Stand";
+                    } else {
+                      suggest = "Hit";
+                    }
+                  } else if (value == 17 || value == 18) {
+                    suggest = "Stand";
+                  }
+
+                  // on card basis
+                  int my_card1 = card_value(m_G.p[m_G.active_player].cards[0]);
+                  int my_card2 = card_value(m_G.p[m_G.active_player].cards[1]);
+
+                  if (my_card1 == 1) {
+                    switch(my_card2) {
+                      case 2: 
+                      case 3: {
+                        if (d_upcard == 5 || d_upcard == 6) {
+                          suggest = "Double";
+                        } else suggest = "Hit";
+                      } break;
+                      case 4:
+                      case 5: {
+                        if (d_upcard >= 4 &&  d_upcard <= 6) {
+                          suggest = "Double";
+                        } else suggest = "Hit";
+                      } break;
+                      case 6: {
+                        if (d_upcard >= 3 &&  d_upcard <= 6) {
+                          suggest = "Double";
+                        } else suggest = "Hit";
+                      } break;
+                      case 7: {
+                        if (d_upcard >= 3 &&  d_upcard <= 6) {
+                          suggest = "Double";
+                        } else if (d_upcard == 2 || d_upcard == 7 || d_upcard == 8) {
+                          suggest = "Stand";
+                        } else if (d_upcard == 9 || d_upcard == 10 || d_upcard == 1) {
+                          suggest = "Hit";
+                        }
+                      } break;
+                      case 8:
+                      case 9:
+                      case 10: {
+                        suggest = "Stand";
+                      } break;
+                      case 1: {
+                        suggest = "Split";
+                      }
+                    }
+                  } else if (my_card1 == 2 && my_card2 == 2) {
+                    if (d_upcard >= 2 && d_upcard <= 7) {
+                      suggest = "Split";
+                    } else suggest = "Hit";
+                  } else if (my_card1 == 3 && my_card2 == 3) {
+                    if (d_upcard >= 2 && d_upcard <= 7) {
+                      suggest = "Split";
+                    } else suggest = "Hit";
+                  } else if (my_card1 == 4 && my_card2 == 4) {
+                    if (d_upcard == 5 || d_upcard == 6) {
+                      suggest = "Split";
+                    } else suggest = "Hit";
+                  } else if (my_card1 == 5 && my_card2 == 5) {
+                    suggest = "Don't Split";
+                  } else if (my_card1 == 6 && my_card2 == 6) {
+                    if (d_upcard >= 2 && d_upcard <= 6) {
+                      suggest = "Split";
+                    } else suggest = "Hit";
+                  } else if (my_card1 == 7 && my_card2 == 7) {
+                    if (d_upcard >= 2 && d_upcard <= 7) {
+                      suggest = "Split";
+                    } else suggest = "Hit";
+                  } else if (my_card1 == 8 && my_card2 == 8) {
+                    suggest = "Split";
+                  } else if (my_card1 == 9 && my_card2 == 9) {
+                    if ((d_upcard >= 2 && d_upcard <= 6) || d_upcard == 8 || d_upcard == 9) {
+                      suggest = "Split";
+                    } else if (d_upcard == 7 || d_upcard == 10 || d_upcard == 1) {
+                      suggest = "Stand";
+                    }
+                  } else if (my_card1 == 10 && my_card2 == 10) {
+                    suggest = "Stand";
+                  }
+
+                  // if cases don't catch situation
+                  if (strcmp(suggest.c_str(), "") == 0) {
+                    suggest = "Error!";
+                  }
+                  
+
+                }
               break;
               case 3:
                     if (value <17) suggest = "Hit";
                     else suggest = "Stand";
               break;
-              case 4:
+              case 4: {
+                // counting
+                int count_total = 0;
+                
+                for (int i = 0; i < UberCasino::MAX_PLAYERS_IN_A_GAME; i++) {
+                  // every player
+                  for (int j = 0; j < UberCasino::MAX_CARDS_PER_PLAYER; j++) {
+                    //every card
+                    if (m_G.p[i].cards[j].valid) {
+                      int c_value = card_value(m_G.p[i].cards[j]);
+                      if (c_value >=2 && c_value <=6)
+                        count_total++;
+                      else if (c_value == 10)
+                        count_total--;
+                    }
+                  }
+                }
+
+                if (count_total > 0)
+                  suggest = "Bet, Count: " + std::to_string(count_total);
+                else 
+                  suggest = "Hold, count: " + std::to_string(count_total);
+
+              }
               break;
               case 5:
                     if (value <12) suggest = "Hit";
