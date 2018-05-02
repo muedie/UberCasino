@@ -56,7 +56,6 @@ UberCasino::card_t Next_Card ()
    // this function returns the next card to be dealt
    UberCasino::card_t retval;
    card_kind cards[] = {ace,two,three,four,five,six,seven,eight,nine,ten,jack,queen,king};
-   srand(time(0));
    int r = (rand() % 10) + 1;
    retval.card = cards[r];
    count++;
@@ -494,6 +493,7 @@ dealer::dealer ()
 {
    // member variables
    m_timer_thread = NULL;
+   srand(time(NULL));
    m_dealer_state = Init;
    m_user_event_mask = "start";  // this is the first event we will be looking for
    m_number_of_players = 0;

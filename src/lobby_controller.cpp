@@ -11,6 +11,7 @@ void timer_cb(void *v)
 }
 
 Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
+  Fl::remove_timeout(timer_cb);
   player_name->value(_p.getName().c_str());
   float bal = _p.getBalance();
   int b = int(bal + 0.5);

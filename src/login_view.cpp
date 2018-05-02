@@ -5,11 +5,14 @@ Login_view::Login_view() : Fl_Window(430, 475, "Login")
 {
   begin();
   background_img = new Fl_JPEG_Image("./extra/images/login.jpeg");
+  log_img = new Fl_PNG_Image("./extra/images/log.png");
+
   main_box = new Fl_Box(0, 0, 430, 475);
   main_box->image(background_img);
 
   title_box = new Fl_Box(48, 40, 330, 190);
-  title_box->box(FL_GLEAM_UP_BOX);
+  title_box->image(log_img);
+/*  title_box->box(FL_GLEAM_UP_BOX);
   title_box->color(FL_FOREGROUND_COLOR);
 
   title = new Fl_Text_Display(81, 207, 257, 0, "Welcome to Jack Black\'s BlackJack");
@@ -18,7 +21,7 @@ Login_view::Login_view() : Fl_Window(430, 475, "Login")
   title->labelfont(3);
   title->labelsize(38);
   title->labelcolor((Fl_Color)26);
-  title->align(Fl_Align(129));
+  title->align(Fl_Align(129));*/
 
   name_box = new Fl_Box(84, 273, 245, 40, "Enter your name:");
   name_box->box(FL_GLEAM_UP_BOX);

@@ -72,14 +72,6 @@ void Table_controller::ClickedRefresh_i()
 {
   int time = _p.get_timer_event();
   cd_time->value(std::to_string(time).c_str());
-  if ( time == 0)
-  {
-    result1->image(timeout_img);
-    result2->image(timeout_img);
-    //_p.new_game();
-    boost::this_thread::sleep_for(boost::chrono::seconds(2));
-    ClickedLeave_i();
-  }
   if (_p.get_win() != -1)
   {
     btn_new->activate();
@@ -144,6 +136,18 @@ void Table_controller::ClickedRefresh_i()
     case 4: result1->image(bj_img); result2->image(bj_img); break;
     case -1: result1->image(NULL); result2->image(NULL); break;
   }
+  if ( time == 0)
+  {
+    result1->image(timeout_img);
+    result2->image(timeout_img);
+    hit->deactivate();
+    stand->deactivate();
+    double_down->deactivate();
+    btn_new->deactivate();
+    btn_leave->activate();
+    bet->deactivate();
+    std::cout << "TIMEOUT" <<std::endl;
+  }
   this->damage();
   this->redraw();
 }
@@ -160,9 +164,12 @@ void Table_controller::ClickedDoubledown_i()
 
 void Table_controller::ClickedLeave_i()
 {
-  update->interrupt ();
-  delete ( update );
-  update = NULL;
+  if(update != NULL)
+  {
+    update->interrupt ();
+    delete ( update );
+    update = NULL;
+  }
   hide();
   Lobby_controller win(_p);
   Fl::run();

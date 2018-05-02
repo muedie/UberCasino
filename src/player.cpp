@@ -67,7 +67,7 @@ int card_value (UberCasino::card_t card) {
       case nine: return 9;
       case ten:
       case jack:
-      case queen: 
+      case queen:
       case king: return 10;
     }
   }
@@ -281,24 +281,24 @@ void player::manage_state ()
               break;
               case 2: {
                   //implement for basic strategy here
-                  int d_upcard = card_value(m_G.dealer_cards[1]);
-                  
+                  int d_upcard = card_value(m_G.dealer_cards[0]);
+
                   // on value basis
                   if (value >= 5 && value <= 8) {
                     suggest = "Hit";
                   } else if (value == 9) {
                     if (d_upcard >= 3 && d_upcard <= 6) {
-                      suggest = "Double";
+                      suggest = "Double Down";
                     } else suggest = "Hit";
                   } else if (value == 10) {
                     if (d_upcard >= 2 && d_upcard <= 9) {
-                      suggest = "Double";
+                      suggest = "Double Down";
                     } else if (d_upcard == 1 || d_upcard == 10) {
                       suggest = "Hit";
                     }
                   } else if (value == 11) {
                     if (d_upcard >= 2 && d_upcard <= 10) {
-                      suggest = "Double";
+                      suggest = "Double Down";
                     } else if (d_upcard == 1) {
                       suggest = "Hit";
                     }
@@ -324,26 +324,26 @@ void player::manage_state ()
 
                   if (my_card1 == 1) {
                     switch(my_card2) {
-                      case 2: 
+                      case 2:
                       case 3: {
                         if (d_upcard == 5 || d_upcard == 6) {
-                          suggest = "Double";
+                          suggest = "Double Down";
                         } else suggest = "Hit";
                       } break;
                       case 4:
                       case 5: {
                         if (d_upcard >= 4 &&  d_upcard <= 6) {
-                          suggest = "Double";
+                          suggest = "Double Down";
                         } else suggest = "Hit";
                       } break;
                       case 6: {
                         if (d_upcard >= 3 &&  d_upcard <= 6) {
-                          suggest = "Double";
+                          suggest = "Double Down";
                         } else suggest = "Hit";
                       } break;
                       case 7: {
                         if (d_upcard >= 3 &&  d_upcard <= 6) {
-                          suggest = "Double";
+                          suggest = "Double Down";
                         } else if (d_upcard == 2 || d_upcard == 7 || d_upcard == 8) {
                           suggest = "Stand";
                         } else if (d_upcard == 9 || d_upcard == 10 || d_upcard == 1) {
@@ -397,7 +397,7 @@ void player::manage_state ()
                   if (strcmp(suggest.c_str(), "") == 0) {
                     suggest = "Error!";
                   }
-                  
+
 
                 }
               break;
@@ -408,7 +408,7 @@ void player::manage_state ()
               case 4: {
                 // counting
                 int count_total = 0;
-                
+
                 for (int i = 0; i < UberCasino::MAX_PLAYERS_IN_A_GAME; i++) {
                   // every player
                   for (int j = 0; j < UberCasino::MAX_CARDS_PER_PLAYER; j++) {
@@ -424,9 +424,9 @@ void player::manage_state ()
                 }
 
                 if (count_total > 0)
-                  suggest = "Bet, Count: " + std::to_string(count_total);
-                else 
-                  suggest = "Hold, count: " + std::to_string(count_total);
+                  suggest = "Hit";
+                else
+                  suggest = "Stand";
 
               }
               break;
@@ -628,12 +628,12 @@ void player::external_data (Game G)
       else if ( m_Game_recv_idx )
       {
         std::cout << "Game (uid matched and idx ) received" << std::endl;
+        act = true;
       }
       memcpy(p_cards,G.p[G.active_player].cards,sizeof(p_cards));
       memcpy(d_cards,G.dealer_cards,sizeof(p_cards));
       set_card_id();
       manage_state ();
-      act = true;
       m_timer_event = 15;
       TIMER(15);
    }

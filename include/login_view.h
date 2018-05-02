@@ -8,6 +8,7 @@
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Text_Display.H>
 #include <FL/Fl_JPEG_Image.H>
+#include <FL/Fl_PNG_Image.H>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,6 +23,7 @@ protected:
   Fl_Button* quit_btn;
   Fl_Text_Display* title;
   Fl_JPEG_Image* background_img;
+  Fl_PNG_Image* log_img;
 
 public:
   Login_view();
