@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-class Login_view: public Fl_Window {
+class Login_view: public Fl_Window {      //view for login window
 protected:
   Fl_Box* main_box;
   Fl_Box* title_box;

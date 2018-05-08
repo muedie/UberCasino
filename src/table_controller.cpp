@@ -3,7 +3,7 @@
 #include "player.h"
 
 
-void tab_thread ( int seconds, std::function <void(void)> callback)
+void tab_thread ( int seconds, std::function <void(void)> callback)         //function to call callback function and then sleep
 {
   while(1)
   {
@@ -14,7 +14,7 @@ void tab_thread ( int seconds, std::function <void(void)> callback)
 
 
 Table_controller::Table_controller(player& p) : Table_view() , _p{p}{
-update = new boost::thread ( tab_thread , 1, std::bind ( &Table_controller::ClickedRefresh_i , this ) );
+update = new boost::thread ( tab_thread , 1, std::bind ( &Table_controller::ClickedRefresh_i , this ) );  //thread to check conditions per second
 player_name->value(_p.getName().c_str());
 play_style->value(_p.getStyle().c_str());
 
@@ -23,8 +23,8 @@ string s = _p.getDealerID();
 dealer_id->value(s.c_str());
 game_id->value(_p.get_game_uid().c_str());
 
-  btn_leave->callback(ClickedLeave, (void*)this);
-  btn_new->callback(ClickedNewGame, (void*)this);
+  btn_leave->callback(ClickedLeave, (void*)this);       //leave button callback
+  btn_new->callback(ClickedNewGame, (void*)this);     //new button callback
   double_down->callback(ClickedDoubledown, (void*)this);
   split->callback(ClickedSplit, (void*)this);
   stand->callback(ClickedStand, (void*)this);
@@ -68,11 +68,11 @@ void Table_controller::ClickedBet(Fl_Widget* w, void* data)
   ((Table_controller*)data)->ClickedBet_i();
 }
 
-void Table_controller::ClickedRefresh_i()
+void Table_controller::ClickedRefresh_i()       //check the current status of game.. is ran continously with the help of thread
 {
-  int time = _p.get_timer_event();
+  int time = _p.get_timer_event();              //get countdown time
   cd_time->value(std::to_string(time).c_str());
-  if (_p.get_win() != -1)
+  if (_p.get_win() != -1)         //check if the game is won.. deactivates all other button except new and leave button
   {
     btn_new->activate();
     btn_leave->activate();
@@ -94,25 +94,25 @@ void Table_controller::ClickedRefresh_i()
   b = int(a + 0.5);
   std::string s = "$" + std::to_string(b);
   betting_amount->value(s.c_str());
-  int p[10];
+  int p[10];                //player cards array
   memcpy(p,_p.get_p_cards(),sizeof(p));
-  int d[10];
+  int d[10];                  //dealer cards array
   memcpy(d,_p.get_d_cards(),sizeof(d));
   int i;
-  for(i = 0; i< 10; i++)
+  for(i = 0; i< 10; i++)            //for loop check for player cards and load correct cards in window
   {
-    if(p[i] < 53){
+    if(p[i] < 53){                  //checks if the card is valid or not
       pl_card[i]->image(card[p[i]]);
     }
     else
     {
-      pl_card[i]->image(NULL);
+      pl_card[i]->image(NULL);          //invalid cards does not get image
     }
     if(d[i] < 53)
     {
       dl_card[i]->image(card[d[i]]);
     }
-    else if(d[1] > 52 && d[2] > 52 && d[0] < 53)
+    else if(d[1] > 52 && d[2] > 52 && d[0] < 53)        //2nd card of dealer in faced down
       {
         dl_card[1]->image(card[0]);
       }
@@ -121,14 +121,14 @@ void Table_controller::ClickedRefresh_i()
       dl_card[i]->image(NULL);
     }
   }
-  if (_p.get_act() && !_p.start)
+  if (_p.get_act() && !_p.start)      //check for player action..hit stand and double down button gets activated
   {
     hit->activate();
     stand->activate();
     double_down->activate();
 
   }
-  switch(_p.get_win())
+  switch(_p.get_win())          //checks the game current condition..0-tie, 1-win, 2-lose, 4-blackjack, -1-in progress
   {
     case 0: result1->image(tie_img); result2->image(tie_img); break;
     case 1: result1->image(win_img); result2->image(win_img); break;
@@ -136,7 +136,7 @@ void Table_controller::ClickedRefresh_i()
     case 4: result1->image(bj_img); result2->image(bj_img); break;
     case -1: result1->image(NULL); result2->image(NULL); break;
   }
-  if ( time == 0)
+  if ( time == 0)       //if the countdown time reaches 0, all buttons gets deactivated except leave button game
   {
     result1->image(timeout_img);
     result2->image(timeout_img);
@@ -148,12 +148,12 @@ void Table_controller::ClickedRefresh_i()
     bet->deactivate();
     std::cout << "TIMEOUT" <<std::endl;
   }
-  this->damage();
+  this->damage();       //all widgets all damaged to be redrawn again.. horrible hack
   this->redraw();
 }
 
 //Implement model here
-void Table_controller::ClickedDoubledown_i()
+void Table_controller::ClickedDoubledown_i()      //double down call back function
 {
   hit->deactivate();
   stand->deactivate();
@@ -162,9 +162,9 @@ void Table_controller::ClickedDoubledown_i()
 }
 
 
-void Table_controller::ClickedLeave_i()
+void Table_controller::ClickedLeave_i()       //leave button call back function
 {
-  if(update != NULL)
+  if(update != NULL)                  //deletes the active thread
   {
     update->interrupt ();
     delete ( update );
@@ -175,7 +175,7 @@ void Table_controller::ClickedLeave_i()
   Fl::run();
 }
 
-void Table_controller::ClickedNewGame_i()
+void Table_controller::ClickedNewGame_i()       //new game call back function
 {
   bet->activate();
   btn_new->deactivate();
@@ -188,7 +188,7 @@ void Table_controller::ClickedSplit_i()
 }
 
 
-void Table_controller::ClickedStand_i()
+void Table_controller::ClickedStand_i()       //stand button call back function
 {
   hit->deactivate();
   stand->deactivate();
@@ -196,7 +196,7 @@ void Table_controller::ClickedStand_i()
   _p.user_input("stand");
 }
 
-void Table_controller::ClickedHit_i()
+void Table_controller::ClickedHit_i()       //hit button call back function
 {
   hit->deactivate();
   stand->deactivate();
@@ -204,7 +204,7 @@ void Table_controller::ClickedHit_i()
   _p.user_input("hit");
 }
 
-void Table_controller::ClickedBet_i()
+void Table_controller::ClickedBet_i()     //clicked bet call back function
 {
   bet->deactivate();
   hit->activate();
@@ -212,7 +212,7 @@ void Table_controller::ClickedBet_i()
   double_down->activate();
   btn_leave->deactivate();
   _p.start = false;
-  float a = (float) spn_bet->value();
+  float a = (float) spn_bet->value();     //get value from spinner
   _p.bet_amt = a;
   _p.bet_game();
   _p.user_input("bet");

@@ -8,6 +8,7 @@
 
 #include <boost/thread.hpp>
 
+//timer thread for countdown
 #define TIMER(SECS) \
     if ( m_timer_thread )\
     {\
@@ -135,7 +136,7 @@ void player::manage_state ()
 
             std::cout << "\nm_user_event: " << m_user_event;
 
-            if ( m_user_event && strcmp(m_user_event_string.c_str(), "bet") == 0 )
+            if ( m_user_event && strcmp(m_user_event_string.c_str(), "bet") == 0 )      //only when bet button is clicked
             {
                   transition = true;
                   next_state = StartHand;
@@ -277,7 +278,7 @@ void player::manage_state ()
 
             switch(play_style)
             {
-              case 1:
+              case 1:     //no strategy for manual
               break;
               case 2: {
                   //implement for basic strategy here
@@ -438,23 +439,23 @@ void player::manage_state ()
             }
 
 
-            if (strcmp(m_user_event_string.c_str(), "hit") == 0) {
+            if (strcmp(m_user_event_string.c_str(), "hit") == 0) {      //when hit button is clicked
                 std::cout << "\nHIT: m_user_event: " << m_user_event_string << "Next state: " << next_state;
                 m_P.A = hitting;
                 p_io->publish  ( m_P );
-            } else if (strcmp(m_user_event_string.c_str(), "stand") == 0) {
+            } else if (strcmp(m_user_event_string.c_str(), "stand") == 0) {       //when stand button is clicked
                 std::cout << "\nSTAND: m_user_event: " << m_user_event_string << "Next state: " << next_state;
                 m_P.A = standing;
-                boost::this_thread::sleep_for(boost::chrono::seconds(1));
-                p_io->publish  ( m_P );
+                boost::this_thread::sleep_for(boost::chrono::seconds(1));     //delay for practical use
+                p_io->publish  ( m_P );         //player sends player action to dealer
             }
-            else if (strcmp(m_user_event_string.c_str(), "dd") == 0) {
+            else if (strcmp(m_user_event_string.c_str(), "dd") == 0) {        //when double down button is clicked
                 std::cout << "\nDouble Down: m_user_event: " << m_user_event_string << "Next state: " << next_state;
                 m_P.A = hitting;
                 d_down = true;
                 p_io->publish  ( m_P );
                 m_balance = m_balance - bet_amt;
-                bet_amt = 2*bet_amt;
+                bet_amt = 2*bet_amt;        //bet amount increases by 2
             }
          }
          break;
@@ -470,7 +471,7 @@ void player::manage_state ()
               d_value = Hand_Value ( m_G.dealer_cards );
               value = Hand_Value ( m_G.p[m_G.active_player].cards );
               std::cout << "Dealer has " << d_value << " Player has " << value << std::endl;
-              if ( d_value > 21 || ( (value > d_value) && (value <= 21) ) )
+              if ( d_value > 21 || ( (value > d_value) && (value <= 21) ) )       //check if the player is winning or dealer
               {
                  std::cout << "Player Wins" << std::endl;
                  if(value == 21)
@@ -480,17 +481,17 @@ void player::manage_state ()
                  }
                  else
                  {
-                  m_balance = m_balance + (2.0*bet_amt);
+                  m_balance = m_balance + (2.0*bet_amt);      //regulay payout
                  }
                  hands_won++;
                  hands_played++;
                  win = 1;
               }
-              else if (value == d_value)
+              else if (value == d_value)          //if both has same value, game is pushed PUSH
               {
                 std::cout << "PUSH" << std::endl;
                 hands_played++;
-                m_balance = m_balance + bet_amt;
+                m_balance = m_balance + bet_amt;      //bet returned
                 win = 0;
               }
               else
@@ -500,9 +501,9 @@ void player::manage_state ()
                  win = 2;
               }
               m_timer_event    = 15;
-              TIMER(15);
+              TIMER(15);        //15 second countdown for player response
 
-              if (m_balance > 10.0 )
+              if (m_balance > 10.0 )        //checks if the player balance is low
               {
                  boost::this_thread::sleep_for(boost::chrono::seconds(2));
                  next_state = Init;
@@ -534,7 +535,7 @@ void player::manage_state ()
 
 }
 
-void player::timer_expired ( )
+void player::timer_expired ( )        //decrease time by 1 second each second.. countdown implementation
 {
   while(m_timer_event != 0)
   {
@@ -634,7 +635,7 @@ void player::external_data (Game G)
       memcpy(d_cards,G.dealer_cards,sizeof(p_cards));
       set_card_id();
       manage_state ();
-      m_timer_event = 15;
+      m_timer_event = 15;     //15 second countdown after game data is recieved
       TIMER(15);
    }
    else
@@ -643,7 +644,7 @@ void player::external_data (Game G)
     }
 
 
-    if (d_down)
+    if (d_down)         //if double down has been pressed.. 2nd action is stand... implements automatically without user interaction
     {
       boost::this_thread::sleep_for(boost::chrono::seconds(2));
       user_input("stand");
@@ -655,7 +656,7 @@ void player::external_data (Game G)
 }
 
 
-void player::user_input (std::string I)
+void player::user_input (std::string I)     //user input handler...
 {
    lock ();
    m_user_event_string = I;
@@ -665,47 +666,47 @@ void player::user_input (std::string I)
    unlock ();
 }
 
-void player::setName (std::string Name )
+void player::setName (std::string Name )        //set player name
 {
    strncpy ( m_P.name, Name.c_str(), sizeof (m_P.name) - 1 );
 }
 
 
-std::string player::getName()
+std::string player::getName()       //get player name
 {
   return m_P.name;
 }
 
-bool player::get_m_Dealer_recv()
+bool player::get_m_Dealer_recv()        //get dealer receive signal
 {
   return m_Dealer_recv;
 }
 
-std::vector<Dealer> player::getDealer_list(){
+std::vector<Dealer> player::getDealer_list(){       //returns available dealer list
   return m_dealer_list;
 }
 
-int player::get_hands_won()
+int player::get_hands_won()                 //returns hands won
 {
   return hands_won;
 }
 
-int player::get_hands_played()
+int player::get_hands_played()        //returns games played
 {
   return hands_played;
 }
 
-void player::set_play_style(int x)
+void player::set_play_style(int x)        //sets player play style
 {
  play_style = x;
 }
 
-bool player::get_act()
+bool player::get_act()                //return player action signal
 {
   return act;
 }
 
-std::string player::getStyle(){
+std::string player::getStyle(){                     //return player style
   string res;
   switch(play_style)
   {
@@ -718,57 +719,57 @@ std::string player::getStyle(){
   return res;
 }
 
-std::string player::getDealerName(){
+std::string player::getDealerName(){              //return dealer name
 return m_dealer_list[m_dealer_idx].name;
 }
 
-std::string player::getDealerID(){
+std::string player::getDealerID(){                      //return dealer id
   boost::uuids::uuid u;
   memcpy (m_dealer_list[m_dealer_idx].uid , &u, 16 );
   string s = boost::uuids::to_string(u);
 return s;
 }
 
-std::string player::get_game_uid()
+std::string player::get_game_uid()                          //return game id
 {
   string s = boost::uuids::to_string(m_current_game_uuid);
 return s;
 }
 
-std::string player::getPlayerID() {
+std::string player::getPlayerID() {       //return player id
   return uid;
 }
 
-void player::setUID(std::string s)
+void player::setUID(std::string s)        //set player id
 {
   uid = s;
 }
 
-float player::getBalance()
+float player::getBalance()          //return player balance
 {
   return m_balance;
 }
 
-int player::getPlayerState() {
+int player::getPlayerState() {                            //return player state
     return m_player_state;
 }
 
-void player::setDealerIDX(int x)
+void player::setDealerIDX(int x)                  //set joined dealer id no.
 {
   m_dealer_idx = x;
 }
 
-int* player::get_p_cards()
+int* player::get_p_cards()                          //returns player array of cards
 {
   return p_card_id;
 }
 
-int* player::get_d_cards(){
+int* player::get_d_cards(){                 //returns dealer array of cards
   return d_card_id;
 }
 
-void player::set_card_id(){
-  int i;
+void player::set_card_id(){                     //set card image value so that it is easy to retrieve the card image
+  int i;                                      //0-face down, 1-13 spade, 14-26 diamonds, 27-39 hearts, 40-52 clubs
   for (i=0;i<10;i++)
   {
      if ( p_cards[i].valid )
@@ -836,53 +837,53 @@ void player::set_card_id(){
 
 }
 
-int player::get_value()
+int player::get_value()           //return player card value
 {
   return value;
 }
 
-int player::get_d_value()
+int player::get_d_value()                 //return dealer card value
 {
   return d_value;
 }
 
-std::string player::getSuggestion()
+std::string player::getSuggestion()             //return player startegy suggestion
 {
   return suggest;
 }
 
-int player::get_win()
+int player::get_win()                   //return player game state
 {
   return win;
 }
 
-void player::new_game()
+void player::new_game()                         //when new game button is pressed
 {
   d_down = false;
-  d_value = 0;
+  d_value = 0;                              //initialize the card value to 0
   value = 0;
 
 
 
-  win = -1;
+  win = -1;                           //game state is in progress
   suggest = "";
   int i;
-  for(i = 0; i< 10; i++)
+  for(i = 0; i< 10; i++)                //card image value is set to 100 so that there is no image
   {
     p_card_id[i] = 100;
     d_card_id[i] = 100;
   }
-  bet_amt = 0;
+  bet_amt = 0;                          //reset bet amount
 }
 
-void player::bet_game()
+void player::bet_game()                             //when bet button is pressed
 {
-  m_balance = m_balance - bet_amt;
+  m_balance = m_balance - bet_amt;              //total balance is decreased and 15 seconds countdown time is set
   m_timer_event    = 15;
   TIMER(15);
 }
 
-int player::get_timer_event()
+int player::get_timer_event()           //return countdown timer
 {
   return m_timer_event;
 }
@@ -891,12 +892,12 @@ int player::get_timer_event()
 player::player ()
 {
   // member variables
-  start = true;
-  act = false;
-  d_down = false;
-  suggest = "";
+  start = true;                       //game start flag
+  act = false;                        //player action flag
+  d_down = false;                         //double down flag
+  suggest = "";               //strategy suggestion
   m_player_state = Init;
-  m_balance = 1000.0;
+  m_balance = 1000.0;                   //initial player balance
   m_P.balance = m_balance;
   m_dealer_list.clear ();
   m_timer_thread = NULL;
@@ -934,7 +935,7 @@ player::player ()
 
    hands_won = 0;
    hands_played = 0;
-   play_style = 1;
+   play_style = 1;                  //default play style
 }
 
 player::~player ()

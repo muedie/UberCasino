@@ -6,28 +6,28 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
 {
   begin();
 
-  background_img = new Fl_JPEG_Image("./extra/images/2.jpg");
+  background_img = new Fl_JPEG_Image("./extra/images/2.jpg");     //background image for lobby window
   main_box = new Fl_Box(0, 0, 960, 640);
   main_box->image(background_img);
 
   {
-    scroll_window = new Fl_Scroll(18, 18, 652, 557);
+    scroll_window = new Fl_Scroll(18, 18, 652, 557);        //scroll window to list all the available dealers
     scroll_window->box(FL_GTK_DOWN_BOX);
     scroll_window->color(FL_FOREGROUND_COLOR);
 
     {
-      dealer_info = new Fl_Group(33, 34, 589, 142);
+      dealer_info = new Fl_Group(33, 34, 589, 142);         //dealer info group
       dealer_info->box(FL_GLEAM_THIN_UP_BOX);
       dealer_info->color((Fl_Color)36);
       dealer_info->hide();
 
-      dealer_name = new Fl_Output(51, 54, 320, 35);
+      dealer_name = new Fl_Output(51, 54, 320, 35);     //dealer name
       dealer_name->box(FL_NO_BOX);
       dealer_name->textfont(1);
       dealer_name->textsize(24);
       dealer_name->textcolor((Fl_Color)26);
 
-      dealer_id = new Fl_Output(175, 89, 127, 35, "Dealer ID      ");
+      dealer_id = new Fl_Output(175, 89, 127, 35, "Dealer ID      ");   //dealer id
       dealer_id->box(FL_NO_BOX);
       dealer_id->labelfont(1);
       dealer_id->labelsize(16);
@@ -35,7 +35,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_id->textsize(16);
       dealer_id->textcolor((Fl_Color)26);
 
-      dealer_plcount = new Fl_Output(176, 117, 127, 35, "Player Count ");
+      dealer_plcount = new Fl_Output(176, 117, 127, 35, "Player Count ");     //total no. of players in game
       dealer_plcount->box(FL_NO_BOX);
       dealer_plcount->labelfont(1);
       dealer_plcount->labelsize(16);
@@ -44,7 +44,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_plcount->textcolor((Fl_Color)26);
       dealer_plcount->value("0");
 
-      dealer_ssize = new Fl_Output(497, 88, 120, 35, "Shoe size     ");
+      dealer_ssize = new Fl_Output(497, 88, 120, 35, "Shoe size     ");     //shoe size of dealer
       dealer_ssize->box(FL_NO_BOX);
       dealer_ssize->labelfont(1);
       dealer_ssize->labelsize(16);
@@ -53,7 +53,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_ssize->textcolor((Fl_Color)26);
       dealer_ssize->value("Infinity");
 
-      dealer_mMbet = new Fl_Output(498, 116, 119, 35, "Min-Max bet ");
+      dealer_mMbet = new Fl_Output(498, 116, 119, 35, "Min-Max bet ");      //minimum and maximum bet
       dealer_mMbet->box(FL_NO_BOX);
       dealer_mMbet->labelfont(1);
       dealer_mMbet->labelsize(16);
@@ -62,7 +62,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_mMbet->textcolor((Fl_Color)26);
       dealer_mMbet->value("$1 - $10");
 
-      join_btn = new Fl_Button(500, 54, 95, 35, "Join");
+      join_btn = new Fl_Button(500, 54, 95, 35, "Join");      //join button
       join_btn->box(FL_GLEAM_THIN_UP_BOX);
       join_btn->color((Fl_Color)138);
       join_btn->labelfont(1);
@@ -73,7 +73,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     }
 
     {
-      dealer_info2 = new Fl_Group(33, 34+155, 589, 142);
+      dealer_info2 = new Fl_Group(33, 34+155, 589, 142);      //infomration of 2nd dealer
       dealer_info2->box(FL_GLEAM_THIN_UP_BOX);
       dealer_info2->color((Fl_Color)36);
       dealer_info2->hide();
@@ -84,7 +84,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_name2->textsize(24);
       dealer_name2->textcolor((Fl_Color)26);
 
-      dealer_id2 = new Fl_Output(175, 89+155, 127, 35, "Dealer ID      ");
+      dealer_id2 = new Fl_Output(175, 89+155, 127, 35, "Dealer ID      ");      //2nd dealer ID
       dealer_id2->box(FL_NO_BOX);
       dealer_id2->labelfont(1);
       dealer_id2->labelsize(16);
@@ -92,7 +92,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_id2->textsize(16);
       dealer_id2->textcolor((Fl_Color)26);
 
-      dealer_plcount2 = new Fl_Output(176, 117+155, 127, 35, "Player Count ");
+      dealer_plcount2 = new Fl_Output(176, 117+155, 127, 35, "Player Count ");    //2nd dealer player count
       dealer_plcount2->box(FL_NO_BOX);
       dealer_plcount2->labelfont(1);
       dealer_plcount2->labelsize(16);
@@ -100,7 +100,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_plcount2->textsize(16);
       dealer_plcount2->textcolor((Fl_Color)26);
 
-      dealer_ssize2 = new Fl_Output(497, 88+155, 120, 35, "Shoe size     ");
+      dealer_ssize2 = new Fl_Output(497, 88+155, 120, 35, "Shoe size     ");      //2nd dealer shoe size
       dealer_ssize2->box(FL_NO_BOX);
       dealer_ssize2->labelfont(1);
       dealer_ssize2->labelsize(16);
@@ -108,7 +108,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_ssize2->textsize(16);
       dealer_ssize2->textcolor((Fl_Color)26);
 
-      dealer_mMbet2 = new Fl_Output(498, 116+155, 119, 35, "Min-Max bet ");
+      dealer_mMbet2 = new Fl_Output(498, 116+155, 119, 35, "Min-Max bet ");     //2nd dealer minimum and maximun bet
       dealer_mMbet2->box(FL_NO_BOX);
       dealer_mMbet2->labelfont(1);
       dealer_mMbet2->labelsize(16);
@@ -116,7 +116,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
       dealer_mMbet2->textsize(16);
       dealer_mMbet2->textcolor((Fl_Color)26);
 
-      join_btn2 = new Fl_Button(500, 54+155, 95, 35, "Join");
+      join_btn2 = new Fl_Button(500, 54+155, 95, 35, "Join");     //2nd dealer join button
       join_btn2->box(FL_GLEAM_THIN_UP_BOX);
       join_btn2->color((Fl_Color)138);
       join_btn2->labelfont(1);
@@ -127,7 +127,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     }
 
     {
-      dealer_info3 = new Fl_Group(33, 34+310, 589, 142);
+      dealer_info3 = new Fl_Group(33, 34+310, 589, 142);      //information of third dealer
       dealer_info3->box(FL_GLEAM_THIN_UP_BOX);
       dealer_info3->color((Fl_Color)36);
       dealer_info3->hide();
@@ -181,7 +181,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     }
 
     {
-      dealer_info4 = new Fl_Group(33, 34+465, 589, 142);
+      dealer_info4 = new Fl_Group(33, 34+465, 589, 142);      //information of 4th dealer
       dealer_info4->box(FL_GLEAM_THIN_UP_BOX);
       dealer_info4->color((Fl_Color)36);
       dealer_info4->hide();
@@ -238,14 +238,14 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     scroll_window->end();
   }
 
-  refresh_btn = new Fl_Button(130, 585, 155, 40, "Refresh");
+  refresh_btn = new Fl_Button(130, 585, 155, 40, "Refresh");      //refresh button to refresh the available dealers
   refresh_btn->box(FL_GLEAM_THIN_UP_BOX);
   refresh_btn->color((Fl_Color)138);
   refresh_btn->labelfont(1);
   refresh_btn->labelsize(18);
   refresh_btn->labelcolor((Fl_Color)26);
 
-  logout_btn = new Fl_Button(400, 585, 155, 40, "Logout");
+  logout_btn = new Fl_Button(400, 585, 155, 40, "Logout");      //logout button to go back to lobby window
   logout_btn->box(FL_GLEAM_THIN_UP_BOX);
   logout_btn->color((Fl_Color)138);
   logout_btn->labelfont(1);
@@ -257,7 +257,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
   side_box->color(FL_FOREGROUND_COLOR);
 
   {
-    player_info = new Fl_Group(695, 43, 240, 268);
+    player_info = new Fl_Group(695, 43, 240, 268);      //player information group
     player_info ->box(FL_GLEAM_THIN_UP_BOX);
     player_info ->color((Fl_Color)36);
 
@@ -268,7 +268,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     player_title->labelcolor((Fl_Color)26);
     player_title->align(Fl_Align(129));
 
-    player_name = new Fl_Output(818, 105, 102, 29, "Name          ");
+    player_name = new Fl_Output(818, 105, 102, 29, "Name          ");     //player name
     player_name->box(FL_NO_BOX);
     player_name->labelfont(1);
     player_name->labelsize(16);
@@ -276,7 +276,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     player_name->textsize(16);
     player_name->textcolor((Fl_Color)26);
 
-    player_id = new Fl_Output(818, 130, 102, 30, "Player ID     ");
+    player_id = new Fl_Output(818, 130, 102, 30, "Player ID     ");     //player id
     player_id->box(FL_NO_BOX);
     player_id->labelfont(1);
     player_id->labelsize(16);
@@ -284,7 +284,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     player_id->textsize(16);
     player_id->textcolor((Fl_Color)26);
 
-    player_balance = new Fl_Output(819, 157, 104, 29, "Balance       ");
+    player_balance = new Fl_Output(819, 157, 104, 29, "Balance       ");      //player balance
     player_balance->box(FL_NO_BOX);
     player_balance->labelfont(1);
     player_balance->labelsize(16);
@@ -292,7 +292,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     player_balance->textsize(16);
     player_balance->textcolor((Fl_Color)26);
 
-    player_games_played = new Fl_Output(821, 183, 94, 28, "Total Games");
+    player_games_played = new Fl_Output(821, 183, 94, 28, "Total Games");     //total games won by player
     player_games_played->box(FL_NO_BOX);
     player_games_played->labelfont(1);
     player_games_played->labelsize(16);
@@ -300,7 +300,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
     player_games_played->textsize(16);
     player_games_played->textcolor((Fl_Color)26);
 
-    player_hands_won = new Fl_Output(819, 208, 100, 29, "Hands won  ");
+    player_hands_won = new Fl_Output(819, 208, 100, 29, "Hands won  ");     //hands won by player
     player_hands_won->box(FL_NO_BOX);
     player_hands_won->labelfont(1);
     player_hands_won->labelsize(16);
@@ -312,7 +312,7 @@ Lobby_view::Lobby_view() : Fl_Window(960, 635, "Lobby")
   }
 
   {
-    play_style = new Fl_Group(696, 333, 239, 256);
+    play_style = new Fl_Group(696, 333, 239, 256);      //radio button to pick player play style
     play_style->box(FL_GLEAM_THIN_UP_BOX);
     play_style->color((Fl_Color)36);
 

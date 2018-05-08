@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-class Table_view: public Fl_Window {
+class Table_view: public Fl_Window {    //view for table window
 protected:
   Fl_JPEG_Image* card[53];
   Fl_JPEG_Image* bg_img;

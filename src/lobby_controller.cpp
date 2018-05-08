@@ -5,19 +5,19 @@
 #include <functional>
 #include <cstdlib>
 
-void timer_cb(void *v)
+void timer_cb(void *v)        //fltk timer function to repeat timer every 1 second... Controls the FPS for table window
 {
   Fl::repeat_timeout(double(1.0)/1,timer_cb);
 }
 
 Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
-  Fl::remove_timeout(timer_cb);
+  Fl::remove_timeout(timer_cb);         //removes the previous timeout if left game from table window
   player_name->value(_p.getName().c_str());
   float bal = _p.getBalance();
-  int b = int(bal + 0.5);
+  int b = int(bal + 0.5);                 //just to remove decimal places
   player_balance->value(std::to_string(b).c_str());
   player_id->value(_p.getPlayerID().c_str());
-  player_games_played->value(std::to_string(_p.get_hands_played()).c_str());
+  player_games_played->value(std::to_string(_p.get_hands_played()).c_str());        //player game record
   player_hands_won->value(std::to_string(_p.get_hands_won()).c_str());
 
   manual->when(FL_WHEN_CHANGED);
@@ -26,16 +26,16 @@ Lobby_controller::Lobby_controller(player& p) : Lobby_view() , _p{p} {
   counting->when(FL_WHEN_CHANGED);
   conservative->when(FL_WHEN_CHANGED);
 
-  manual->callback(ClickedRound1, (void*) this);
+  manual->callback(ClickedRound1, (void*) this);        //radio button callback.. sets play style
   basic->callback(ClickedRound2, (void*) this);
   aggressive->callback(ClickedRound3,(void*) this);
   counting->callback(ClickedRound4, (void*) this);
   conservative->callback(ClickedRound5, (void*) this);
 
-  refresh_btn->callback(ClickedRefresh, this);
+  refresh_btn->callback(ClickedRefresh, this);        //refresh button to check the available dealers
   logout_btn->callback(ClickedLogout, this);
 
-  join_btn->callback(ClickedJoin1, (void*)this);
+  join_btn->callback(ClickedJoin1, (void*)this);          //different join call back button for different dealers
   join_btn2->callback(ClickedJoin2, (void*)this);
   join_btn3->callback(ClickedJoin3, (void*)this);
   join_btn4->callback(ClickedJoin4, (void*)this);
@@ -130,15 +130,15 @@ void Lobby_controller::ClickedRound5_i()
 
 void Lobby_controller::ClickedRefresh_i()
 {
-    vector<Dealer> v = _p.getDealer_list();
+    vector<Dealer> v = _p.getDealer_list();         //loads the dealer from vector of dealers stored when dealer data received
     boost::uuids::uuid uuid;
     string s1, s2;
-    switch (v.size()) {
+    switch (v.size()) {             //the no. of dealers shows the no. of dealer info boxes
       case 4:
       dealer_info4->show();
       s1 = v[3].name;
       memcpy ( v[3].uid, &uuid, 16 );
-      s2 = boost::uuids::to_string(uuid);
+      s2 = boost::uuids::to_string(uuid);      //convert boost uuid to string so that it can be displayed on screen
       dealer_name4->value(s1.c_str());
       dealer_id4->value(s2.c_str());
 
@@ -180,13 +180,13 @@ void Lobby_controller::ClickedLogout_i()
 void Lobby_controller::ClickedJoin1_i()
 {
   hide();
-  _p.setDealerIDX(0);
+  _p.setDealerIDX(0);             //set the dealer id in player data so as to join to specific dealer
   Table_controller win(_p);
-  Fl::add_timeout(0.1,timer_cb);
+  Fl::add_timeout(0.1,timer_cb);      //fltk timer to control FPS for non flickering window
   Fl::run();
 }
 
-void Lobby_controller::ClickedJoin2_i()
+void Lobby_controller::ClickedJoin2_i()       //2nd dealer info box call back
 {
   hide();
   _p.setDealerIDX(1);

@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-class Lobby_view: public Fl_Window {
+class Lobby_view: public Fl_Window {    //view for lobby window
 protected:
   Fl_Box* main_box;
   Fl_Scroll* scroll_window;

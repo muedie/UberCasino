@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <iostream>
 
-class Login_controller : public Login_view {
+class Login_controller : public Login_view {  //controller for login window
 
 private:
   player& _p;

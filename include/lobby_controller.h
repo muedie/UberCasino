@@ -19,7 +19,7 @@
 #include <iostream>
 #include "player.h"
 
-class Lobby_controller : public Lobby_view {
+class Lobby_controller : public Lobby_view {     //controller for lobby window
 
 private:
   player& _p;

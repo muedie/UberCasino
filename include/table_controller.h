@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <iostream>
 
-class Table_controller : public Table_view {
+class Table_controller : public Table_view {  //controller for table window
 
 private:
   player& _p;

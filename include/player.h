@@ -14,7 +14,7 @@
 
 #include "io.h"
 
-class player
+class player      //player class
 {
 
 private:

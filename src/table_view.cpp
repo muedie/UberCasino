@@ -6,7 +6,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
 
   // All images are taken from google. So, all the credit goes to whoever they belong to. Thanks for making my project look great..
 
-  card[0] = new Fl_JPEG_Image("./extra/images/cards/Gray_back.jpg");
+  card[0] = new Fl_JPEG_Image("./extra/images/cards/Gray_back.jpg");      //all images loaded into card array
 
   card[2] = new Fl_JPEG_Image("./extra/images/cards/2C.jpg");
   card[3] = new Fl_JPEG_Image("./extra/images/cards/3C.jpg");
@@ -64,19 +64,19 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   card[51] = new Fl_JPEG_Image("./extra/images/cards/QH.jpg");
   card[52] = new Fl_JPEG_Image("./extra/images/cards/KH.jpg");
 
-  bg_img = new Fl_JPEG_Image("./extra/images/x.jpg");
-  clk_img = new Fl_PNG_Image("./extra/images/clk.png");
-  chip = new Fl_PNG_Image("./extra/images/ch.png");
-  win_img = new Fl_PNG_Image("./extra/images/win.png");
-  lose_img = new Fl_PNG_Image("./extra/images/lose.png");
-  tie_img = new Fl_PNG_Image("./extra/images/tie.png");
-  bj_img = new Fl_PNG_Image("./extra/images/bj.png");
-  timeout_img = new Fl_PNG_Image("./extra/images/timeout.png");
+  bg_img = new Fl_JPEG_Image("./extra/images/x.jpg");         //background image
+  clk_img = new Fl_PNG_Image("./extra/images/clk.png");     //clock image
+  chip = new Fl_PNG_Image("./extra/images/ch.png");         //betting chip image
+  win_img = new Fl_PNG_Image("./extra/images/win.png");       //win scenario image
+  lose_img = new Fl_PNG_Image("./extra/images/lose.png");       //lose scenario image
+  tie_img = new Fl_PNG_Image("./extra/images/tie.png");     //tie scenario image
+  bj_img = new Fl_PNG_Image("./extra/images/bj.png");       //black jack scenario image
+  timeout_img = new Fl_PNG_Image("./extra/images/timeout.png");       //time out scenario image
 
   main_box = new Fl_Box(0, 0, 1325, 785);
   main_box->image(bg_img);
 
-  btn_new = new Fl_Button(19, 23, 100, 55, "New Game");
+  btn_new = new Fl_Button(19, 23, 100, 55, "New Game");       //new game button
   btn_new->box(FL_GLEAM_THIN_UP_BOX);
   btn_new->color((Fl_Color)138);
   btn_new->labelfont(1);
@@ -85,7 +85,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   btn_new->align(Fl_Align(FL_ALIGN_WRAP));
   btn_new->deactivate();
 
-  btn_leave = new Fl_Button(19, 90, 100, 55, "Leave Game");
+  btn_leave = new Fl_Button(19, 90, 100, 55, "Leave Game");       //leave game button
   btn_leave->box(FL_GLEAM_THIN_UP_BOX);
   btn_leave->color((Fl_Color)138);
   btn_leave->labelfont(1);
@@ -99,7 +99,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
     player_interface->color((Fl_Color)36);
 
     {
-      double_down = new Fl_Button(1025, 698, 105, 51, "Double Down");
+      double_down = new Fl_Button(1025, 698, 105, 51, "Double Down");       //double down button
       double_down->box(FL_GLEAM_THIN_UP_BOX);
       double_down->color((Fl_Color)138);
       double_down->labelfont(1);
@@ -108,7 +108,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       double_down->align(Fl_Align(FL_ALIGN_WRAP));
       double_down->deactivate();
 
-      split = new Fl_Button(1150, 698, 105, 51, "Split");
+      split = new Fl_Button(1150, 698, 105, 51, "Split");       //split button.. grayed out as it does not work
       split->box(FL_GLEAM_THIN_UP_BOX);
       split->color((Fl_Color)138);
       split->labelfont(1);
@@ -117,7 +117,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       split->align(Fl_Align(FL_ALIGN_WRAP));
       split->deactivate();
 
-      stand = new Fl_Button(900, 698, 105, 51, "Stand");
+      stand = new Fl_Button(900, 698, 105, 51, "Stand");        //stand button
       stand->box(FL_GLEAM_THIN_UP_BOX);
       stand->color((Fl_Color)138);
       stand->labelfont(1);
@@ -126,7 +126,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       stand->align(Fl_Align(FL_ALIGN_WRAP));
       stand->deactivate();
 
-      hit = new Fl_Button(774, 698, 105, 51, "Hit");
+      hit = new Fl_Button(774, 698, 105, 51, "Hit");        //hit button
       hit->box(FL_GLEAM_THIN_UP_BOX);
       hit->color((Fl_Color)138);
       hit->labelfont(1);
@@ -135,7 +135,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       hit->align(Fl_Align(FL_ALIGN_WRAP));
       hit->deactivate();
 
-      bet = new Fl_Button(188, 698, 105, 51, "Bet");
+      bet = new Fl_Button(188, 698, 105, 51, "Bet");        //bet button
       bet->box(FL_GLEAM_THIN_UP_BOX);
       bet->color((Fl_Color)138);
       bet->labelfont(1);
@@ -144,7 +144,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       bet->align(Fl_Align(FL_ALIGN_WRAP));
       //bet->deactivate();
 
-      balance = new Fl_Output(467, 705, 109, 35, "Balance ");
+      balance = new Fl_Output(467, 705, 109, 35, "Balance ");           //player balance output box
       balance->box(FL_GTK_ROUND_UP_BOX);
       balance->labelfont(1);
       balance->labelsize(24);
@@ -152,7 +152,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       balance->textsize(24);
       balance->textcolor(FL_GRAY0);
 
-      cd_time = new Fl_Output(701, 703, 45, 40);
+      cd_time = new Fl_Output(701, 703, 45, 40);          //countdown timer
       cd_time->box(FL_GTK_UP_BOX);
       cd_time->labelfont(1);
       cd_time->labelsize(24);
@@ -161,7 +161,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       cd_time->textcolor(FL_GRAY0);
       cd_time->image(clk_img);
 
-      spn_bet = new Fl_Spinner(62, 700, 105, 45);
+      spn_bet = new Fl_Spinner(62, 700, 105, 45);         //spinner for bet
       spn_bet->range(1,10);
       spn_bet->labelfont(1);
       spn_bet->textfont(1);
@@ -170,17 +170,17 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   }
 
   {
-    dealer_info = new Fl_Group(135, 20, 855, 121);
+    dealer_info = new Fl_Group(135, 20, 855, 121);        //all the dealer information
     dealer_info->box(FL_GLEAM_THIN_UP_BOX);
     dealer_info->color((Fl_Color)36);
     {
-      dealer_name = new Fl_Output(153, 40, 320, 35);
+      dealer_name = new Fl_Output(153, 40, 320, 35);        //dealer name
       dealer_name->box(FL_NO_BOX);
       dealer_name->textfont(1);
       dealer_name->textsize(24);
       dealer_name->textcolor((Fl_Color)26);
 
-      dealer_id = new Fl_Output(277, 74, 127, 35, "Dealer ID      ");
+      dealer_id = new Fl_Output(277, 74, 127, 35, "Dealer ID      ");       //dealer id
       dealer_id->box(FL_NO_BOX);
       dealer_id->labelfont(1);
       dealer_id->labelsize(16);
@@ -188,7 +188,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       dealer_id->textsize(16);
       dealer_id->textcolor((Fl_Color)26);
 
-      game_id = new Fl_Output(278, 103, 127, 22, "Game ID       ");
+      game_id = new Fl_Output(278, 103, 127, 22, "Game ID       ");     //game id
       game_id->box(FL_NO_BOX);
       game_id->labelfont(1);
       game_id->labelsize(16);
@@ -196,7 +196,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       game_id->textsize(16);
       game_id->textcolor((Fl_Color)26);
 
-      shoe_size = new Fl_Output(599, 74, 106, 31, "Shoe size     ");
+      shoe_size = new Fl_Output(599, 74, 106, 31, "Shoe size     ");      //shoe size
       shoe_size->box(FL_NO_BOX);
       shoe_size->labelfont(1);
       shoe_size->labelsize(16);
@@ -205,7 +205,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       shoe_size->textcolor((Fl_Color)26);
       shoe_size->value("Infinity");
 
-      mM_bet = new Fl_Output(600, 101, 110, 21, "Min-Max bet ");
+      mM_bet = new Fl_Output(600, 101, 110, 21, "Min-Max bet ");      //minimum and maximum button
       mM_bet->box(FL_NO_BOX);
       mM_bet->labelfont(1);
       mM_bet->labelsize(16);
@@ -214,7 +214,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
       mM_bet->textcolor((Fl_Color)26);
       mM_bet->value("$1 - $10");
 
-      dealer_count = new Fl_Output(834, 79, 127, 36, "Count ");
+      dealer_count = new Fl_Output(834, 79, 127, 36, "Count ");     //dealer cards count
       dealer_count->box(FL_NO_BOX);
       dealer_count->labelfont(1);
       dealer_count->labelsize(20);
@@ -226,7 +226,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   }
 
   {
-    other_players = new Fl_Group(1013, 20, 282, 349);
+    other_players = new Fl_Group(1013, 20, 282, 349);     // all the other player information.
     other_players->box(FL_GLEAM_THIN_UP_BOX);
     other_players->color((Fl_Color)36);
     {
@@ -282,12 +282,12 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
   }
 
     {
-      player_game = new Fl_Group(1015, 518, 280, 144);
+      player_game = new Fl_Group(1015, 518, 280, 144);      //player information
       player_game->box(FL_GLEAM_THIN_UP_BOX);
       player_game->color((Fl_Color)36);
 
       {
-        player_count = new Fl_Output(1151, 597, 120, 35, "Count           ");
+        player_count = new Fl_Output(1151, 597, 120, 35, "Count           ");     //player card count
         player_count->box(FL_NO_BOX);
         player_count->labelfont(1);
         player_count->labelsize(16);
@@ -295,7 +295,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
         player_count->textsize(16);
         player_count->textcolor((Fl_Color)26);
 
-        player_name = new Fl_Output(1059, 536, 177, 40);
+        player_name = new Fl_Output(1059, 536, 177, 40);        //player name
         player_name->box(FL_NO_BOX);
         player_name->labelfont(1);
         player_name->labelsize(24);
@@ -304,7 +304,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
         player_name->textsize(24);
         player_name->textcolor((Fl_Color)26);
 
-        play_style = new Fl_Output(1151, 575, 120, 35, "Strategy       ");
+        play_style = new Fl_Output(1151, 575, 120, 35, "Strategy       ");      //player current strategy
         play_style->box(FL_NO_BOX);
         play_style->labelfont(1);
         play_style->labelsize(16);
@@ -313,7 +313,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
         play_style->textsize(16);
         play_style->textcolor((Fl_Color)26);
 
-        player_suggestion = new Fl_Output(1151, 619, 120, 35, "Suggestion   ");
+        player_suggestion = new Fl_Output(1151, 619, 120, 35, "Suggestion   ");     //suggestion according to strategy
         player_suggestion->box(FL_NO_BOX);
         player_suggestion->labelfont(1);
         player_suggestion->labelsize(16);
@@ -324,7 +324,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
     }
 
     {
-      dealer_cards = new Fl_Group(42, 150, 768, 196);
+      dealer_cards = new Fl_Group(42, 150, 768, 196);         //all the dealer cards
       {
         dl_card[0] = new Fl_Box(65, 175, 65, 99);
         dl_card[0]->box(FL_GTK_UP_BOX);
@@ -369,7 +369,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
     }
 
     {
-      player_cards = new Fl_Group(42, 522, 758, 145);
+      player_cards = new Fl_Group(42, 522, 758, 145);       //all the player cards
       {
         pl_card[0] = new Fl_Box(65, 547, 65, 99);
         pl_card[0]->box(FL_GTK_UP_BOX);
@@ -415,7 +415,7 @@ Table_view::Table_view() : Fl_Window(1325, 785, "Table")
     }
 
 {
-  betting_box = new Fl_Box(424, 328, 125, 120);
+  betting_box = new Fl_Box(424, 328, 125, 120);       //shows the betting amount in bet box.
   betting_box->image(chip);
 
     betting_amount = new Fl_Output(460, 360, 75, 54);
